@@ -1,0 +1,60 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/ticket/ticket",
+    "pages/agent/agent",
+    "pages/forum/forum",
+    "pages/mine/mine"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/icon_home.png",
+        "selectedIconPath": "image/icon_home_HL.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/ticket/ticket",
+        "iconPath": "image/icon_ticket.png",
+        "selectedIconPath": "image/icon_ticket_HL.png",
+        "text": "年票"
+      },
+      {
+        "pagePath": "pages/agent/agent",
+        "iconPath": "image/icon_agent.png",
+        "selectedIconPath": "image/icon_agent_HL.png",
+        "text": "代理"
+      },
+      {
+        "pagePath": "pages/forum/forum",
+        "iconPath": "image/icon_forum.png",
+        "selectedIconPath": "image/icon_forum_HL.png",
+        "text": "论坛"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/icon_mine.png",
+        "selectedIconPath": "image/icon_mine_HL.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

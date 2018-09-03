@@ -1,0 +1,82 @@
+/**index.wxss**/
+
+.notice-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 32px ;
+  font-size: 24rpx;
+  margin-top: 16px ;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+
+.notice{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.notice_head{
+    width: 36px;
+    font-size: 28rpx;
+    font-weight: bold
+}
+.notice_image{
+    width: 30px;
+    height: 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+/*** */
+.swiper-item{
+  display: block;
+  height: 150px;
+}
+
+.flow-container{
+  display: flex;
+  flex:1;
+  flex-direction: row;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.flow-container-first-part-left{
+  display: flex;
+  flex-direction: column;
+  flex: 60;
+}
+.flow-container-first-part-right{
+  display: flex;
+  flex-direction: column;
+  flex: 40;
+}
+
+
+.flow-container-first-part-top{
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  align-items: center
+}
+
+.flow-container-first-part-bottom{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center
+}
+
+.name{
+  font-size: 28rpx;
+  font-weight: bold;
+  align-self: center;
+}
+.image{
+  width: 100%;
+  height: 96%;
+}
