@@ -1,6 +1,10 @@
-<!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+<view class="container">
+  <view class='ticket_container' bindtap='onTicketAgree'>
+    
+    <!-- 年票背景图 -->
+    <image class='ticket_bg' mode="scaleToFil" src="{{url}}"> </image>
+    <!-- 价格 -->
+    <text class='ticket_price'>价格：{{price}}元</text>
+    <text class='ticket_name'>{{name}}</text>
+  </view>
 </view>

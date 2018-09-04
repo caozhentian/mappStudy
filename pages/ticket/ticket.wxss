@@ -1,8 +1,23 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+.ticket_bg {
+  width: 100%;
+  height: 300rpx;
 }
-.log-item {
-  margin: 10rpx;
+.ticket_price {
+  font-size: 14px;
+  color:white; 
+  position: absolute;
+  left: 15px; 
+  bottom: 30rpx;
+}
+.ticket_name {
+  font-size: 16px;
+  color:white;
+  position: absolute;
+  left: 15px;
+  top:30rpx;
+}
+.ticket_container {
+  width: 100%;
+  height: 300rpx;
+  position: absolute;
 }

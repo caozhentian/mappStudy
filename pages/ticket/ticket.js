@@ -1,15 +1,16 @@
-//logs.js
-const util = require('../../utils/util.js')
 
 Page({
   data: {
-    logs: []
+    url: "http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" ,
+    price:100 ,
+    name:"最美秦岭"
   },
   onLoad: function () {
-    this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(log => {
-        return util.formatTime(new Date(log))
-      })
+    
+  },
+  onTicketAgree:function(){ //进入购买协议界面
+    wx.navigateTo({
+      url: '../../pages/ticketagree/ticketagree'
     })
   }
 })

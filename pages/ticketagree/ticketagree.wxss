@@ -1,0 +1,22 @@
+.ticket_agree {
+  font-size: 14px;
+  margin: 12px; 
+}
+
+.ticket_agree_title {
+  font-size: 17px;
+  align-self: center;
+  font-weight: bold;
+}
+
+.ticket_agree_oper_container{
+  display: flex;
+  flex-direction: row;
+  align-content: center
+}
+
+.ticket_agree_oper_button{
+  width: 40%;
+  font-size: 14px;
+  background-color: lightblue;
+}
