@@ -4,7 +4,10 @@
     "pages/ticket/ticket",
     "pages/agent/agent",
     "pages/forum/forum",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/ticketagree/ticketagree" ,
+    "pages/ticketpay/ticketpay" ,
+    "pages/ticketpayinfo/ticketpayinfo"
   ],
   "window":{
     "backgroundTextStyle":"light",
