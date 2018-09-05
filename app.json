@@ -7,7 +7,9 @@
     "pages/mine/mine",
     "pages/ticketagree/ticketagree" ,
     "pages/ticketpay/ticketpay" ,
-    "pages/ticketpayinfo/ticketpayinfo"
+    "pages/ticketpayinfo/ticketpayinfo",
+    "pages/orderlist/orderlist"
+
   ],
   "window":{
     "backgroundTextStyle":"light",
