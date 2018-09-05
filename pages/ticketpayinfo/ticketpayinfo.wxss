@@ -1,14 +1,9 @@
-.page-section{
-  width: auto;
-  margin: 30rpx;
-  padding: 64rpx 30rpx;
-  background-color: #fff;
-  text-align: center;
-  font-size: 28rpx;
+@import "../../pages/common/lib/weui.wxss";
+
+.radio {
+  margin-right: 20rpx;
 }
-.desc{
-  color: #B2B2B2;
-}
+
 .price{
   margin-top: 30rpx;
   margin-bottom: 25rpx;

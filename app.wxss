@@ -95,8 +95,8 @@ form{
 .page-foot{
   margin: 100rpx 0 30rpx 0;
   text-align: center;
-  color: #1aad19;
-  font-size: 0;
+  color: red;
+  font-size: 14px;
 }
 .icon-foot{
   width: 152rpx;
@@ -105,7 +105,7 @@ form{
 
 .page-section{
   width: 100%;
-  margin-bottom: 60rpx;
+  margin-bottom: 30rpx;
 }
 .page-section_center{
   display: flex;
