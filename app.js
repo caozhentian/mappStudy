@@ -2,11 +2,6 @@
 const openIdUrl = require('./config').openIdUrl
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -28,10 +23,13 @@ App({
       }
     })
   },
+
   globalData: {
     hasLogin: false,
-    openid: null
+    openid: null,
+    userInfo: null
   },
+  
   // lazy loading openid
   getUserOpenId: function (callback) {
     var self = this
