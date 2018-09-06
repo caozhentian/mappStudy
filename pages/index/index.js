@@ -21,11 +21,10 @@ Page({
     //公告内容
     notice: "国庆节，景点大优惠。大家赶紧来看啊！高速随便走，走告诉免费" ,
   },
+  //公告列表
   select_notice:function(){
-    wx.showToast({
-      title: '通知...',
-      icon: 'success',
-      duration: 2000
+    wx.navigateTo({
+      url: '../noticelist/noticelist',
     })
   },
   //选择年票

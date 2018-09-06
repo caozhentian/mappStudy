@@ -8,11 +8,11 @@
     "pages/ticketagree/ticketagree" ,
     "pages/ticketpay/ticketpay" ,
     "pages/ticketpayinfo/ticketpayinfo",
-    "pages/orderlist/orderlist"
-
+    "pages/orderlist/orderlist",
+    "pages/noticelist/noticelist"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
