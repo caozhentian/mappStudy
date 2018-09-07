@@ -10,7 +10,7 @@ class PageData {
       list: [],
       hidden:  false,
       page  :  1,
-      size  :  20,
+      size  :  5,
       hasMore :true,
       loadMoreing :  false //是否正在加载更多中
     }
@@ -71,7 +71,7 @@ class PageData {
     var url = this.data.url + 'pno=' + (++that.data.page) + '&ps=10';
     network_util._get(url,
       function(res) {
-        that.setData({
+        Page.prototype.setData({
           list: that.data.list.concat(res.data.result.list),
           hidden: true,
           hasRefesh: false,
@@ -79,7 +79,7 @@ class PageData {
         });
       },
       function(res) {
-        that.setData({
+        Page.prototype.setData({
           loadMoreing: false
         });
       })
