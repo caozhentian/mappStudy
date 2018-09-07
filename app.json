@@ -9,7 +9,8 @@
     "pages/ticketpay/ticketpay" ,
     "pages/ticketpayinfo/ticketpayinfo",
     "pages/orderlist/orderlist",
-    "pages/noticelist/noticelist"
+    "pages/noticelist/noticelist",
+    "pages/sightspotlist/sightspotlist"
   ],
   "window":{
     "backgroundTextStyle":"dark",

@@ -9,8 +9,10 @@ Page({
     
   },
   onTicketAgree:function(){ //进入购买协议界面
+    // this.setData({ price: 200 })
+    //进入购买协议界面
     wx.navigateTo({
       url: '../../pages/ticketagree/ticketagree'
-    })
+    });
   }
 })

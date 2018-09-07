@@ -225,8 +225,9 @@ form{
 }
 
 .divLine{
- background: #E0E3DA;
+ background:lightgrey;
  width: 94%;
  height: 2rpx;
  margin-left: 10px;
+ margin-bottom: 2px
 }

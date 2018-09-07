@@ -55,6 +55,10 @@ function _post(url,data, success, fail ) {
  */
 function _post1(url,data, success, fail ) {
      console.log( "----_post--start-------" );
+     //增加共同的参数
+     let app = getApp()
+     data.token = app.globalData.token
+     data.employeeId = app.globalData.employeeId
      wx.request( {
         url: url,
         header: {

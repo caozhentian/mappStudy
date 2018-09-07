@@ -1,0 +1,18 @@
+<!--
+  index: int
+  name: string
+  time: string
+-->
+<template name="sightspotItem">
+  <view class='sightspot_container' data-index="{{tid}}"  bindtap='sightspotTap'>
+      <!-- 景点背景图 -->
+      <image class='sightspot_bg' mode="scaleToFil " src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"> </image>
+      <view class='sightspot_show'>
+      <!--景点名称-->
+      <text class='sightspot_name'>{{name}}</text>
+      <!--免票次数 -->
+      <text class='sightspot_count'>免费1次</text> <!--持年票可以-->
+      </view>
+      <view class='divLine'></view>
+    </view>
+</template>

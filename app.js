@@ -27,7 +27,9 @@ App({
   globalData: {
     hasLogin: false,
     openid: null,
-    userInfo: null
+    userInfo: null,
+    token:'ec5b9ed6cdbc2e84081582c158176942',
+    employeeId:1
   },
   
   // lazy loading openid

@@ -11,6 +11,6 @@
 
 <view class='ticket_agree_oper_container'>
 <button class='ticket_agree_oper_button' bindtap="gotobuy">购买</button> 
-<button class='ticket_agree_oper_button'>列表</button>
+<button class='ticket_agree_oper_button' bindtap='gotosightspotlist'>列表</button>
 </view>
 </view>
