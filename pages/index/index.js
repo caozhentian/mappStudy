@@ -29,13 +29,8 @@ Page({
   },
   //选择年票
   select_ticket: function() {
-    // wx.navigateTo({
-    //   url: '../logs/logs'
-    // })
-    wx.showToast({
-      title: '年票...',
-      icon: 'success',
-      duration: 2000
+    wx.navigateTo({
+      url: '../ticket/ticket',
     })
   },
   //选择年票问答
