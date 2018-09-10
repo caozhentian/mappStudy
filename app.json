@@ -1,14 +1,14 @@
 {
   "pages":[
+    "pages/ticketpayinfo/ticketpayinfo",
     "pages/ticket/ticket",
     "pages/index/index",
-    
     "pages/agent/agent",
     "pages/forum/forum",
     "pages/mine/mine",
     "pages/ticketagree/ticketagree" ,
     "pages/ticketpay/ticketpay" ,
-    "pages/ticketpayinfo/ticketpayinfo",
+    
     "pages/orderlist/orderlist",
     "pages/noticelist/noticelist",
     "pages/sightspotlist/sightspotlist"

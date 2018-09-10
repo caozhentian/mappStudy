@@ -15,7 +15,7 @@ icon {
   margin-top: 1.17647059em;
   background-color: #FFFFFF;
   line-height: 1.41176471;
-  font-size: 17px;
+  font-size: 14px;
 }
 .weui-cells:before {
   content: " ";
@@ -122,7 +122,7 @@ icon {
 }
 .weui-cell_link {
   color: #586C94;
-  font-size: 14px;
+  font-size: 12px;
 }
 .weui-cell_link:active {
   background-color: #ECECEC;
@@ -819,7 +819,7 @@ icon {
 }
 .weui-media-box__title {
   font-weight: 400;
-  font-size: 17px;
+  font-size: 14px;
   width: auto;
   overflow: hidden;
   text-overflow: ellipsis;
