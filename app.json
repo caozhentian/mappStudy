@@ -1,14 +1,16 @@
 {
   "pages":[
+    "pages/passwordreset/passwordreset",
+    "pages/mine/mine",
+    "pages/register/register",
+    
     "pages/index/index",
     "pages/ticketpayinfo/ticketpayinfo",
     "pages/ticket/ticket",
     "pages/agent/agent",
     "pages/forum/forum",
-    "pages/mine/mine",
     "pages/ticketagree/ticketagree" ,
     "pages/ticketpay/ticketpay" ,
-    
     "pages/orderlist/orderlist",
     "pages/noticelist/noticelist",
     "pages/sightspotlist/sightspotlist"

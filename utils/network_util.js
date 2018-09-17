@@ -1,4 +1,6 @@
 import util from 'util.js';
+
+const BASE_URL = 'http://jsjr1.3tichina.com/jinshangjinrong/jinshangjinrong/'
 /**
  * url 请求地址
  * success 成功的回调
@@ -59,19 +61,37 @@ function _post1(url,data, success, fail ) {
      let app = getApp()
      data.token = app.globalData.token
      data.employeeId = app.globalData.employeeId
+     wx.showLoading({
+       title: '请稍后...',
+     })
      wx.request( {
-        url: url,
+        url: BASE_URL + url,
         header: {
             'content-type': 'application/x-www-form-urlencoded',
         },
         method:'POST',
         data:data,
         success: function( res ) {
+          if(res.statusCode == 200){
             success( res );
+          }
+          else{
+            wx.showToast({
+              title: '网络错误',
+              icon:'none'
+            })
+          }
         },
         fail: function( res ) {
-            fail( res );
-        }
+          fail( res );
+          wx.showToast({
+            title: '网络异常',
+            icon: 'none'
+          })
+        },
+       complete:function(){
+         wx.hideLoading()
+       }
     });
      console.log( "----end-----_get----" );
 }

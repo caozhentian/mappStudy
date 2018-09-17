@@ -2,7 +2,7 @@ var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
 var md5 = require('../../utils/md5.js');
 var util = require('../../utils/util2.js');
-let actualUrl = "http://jsjr1.3tichina.com/jinshangjinrong/jinshangjinrong/information/findInformationList" 
+let actualUrl = "information/findInformationList" 
 let templateId = "sightspotitem"
 
 Page({

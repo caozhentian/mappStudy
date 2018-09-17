@@ -10,6 +10,7 @@ Page({
     tel: "13186075334",
     password:"123456" ,
     confirmPassword:"123456" ,
+    smscode:"",
   },
 
   register:function(){
@@ -40,6 +41,14 @@ Page({
     if (!phonevaliate.isPhoneAvailable(tel)){
       wx.showToast({
         title: '手机号输入有误',
+        icon: 'none',
+      })
+      return
+    }
+    let smscode = this.data.smscode
+    if (smscode.length == 0 || smscode == undefined) {
+      wx.showToast({
+        title: '请输入验证码',
         icon: 'none',
       })
       return
@@ -117,6 +126,11 @@ Page({
       'confirmPassword': e.detail.value
     })
   },
+  bindSmsCodeKeyInput:function(e){
+    this.setData({
+      'smscode': e.detail.value
+    })
+  }
 
 })
 
