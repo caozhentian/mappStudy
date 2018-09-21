@@ -15,17 +15,15 @@ Page({
      this.getWxUserInfo() 
   },
   loginRegister:function(){ //登录或者注册
-    wx.login({
-      success: function (res) {
-        app.globalData.hasLogin = true
-        that.setData({
-          hasLogin: true
-        })
-        that.update()
-      }
+   wx.navigateTo({
+     url: '/pages/userlogin/userlogin',
+   })
+  },
+  agentLogin:function(){
+    wx.navigateTo({
+      url: '/pages/agentlogin/agentlogin',
     })
   },
-
   getWxUserInfo:function(deal){
     if (app.globalData.userInfo) {
       this.setData({

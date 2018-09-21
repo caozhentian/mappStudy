@@ -3,6 +3,11 @@
   overflow: hidden;
   overflow-y: hidden;
 }
+
+.container_sub{
+  min-height: 100%;
+  flex: 1
+}
 .userinfo {
 	display: flex;
 	flex-direction: column;
@@ -52,4 +57,13 @@
     height: 80rpx;
     line-height: 80rpx;
     padding-left: 100rpx;
+}
+
+.page-login-foot {
+  margin: 10rpx 20rpx 10rpx 20rpx;
+  text-align: center;
+  color: red;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 }

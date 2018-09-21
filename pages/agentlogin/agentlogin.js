@@ -12,7 +12,7 @@ Page({
     confirmPassword:"123456" ,
   },
 
-  register:function(){
+  login:function(){
     let idcard = this.data.idcard
     if (idcard.length == 0 || idcard == undefined){
       wx.showToast({

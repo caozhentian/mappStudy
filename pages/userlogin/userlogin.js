@@ -12,7 +12,7 @@ Page({
     confirmPassword:"123456" ,
   },
 
-  register:function(){
+  login:function(){
     let idcard = this.data.idcard
     if (idcard.length == 0 || idcard == undefined){
       wx.showToast({
@@ -50,7 +50,15 @@ Page({
       })
    
   },
+  //微信登录
+  wxlogin:function(){
 
+  },
+  register:function(){
+    wx.navigateTo({
+      url: '/pages/register/register',
+    })
+  },
   bindIdcardKeyInput: function (e) {
     this.setData({
       'idcard': e.detail.value
