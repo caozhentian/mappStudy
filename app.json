@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/agent/agent",
     "pages/mine/mine",
     "pages/userlogin/userlogin",
     "pages/agentlogin/agentlogin",
-    "pages/agent/agent",
     "pages/passwordreset/passwordreset",
     "pages/register/register",
     
