@@ -1,10 +1,11 @@
 <view class="container">
 
- <view class="userinfo">
-    <image wx:if="{{userInfo && userInfo.avatarUrl}}" class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{ userInfo.nickName }}</text>
-    <button type='primary' bindtap="loginRegister" size='mini' hidden='{{!isGuest}}'>登录/注册</button>
+   <view class="userinfo">
+    <image class="agent-avatar" src="{{ agentProfileUrl }}" background-size="cover"></image>
+    <text class="agent-name">【代理商】</text>
+    <text class="agent-level">{{level}}</text>
   </view>
+  
   
   <i-grid>
     <i-grid-item>

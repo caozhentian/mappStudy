@@ -25,3 +25,29 @@
 .flex-cell{
   flex: 1;
 }
+
+.userinfo {
+	display: flex;
+	flex-direction: column;
+	padding: 30rpx 0;
+	align-items: center;
+	background:#e98f8e;
+  width: 750rpx;
+}
+
+.agent-avatar {
+	width: 100rpx;
+	height: 100rpx;
+	margin: 10rpx;
+	border-radius: 50%;
+}
+
+.agent-name {
+  margin-top: 20rpx;
+  color: #FFF;
+}
+
+.agent-level {
+  margin-top: 20rpx;
+  color: #FFF;
+}

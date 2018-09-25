@@ -13,7 +13,7 @@
 	flex-direction: column;
 	padding: 30rpx 0;
 	align-items: center;
-	background: #e85654;
+	background: #e98f8e;
   width: 750rpx;
 }
 
