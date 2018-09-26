@@ -1,6 +1,7 @@
 var util = require('../../utils/util2.js');
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
+import { PageData } from '../list/PageData.js'  
 Page({
   data: {
     header: {
@@ -10,15 +11,16 @@ Page({
       endDate: "2018/09/27",
     },
     //列表相关的数据
-    pagedata: {
-      url: "message/findMessageList",
-      isRefreshing: false,
-      isLoadingMore: false,
-      pageIndex: 0,
-      pageSize: 10,
-      keyword: "",
-      list: [],
-    }
+    // pagedata: {
+    //   url: "message/findMessageList",
+    //   isRefreshing: false,
+    //   isLoadingMore: false,
+    //   pageIndex: 0,
+    //   pageSize: 10,
+    //   keyword: "",
+    //   list: [],
+    // },
+    pagedata: new PageData("message/findMessageList"),
   },
   bindStartDateChange: function(e) {
     this.setData({
@@ -79,7 +81,7 @@ Page({
     var url = this.data.pagedata.url
     network_util._post1(url, {
         'nextPage': startPageIndex,
-        'pageSize': 5
+        'pageSize': this.data.pagedata.pageSize
       },
       function(res) {
         that.stopPullDownRefresh()
@@ -109,7 +111,7 @@ Page({
     var url = this.data.pagedata.url
     network_util._post1(url, {
         nextPage: ++that.data.pagedata.pageIndex,
-        pageSize: 5
+        pageSize: this.data.pagedata.pageSize
       },
       function(res) {
         that.setData({
@@ -121,6 +123,7 @@ Page({
         that.setData({
           'pagedata.loadMoreing': false
         });
+        --that.data.pagedata.pageIndex
       })
   },
   onPullDownRefresh: function() {
