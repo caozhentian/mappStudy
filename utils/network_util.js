@@ -1,6 +1,6 @@
 import util from 'util.js';
 
-const BASE_URL = 'http://jsjr1.3tichina.com/jinshangjinrong/jinshangjinrong/'
+const BASE_URL = 'http://jsjr.3tichina.com:80/jinshangjinrong/jinshangjinrong/'
 /**
  * url 请求地址
  * success 成功的回调

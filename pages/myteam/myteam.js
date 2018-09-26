@@ -1,23 +1,29 @@
-var util2 = require('../../utils/util2.js');
+var util = require('../../utils/util2.js');
+var network_util = require('../../utils/network_util.js');
+var json_util = require('../../utils/json_util.js');
 Page({
   data: {
-    header:{
+    header: {
       inputShowed: false,
       inputVal: "",
       startDate: "2018/09/27",
       endDate: "2018/09/27",
     },
     //列表相关的数据
-    isRefreshing:false ,
-    isLoadingMore:false ,
-    page:0 ,
-    pageSize:10 ,
-    keyword:"",
-    list:[1,2,34] ,
+    pagedata: {
+      url: "message/findMessageList",
+      isRefreshing: false,
+      isLoadingMore: false,
+      pageIndex: 0,
+      pageSize: 10,
+      keyword: "",
+      list: [],
+    }
   },
   bindStartDateChange: function(e) {
     this.setData({
-      'header.startDate': e.detail.value})
+      'header.startDate': e.detail.value
+    })
   },
   bindEndDateChange: function(e) {
     this.setData({
@@ -46,7 +52,7 @@ Page({
     });
   },
   onLoad: function(options) {
-    var nowDate = util2.getNowFormatSimpleDate()
+    var nowDate = util.getNowFormatSimpleDate()
     this.setData({
       'header.startDate': nowDate
     })
@@ -56,51 +62,75 @@ Page({
   },
 
   //列表下拉 加载相关的数据
-  onPullDownRefresh: function() {
-    // 显示顶部刷新图标   
-    wx.showNavigationBarLoading();
-    var that = this;
-    wx.request({
-      url: 'https://xxx/?page=0',
-      method: "GET",
-      success: function(res) {
-        // 设置数组元素      
-        that.setData({
-          list: that.data.moment
-        });
-        console.log(that.data.moment);
-        // 隐藏导航栏加载框       
-        wx.hideNavigationBarLoading();
-        // 停止下拉动作        
-        wx.stopPullDownRefresh();
+  stopPullDownRefresh: function () {
+    wx.stopPullDownRefresh({
+      complete: function (res) {
+        wx.hideToast()
       }
     })
   },
+  refresh: function() {
+    if (this.data.pagedata.loadMoreing || this.data.pagedata.refreshing) {
+      return
+    } 
+    var that = this;
+    let startPageIndex = 0
+    this.data.pagedata.refreshing = true
+    var url = this.data.pagedata.url
+    network_util._post1(url, {
+        'nextPage': startPageIndex,
+        'pageSize': 5
+      },
+      function(res) {
+        that.stopPullDownRefresh()
+        let datas = res.data.object
+        that.setData({
+          'pagedata.list': datas,
+          'pagedata.pageIndex': startPageIndex,
+          'pagedata.refreshing': false,
+        });
+
+      },
+      function(res) {
+        console.log(res);
+        that.stopPullDownRefresh()
+      })
+  },
+
+  loadMore: function() {
+    var that = this;
+    if (this.data.pagedata.loadMoreing || this.data.pagedata.refreshing) {
+      return
+    } else {
+      this.setData({
+        'pagedata.loadMoreing': true
+      })
+    }
+    var url = this.data.pagedata.url
+    network_util._post1(url, {
+        nextPage: ++that.data.pagedata.pageIndex,
+        pageSize: 5
+      },
+      function(res) {
+        that.setData({
+          'pagedata.list': that.data.pagedata.list.concat(res.data.object),
+          'pagedata.loadMoreing': false
+        });
+      },
+      function(res) {
+        that.setData({
+          'pagedata.loadMoreing': false
+        });
+      })
+  },
+  onPullDownRefresh: function() {
+    // 显示顶部刷新图标   
+    this.refresh();
+  },
   /**  
   页面上拉触底事件的处理函数   */
-  onReachBottom: function () {
-    var that = this;
-    // 页数+1    
-    this.data.page++;
-    that.setData({
-      isLoadingMore:true 
-    })
-    wx.request({
-      url: 'https://xxx/?page=' + this.data.page,
-      method: "GET",
-      success: function (res) {
-        // 回调函数       
-        var moment_list = that.data.list;
-        for (var i = 0; i < res.data.data.length; i++) {
-          moment_list.push(res.data.data[i]);
-        } // 设置数据        
-        that.setData({
-          list: that.data.list
-        })
-        // 隐藏加载框        
-      }
-    })
+  onReachBottom: function() {
+    this.loadMore();
   }
 
-}
-)
+})

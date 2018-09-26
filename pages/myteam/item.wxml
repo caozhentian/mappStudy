@@ -2,7 +2,7 @@
 <view class="weui-form-preview">
   <view class="weui-form-preview__hd">
     <view class="weui-form-preview__item">
-      <view class="weui-form-preview__label">销</view>
+      <view class="weui-form-preview__label">{{title}}</view>
       <view class="weui-form-preview__value_in-hd">2400个</view>
     </view>
   </view>
