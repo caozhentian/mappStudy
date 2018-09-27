@@ -1,7 +1,7 @@
 var util = require('../../utils/util2.js');
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
-import { PageData } from '../list/PageData.js' 
+import { PageData } from '../list/PageData.js'  
 Page({
   data: {
     header: {
@@ -11,6 +11,15 @@ Page({
       endDate: "2018/09/27",
     },
     //列表相关的数据
+    // pagedata: {
+    //   url: "message/findMessageList",
+    //   isRefreshing: false,
+    //   isLoadingMore: false,
+    //   pageIndex: 0,
+    //   pageSize: 10,
+    //   keyword: "",
+    //   list: [],
+    // },
     pagedata: new PageData("message/findMessageList"),
   },
   bindStartDateChange: function(e) {
@@ -52,8 +61,8 @@ Page({
     this.setData({
       'header.endDate': nowDate
     })
-    wx.startPullDownRefresh({
-    })
+	wx.startPullDownRefresh({  
+    }) //刷新
   },
 
   //列表下拉 加载相关的数据
