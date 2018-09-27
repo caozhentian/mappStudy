@@ -5,21 +5,10 @@ import { PageData } from '../list/PageData.js'
 Page({
   data: {
     header: {
-      inputShowed: false,
-      inputVal: "",
       startDate: "2018/09/27",
       endDate: "2018/09/27",
     },
     //列表相关的数据
-    // pagedata: {
-    //   url: "message/findMessageList",
-    //   isRefreshing: false,
-    //   isLoadingMore: false,
-    //   pageIndex: 0,
-    //   pageSize: 10,
-    //   keyword: "",
-    //   list: [],
-    // },
     pagedata: new PageData("message/findMessageList"),
   },
   bindStartDateChange: function(e) {
@@ -32,27 +21,7 @@ Page({
       'header.endDate': e.detail.value
     })
   },
-  showInput: function() {
-    this.setData({
-      'header.inputShowed': true
-    });
-  },
-  hideInput: function() {
-    this.setData({
-      'header.inputVal': "",
-      'header.inputShowed': false
-    });
-  },
-  clearInput: function() {
-    this.setData({
-      'header.inputVal': ""
-    });
-  },
-  inputTyping: function(e) {
-    this.setData({
-      'header.inputVal': e.detail.value
-    });
-  },
+
   onLoad: function(options) {
     var nowDate = util.getNowFormatSimpleDate()
     this.setData({

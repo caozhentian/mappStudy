@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/myincome/myincome",
     "pages/myteam/myteam",
     "pages/agent/agent",
     "pages/mine/mine",
