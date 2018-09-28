@@ -9,11 +9,11 @@ Page({
   onLoad: function () {
     
   },
-  onTicketAgree:function(){ //进入购买协议界面
+  onTicketDetail:function(){ //进入购买协议界面
     // this.setData({ price: 200 })
     //进入购买协议界面
     wx.navigateTo({
-      url: '../../pages/ticketagree/ticketagree'
+      url: '../../pages/ticketdetail/ticketdetail'
     });
   },
   gotoPay:function(){
@@ -24,6 +24,7 @@ Page({
   gotoSpots:function(){
     //景区列表
     wx.navigateTo({
+      //url: '../../pages/sightspotlist/sightspotlist'
       url: '../../pages/sightspotlist/sightspotlist'
     });
   }

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "微信新闻",
+  "enablePullDownRefresh": true,
+  "i-row": "../../dist/row/index",
+  "i-col": "../../dist/col/index"
+}

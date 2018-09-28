@@ -1,0 +1,26 @@
+<template name="item">
+  <view class="page__bd page__bd_spacing">
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view class="placeholder">{{1}}</view>
+        </view>
+        <view class="weui-flex__item">
+          <view class="placeholder">{{title}}</view>
+        </view>
+        <view class="weui-flex__item">
+          <view class="placeholder">分类</view>
+        </view>
+        <view class="weui-flex__item">
+          <view class="placeholder">名称</view>
+        </view>
+        <view class="weui-flex__item">
+          <view class="placeholder">价格</view>
+        </view>
+        <view class="weui-flex__item">
+          <view class="placeholder">免费次数</view>
+        </view>
+      </view>
+    </view>
+
+
+</template>

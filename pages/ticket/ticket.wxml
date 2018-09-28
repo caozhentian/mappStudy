@@ -1,5 +1,5 @@
 <view class="container">
-  <view class='ticket_container' bindtap='onTicketAgree'>
+  <view class='ticket_container' bindtap='onTicketDetail'>
     <text class='ticket_name'>{{name}}</text>
     <!-- 背景图 -->
     <image class='ticket_bg' mode="scaleToFil" src="{{url}}"> </image>

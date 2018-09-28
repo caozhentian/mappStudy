@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/index/index",
+    "pages/ticketdetail/ticketdetail",
     "pages/mine/mine",
     "pages/agentproduct/agentproduct",
     "pages/myincome/myincome",
@@ -11,7 +13,7 @@
     "pages/passwordreset/passwordreset",
     "pages/register/register",
     
-    "pages/index/index",
+    
     "pages/ticketpayinfo/ticketpayinfo",
     "pages/ticket/ticket",
     

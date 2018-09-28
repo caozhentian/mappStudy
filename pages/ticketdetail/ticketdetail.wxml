@@ -1,0 +1,13 @@
+<import src="item.wxml" />
+<import src="header.wxml" />
+<import src="footer.wxml" />
+<view class="page">
+  <view class="page__bd">
+    <template is="header" data="{{...header}}" />
+    <!-- 列表的主题部分-->
+    <view wx:for="{{pagedata.list}}" wx:for-item="item" bindtap="bindViewTap">
+      <template is="item" data="{{...item}}" />
+    </view>
+    <template is="footer" data="{{...footer}}" />
+  </view>
+</view>
