@@ -9,7 +9,8 @@ Page({
     isGuest: true,
     platformUser:{
       userType:2, //是否普通用户 , 代理商 ，客服
-    }
+    },
+    grids: [0, 1, 2, 3]
   },
   onLoad: function () {
      this.getWxUserInfo() 
@@ -42,5 +43,10 @@ Page({
         }
       })
     }    
+  },
+  gotoMineOrder:function(){
+    wx.navigateTo({
+      url: '/pages/orderlist/orderlist',
+    })
   }
 })

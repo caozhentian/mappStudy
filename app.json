@@ -1,9 +1,11 @@
 {
   "pages":[
+    "pages/mine/mine",
+    "pages/agentproduct/agentproduct",
     "pages/myincome/myincome",
     "pages/myteam/myteam",
     "pages/agent/agent",
-    "pages/mine/mine",
+    
     "pages/userlogin/userlogin",
     "pages/agentlogin/agentlogin",
     "pages/passwordreset/passwordreset",

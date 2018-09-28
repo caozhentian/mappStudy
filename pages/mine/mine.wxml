@@ -1,27 +1,55 @@
 <view class="container">
+  <view class="container_sub">
+    <view class="userinfo">
+      <image wx:if="{{userInfo && userInfo.avatarUrl}}" class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{ userInfo.nickName }}</text>
+      <button type='primary' bindtap="loginRegister" size='mini' hidden='{{!isGuest}}'>登录/注册</button>
+    </view>
 
-<view class="container_sub" >
-  <view class="userinfo">
-    <image wx:if="{{userInfo && userInfo.avatarUrl}}" class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{ userInfo.nickName }}</text>
-    <button type='primary' bindtap="loginRegister" size='mini' hidden='{{!isGuest}}'>登录/注册</button>
-  </view>
+    <!-- <view class="page__hd">
+      <view class="page__title">我的</view>
+    </view> -->
+    <i-grid hidden='{{isGuest || (platformUser.userType != USER_TYPE_COMM)}}'>
+      <i-grid-item bindtap="gotoMineOrder">
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>年</i-grid-label>
+      </i-grid-item>
+      <i-grid-item>
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>普</i-grid-label>
+      </i-grid-item>
+      <i-grid-item>
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>酒店</i-grid-label>
+      </i-grid-item>
+      <i-grid-item>
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>娱乐</i-grid-label>
+      </i-grid-item>
+    </i-grid>
+    <!-- <view class="my-item" hidden='{{isGuest || (platformUser.userType != USER_TYPE_COMM)}}'>
+      <navigator url="/pages/orderlist/orderlist" hover-class="navigator-hover">我的订单</navigator>
+    </view> -->
 
-  <view class="my-item" hidden='{{isGuest || (platformUser.userType != USER_TYPE_COMM)}}'>
-    <navigator url="/pages/orderlist/orderlist" hover-class="navigator-hover">我的订单</navigator>
-  </view>
+    <view class="my-item" hidden='{{isGuest || (platformUser.userType != 2)}}'>
+      <navigator url="/pages/agent/agent" hover-class="navigator-hover">我的代理</navigator>
+    </view>
 
-  <view class="my-item" hidden='{{isGuest || (platformUser.userType != 2)}}'>
-    <navigator url="/pages/agent/agent" hover-class="navigator-hover">我的代理</navigator>
+    <view class="my-item" bindtap="resetPassword">
+      <navigator url="/pages/passwordreset/passwordreset" hover-class="navigator-hover">重置密码</navigator>
+    </view>
+    <view class="my-item" bindtap="aboutUs">
+      <navigator url="/pages/agent/agent" hover-class="navigator-hover">关于我们</navigator>
+    </view>
   </view>
-
-  <view class="my-item" bindtap="resetPassword">
-    <navigator url="/pages/passwordreset/passwordreset" hover-class="navigator-hover">重置密码</navigator>
-  </view>
-  <view class="my-item" bindtap="aboutUs">
-    <navigator url="/pages/agent/agent" hover-class="navigator-hover">关于我们</navigator>
-  </view>
-</view>
   <!--底部操作栏 -->
   <view class='page-login-foot'>
     <button class='btn' bindtap='agentLogin' type='primary' size='mini'>我是代理</button>
