@@ -27,6 +27,20 @@ Page({
       url: '../noticelist/noticelist',
     })
   },
+  gotoMineComment:function(){
+
+  },
+  gotoMineComment2: function () {
+
+  },
+  gotoMineTrace: function () {
+    wx.navigateTo({
+      url: '../mytrace/mytrace',
+    })
+  },
+  gotoMineTicketFolder: function () {
+
+  },
   //选择年票
   select_ticket: function() {
     wx.navigateTo({

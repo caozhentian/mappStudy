@@ -8,6 +8,33 @@
       </swiper-item>
     </block>
   </swiper>
+  <!--快捷菜单-->
+  <i-grid hidden='{{isGuest || (platformUser.userType != USER_TYPE_COMM)}}'>
+      <i-grid-item bindtap="gotoMineComment">
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>我的评论</i-grid-label>
+      </i-grid-item>
+      <i-grid-item>
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>我的发布</i-grid-label>
+      </i-grid-item>
+      <i-grid-item bindtap="gotoMineTrace">
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>我的足迹</i-grid-label>
+      </i-grid-item>
+      <i-grid-item bindtap="gotoMineTicketFolder">
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>我的票夹</i-grid-label>
+      </i-grid-item>
+    </i-grid>
   <!-- 公告 -->
   <view class='notice-container' bindtap="select_notice" >
     <text class='notice_head'>公告</text>
