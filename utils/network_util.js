@@ -41,7 +41,7 @@ function _post(url,data, success, fail ) {
         method:'POST',
         data:{data: data},
         success: function( res ) {
-            success( res );
+            success( res.data );
         },
         fail: function( res ) {
             fail( res );
@@ -75,7 +75,7 @@ function _post1(url,data, success, fail ) {
         success: function( res ) {
           if(res.statusCode == 200){
             if(res.data.code == 0){
-              success(res);
+              success(res.data);
             }
             else{
               wx.showToast({

@@ -6,14 +6,12 @@ var app = getApp()
 
 Page({
   data: {
-    idcard: "132330198109142478",
-    tel: "13186075334",
-    password:"123456" ,
-    confirmPassword:"123456" ,
+    mobile: "132330198109142478",
+    password:"123456" 
   },
 
   login:function(){
-    let idcard = this.data.idcard
+    let idcard = this.data.mobile
     if (idcard.length == 0 || idcard == undefined){
       wx.showToast({
         title: '请输入身份证或者手机号',
@@ -38,9 +36,15 @@ Page({
       return
     }
     
-    network_util._post1('/abdn', this.data,
-      function (res) {
-        //关闭当前页面
+    network_util._post1('/login', this.data,
+      function (netdata) {
+        //关闭当前页面.data.token
+        app.globalData.hasLogin = true ;
+        app.globalData.token = netdata.data.token ;
+        app.globalData.member_id = netdata.data.member_id;
+        wx.showToast({
+          title: '登录成功',
+        })
         wx.navigateBack({
 
         })
@@ -52,7 +56,9 @@ Page({
   },
   //微信登录
   wxlogin:function(){
-
+     wx.navigateBack({
+       
+     })
   },
   register:function(){
     wx.navigateTo({
@@ -61,26 +67,14 @@ Page({
   },
   bindIdcardKeyInput: function (e) {
     this.setData({
-      'idcard': e.detail.value
+      'mobile': e.detail.value
     })
   },
-
-  bindTelKeyInput: function (e) {
-    this.setData({
-      'tel': e.detail.value
-    })
-  },
-
   bindPasswordKeyInput: function (e) {
     this.setData({
       'password': e.detail.value
     })
-  },
-  bindConfirmPasswordKeyInput: function (e) {
-    this.setData({
-      'confirmPassword': e.detail.value
-    })
-  },
+  }
 
 })
 

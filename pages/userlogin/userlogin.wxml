@@ -3,7 +3,7 @@
 
     <view class="page-section">
       <view class="page-section-title">账号：</view>
-      <input class="weui-input" value = '{{idcard}}' bindinput="bindIdcardKeyInput" type="idcard" placeholder="请输入身份证或者手机号" maxlength="18" confirm-type='next' />
+      <input class="weui-input" value = '{{mobile}}' bindinput="bindIdcardKeyInput" type="idcard" placeholder="请输入身份证或者手机号" maxlength="18" confirm-type='next' />
     </view>
 
     

@@ -9,7 +9,7 @@ Page({
     id_card: "512501197203035172",
     mobile: "13186075334",
     password:"123456" ,
-    password_confrim:"123456" ,
+    password_confirm:"123456" ,
   },
 
   register:function(){
@@ -59,7 +59,7 @@ Page({
       })
       return
     }
-    let confirmPassword = this.data.password_confrim
+    let confirmPassword = this.data.password_confirm
     if (confirmPassword == '' || confirmPassword == undefined) {
       wx.showToast({
         title: '请输入确认密码',
@@ -85,6 +85,12 @@ Page({
     network_util._post1('register', this.data,
       function (res) {
         //关闭当前页面
+        app.globalData.hasLogin = true;
+        app.globalData.token = netdata.data.token;
+        app.globalData.member_id = netdata.data.member_id;
+        wx.showToast({
+          title: '注册成功',
+        })
         wx.navigateBack({
 
         })
@@ -97,13 +103,13 @@ Page({
 
   bindIdcardKeyInput: function (e) {
     this.setData({
-      'idcard': e.detail.value
+      'id_card': e.detail.value
     })
   },
 
   bindTelKeyInput: function (e) {
     this.setData({
-      'tel': e.detail.value
+      'mobile': e.detail.value
     })
   },
 
@@ -114,7 +120,7 @@ Page({
   },
   bindConfirmPasswordKeyInput: function (e) {
     this.setData({
-      'confirmPassword': e.detail.value
+      'password_confirm': e.detail.value
     })
   },
 

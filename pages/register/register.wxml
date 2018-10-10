@@ -18,7 +18,7 @@
 
     <view class="page-section">
       <view class="page-section-title">确认密码：</view>
-      <input class="weui-input"  value='{{password_confrim}}' bindinput='bindConfirmPasswordKeyInput' placeholder="请输入确认密码" maxlength="18" confirm-type='done' />
+      <input class="weui-input"  value='{{password_confirm}}' bindinput='bindConfirmPasswordKeyInput' placeholder="请输入确认密码" maxlength="18" confirm-type='done' />
     </view>
 
     <!--底部操作栏 -->

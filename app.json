@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/userlogin/userlogin",
     "pages/register/register",
     "pages/index/index",
     "pages/mytrace/mytrace",
@@ -9,8 +10,6 @@
     "pages/myincome/myincome",
     "pages/myteam/myteam",
     "pages/agent/agent",
-    
-    "pages/userlogin/userlogin",
     "pages/agentlogin/agentlogin",
     "pages/passwordreset/passwordreset",
     
