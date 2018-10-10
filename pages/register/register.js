@@ -6,14 +6,14 @@ var app = getApp()
 
 Page({
   data: {
-    idcard: "132330198109142478",
-    tel: "13186075334",
+    id_card: "512501197203035172",
+    mobile: "13186075334",
     password:"123456" ,
-    confirmPassword:"123456" ,
+    password_confrim:"123456" ,
   },
 
   register:function(){
-    let idcard = this.data.idcard
+    let idcard = this.data.id_card
     if (idcard.length == 0 || idcard == undefined){
       wx.showToast({
         title: '请输入身份证',
@@ -29,7 +29,7 @@ Page({
       })
         return 
     }
-    let tel = this.data.tel
+    let tel = this.data.mobile
     if (tel.length == 0 || tel == undefined) {
       wx.showToast({
         title: '请输入手机号码',
@@ -59,7 +59,7 @@ Page({
       })
       return
     }
-    let confirmPassword = this.data.confirmPassword
+    let confirmPassword = this.data.password_confrim
     if (confirmPassword == '' || confirmPassword == undefined) {
       wx.showToast({
         title: '请输入确认密码',
@@ -82,7 +82,7 @@ Page({
       return
     }
 
-    network_util._post1('/abdn', this.data,
+    network_util._post1('register', this.data,
       function (res) {
         //关闭当前页面
         wx.navigateBack({

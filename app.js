@@ -29,6 +29,7 @@ App({
     openid: null,
     userInfo: null,
     token:'9695f3c8e9c018f5464d7f760687a498',
+    member_id:1,
     employeeId:7
   },
   

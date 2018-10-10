@@ -1,6 +1,7 @@
 import util from 'util.js';
 
-const BASE_URL = 'http://jsjr.3tichina.com:80/jinshangjinrong/jinshangjinrong/'
+//const BASE_URL = 'http://jsjr.3tichina.com:80/jinshangjinrong/jinshangjinrong/'
+const BASE_URL = 'http://www.xazhihe.cn/Api/'
 /**
  * url 请求地址
  * success 成功的回调
@@ -59,8 +60,8 @@ function _post1(url,data, success, fail ) {
      console.log( "----_post--start-------" );
      //增加共同的参数
      let app = getApp()
-     data.token = app.globalData.token
-     data.employeeId = app.globalData.employeeId
+     //data.token = app.globalData.token
+     //data.employeeId = app.globalData.employeeId
      wx.showLoading({
        title: '请稍后...',
      })
@@ -73,7 +74,16 @@ function _post1(url,data, success, fail ) {
         data:data,
         success: function( res ) {
           if(res.statusCode == 200){
-            success( res );
+            if(res.data.code == 0){
+              success(res);
+            }
+            else{
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none'
+              })
+            }
+            
           }
           else{
             wx.showToast({

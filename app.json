@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/register/register",
     "pages/index/index",
     "pages/mytrace/mytrace",
     "pages/ticketdetail/ticketdetail",
@@ -12,7 +13,6 @@
     "pages/userlogin/userlogin",
     "pages/agentlogin/agentlogin",
     "pages/passwordreset/passwordreset",
-    "pages/register/register",
     
     
     "pages/ticketpayinfo/ticketpayinfo",
