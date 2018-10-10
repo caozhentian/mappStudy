@@ -83,7 +83,7 @@ Page({
     }
 
     network_util._post1('register', this.data,
-      function (res) {
+      function (netdata) {
         //关闭当前页面
         app.globalData.hasLogin = true;
         app.globalData.token = netdata.data.token;
