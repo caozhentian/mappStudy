@@ -4,7 +4,7 @@
   time: string
 -->
 <template name="sightspotItem">
-  <view class='sightspot_container' data-index="{{tid}}"  bindtap='sightspotTap'>
+  <view class='sightspot_container' >
       <!-- 景点背景图 -->
       <image class='sightspot_bg' mode="scaleToFil " src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"> </image>
       <view class='sightspot_show'>

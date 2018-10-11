@@ -90,9 +90,9 @@ Page({
   },
   sightspotTap:function(e){
     var $data = e.currentTarget.dataset; //item传递参数的写法
-    wx.showToast({
-      title:""+$data.index
-    })
+    wx.navigateTo({
+      url: '../../pages/sightspotdetail/sightspotdetail?id=' + $data.index
+    });
   }
 },
 

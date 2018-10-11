@@ -16,13 +16,15 @@ Page({
   } ,
   onTicketDetail: function (event) { //进入购买协议界面
     //进入购买协议界面
+    let ticketId = event.currentTarget.dataset.ticketId
     wx.navigateTo({
-      url: '../../pages/ticketdetail/ticketdetail'
+      url: '../../pages/ticketdetail/ticketdetail?id=' + ticketId
     });
   },
   gotoPay: function (event) {
+    let ticketId = event.currentTarget.dataset.ticketId
     wx.navigateTo({
-      url: '../../pages/ticketpayinfo/ticketpayinfo'
+      url: '../../pages/ticketpayinfo/ticketpayinfo?id=' + ticketId
     });
   },
   gotoSpots: function (event) {

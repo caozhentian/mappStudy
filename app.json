@@ -14,8 +14,8 @@
     "pages/agentlogin/agentlogin",
     "pages/passwordreset/passwordreset",
     
-    
     "pages/ticketpayinfo/ticketpayinfo",
+    "pages/sightspotdetail/sightspotdetail",
     
     "pages/forum/forum",
     "pages/ticketagree/ticketagree" ,

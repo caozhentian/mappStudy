@@ -2,6 +2,7 @@ import util from 'util.js';
 
 //const BASE_URL = 'http://jsjr.3tichina.com:80/jinshangjinrong/jinshangjinrong/'
 const BASE_URL = 'http://www.xazhihe.cn/Api/'
+const BASE_PIC_URL = 'http://www.xazhihe.cn/Api/'
 /**
  * url 请求地址
  * success 成功的回调
@@ -135,6 +136,7 @@ function _post_json(url,data, success, fail ) {
     console.log( "----end----_post-----" );
 }
 module.exports = {
+    BASE_PIC_URL: BASE_PIC_URL,
     _get: _get,
     _post:_post,
     _post1:_post1,
