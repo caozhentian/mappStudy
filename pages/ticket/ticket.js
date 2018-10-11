@@ -64,7 +64,12 @@ Page({
       },
       function (res) {
         that.stopPullDownRefresh()
+        that.data.list = []
         let datas = res.data.list;
+        datas.forEach(function(currentValue){
+          var fullPath = network_util.BASE_PIC_URL + currentValue.image;
+          currentValue.image = fullPath ;
+        })　;　
         that.setData({
           list: datas,
           page: startPageIndex,
@@ -95,8 +100,13 @@ Page({
       page_size: that.data.pageSize
     },
       function (res) {
+        let datas = res.data.list;
+        datas.forEach(function (currentValue) {
+          var fullPath = network_util.BASE_PIC_URL + currentValue.image;
+          currentValue.image = fullPath;
+        })　;　
         that.setData({
-          list: that.data.list.concat(res.data.object),
+          list: that.data.list.concat(datas),
           hasRefesh: false,
           loadMoreing: false
         });

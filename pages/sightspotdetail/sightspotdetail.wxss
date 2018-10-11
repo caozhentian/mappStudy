@@ -1,6 +1,19 @@
 page{
     background-color: #FFFFFF;
 }
-image{
-    margin: 4px 0;
+
+.spot_detail_bg {
+  width: 96%;
+  height: 300rpx;
+  margin-left: 15rpx ;
+  border-radius: 5px ;
+}
+
+.button-sp-area{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 90%;
+}
+.mini-btn{
+    margin-right: 5px;
 }

@@ -1,0 +1,9 @@
+<view class="container">
+  <i-panel title="基础用法">
+    <i-input value="{{ inputValue }}" type="textarea" title="详细地址" placeholder="请输入详细地址(最多50字)" maxlength="50" />
+    <i-rate bind:change="onChange2" value="{{starIndex}}" size="32">
+    </i-rate>
+    <i-button bind:click="handleClick" type="success" shape="circle" size="small">小尺寸</i-button>
+  </i-panel>
+
+</view>

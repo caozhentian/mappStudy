@@ -4,15 +4,35 @@
   time: string
 -->
 <template name="sightspotItem">
-  <view class='sightspot_container' >
-      <!-- 景点背景图 -->
-      <image class='sightspot_bg' mode="scaleToFil " src="http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg"> </image>
-      <view class='sightspot_show'>
-      <!--景点名称-->
-      <text class='sightspot_name'>{{name}}</text>
-      <!--免票次数 -->
-      <text class='sightspot_count'>免费1次</text> <!--持年票可以-->
-      </view>
-      <view class='divLine'></view>
+    <view class="page__bd">
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">名称</view>
+                    <view class="weui-form-preview__value">{{name}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{price}}元</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">地址</view>
+                    <view class="weui-form-preview__value">{{address}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">电话</view>
+                    <view class="weui-form-preview__value">{{tel}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">时间</view>
+                    <view class="weui-form-preview__value">{{open_time}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__ft">
+                <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">详情</navigator>
+            </view>
+        </view>
     </view>
 </template>

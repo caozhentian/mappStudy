@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "i-panel": "../../dist/panel/index",
+    "i-rate": "../../dist/rate/index",
+    "i-input": "../../dist/input/index",
+    "i-button": "../../dist/button/index"
+    
+  }
+}

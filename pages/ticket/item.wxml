@@ -7,10 +7,9 @@
   <view class='ticket_container' bindtap='onTicketDetail'>
     <text class='ticket_name'>{{name}}</text>
     <!-- 背景图 -->
-    <image class='ticket_bg' mode="scaleToFil" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"> </image>
+    <image class='ticket_bg' mode="scaleToFil" src="{{image}}"> </image>
     <!-- 价格 -->
     <text class='ticket_price'>价格：{{price}}元</text>
-    <!-- <text class='ticket_simple_name'>{{simpleName}}</text> -->
 
     <view class='view_operate'>
       <button data-ticket-id ="{{id}}" bindtap='gotoPay' type='primary' size='mini' class='btn_go_to_pay'>购买</button>
