@@ -39,8 +39,8 @@ Page({
       pageSize: that.data.pageSize
       },
       function (res) {
-        that.stopPullDownRefresh()
-        let datas = res.data.object
+        that.stopPullDownRefresh();
+        let datas = res.data.list;
         that.setData({
           list: datas,
           page: startPageIndex,

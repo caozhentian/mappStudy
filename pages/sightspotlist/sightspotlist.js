@@ -1,20 +1,20 @@
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
 var util = require('../../utils/util2.js');
-let actualUrl = "information/findInformationList" 
-let templateId = "sightspotitem"
+let actualUrl = "scenicList" 
 
 Page({
   data :{
     url: actualUrl, 
-    itemTemplateId: templateId, //列表对应的模版Id
     list: [],
+    ticketId:"-1" ,
     page: 1,
-    size: 20,
+    pageSize: 20,
     hasMore: true,
     loadMoreing: false //是否正在加载更多中
   } ,
   onLoad:function(options) { 
+    this.data.ticketId = options.id;
     wx.startPullDownRefresh({  
     })
   },
@@ -37,12 +37,13 @@ Page({
     let startPageIndex = 0 
     var url = this.data.url 
     network_util._post1(url, {
-      nextPage: startPageIndex ,
-      pageSize:5
+      tid: that.data.ticketId ,
+      page: startPageIndex ,
+      page_size:that.data.pageSize
       },
       function (res) {
         that.stopPullDownRefresh()
-        let datas = res.data.object
+        let datas = res.data.list
         that.setData({
           list: datas,
           page: startPageIndex,
@@ -67,12 +68,13 @@ Page({
     }
     var url = this.data.url 
     network_util._post1(url, {
-      nextPage: ++that.data.page ,
-      pageSize: 5
+      tid: that.data.tid,
+      page: startPageIndex,
+      page_size: that.data.pageSize
     },
       function (res) {
         that.setData({
-          list: that.data.list.concat(res.data.object),
+          list: that.data.list.concat(res.data.list),
           hasRefesh: false,
           loadMoreing: false
         });

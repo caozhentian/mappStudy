@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "日志"
+    "navigationBarTitleText": "年",
+    "enablePullDownRefresh": true
 }

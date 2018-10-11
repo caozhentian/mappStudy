@@ -1,15 +1,9 @@
-<view class="container">
-  <view class='ticket_container' bindtap='onTicketDetail'>
-    <text class='ticket_name'>{{name}}</text>
-    <!-- 背景图 -->
-    <image class='ticket_bg' mode="scaleToFil" src="{{url}}"> </image>
-    <!-- 价格 -->
-    <text class='ticket_price'>价格：{{price}}元</text>
-    <!-- <text class='ticket_simple_name'>{{simpleName}}</text> -->
+<import src="item.wxml" />
 
-    <view class='view_operate'>
-      <button bindtap='gotoPay' type='primary' size='mini' class='btn_go_to_pay'>购买</button>
-      <button bindtap='gotoSpots' type='primary' size='mini' class='btn_go_to_spot'>列表</button>
-    </view>
+<view class="container">
+  <!-- 列表的主题部分-->
+  <view class="item_list" wx:for="{{list}}" wx:for-item="item" >
+    <template is="item" data="{{...item}}"/>
   </view>
+ <include src="../../pages/list/list-page-footer"/>
 </view>

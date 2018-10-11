@@ -11,6 +11,5 @@
       <!--免票次数 -->
       <text class='sightspot_count'>1次</text> <!--持年票可以-->
       </view>
-    
     </view>
 </template>

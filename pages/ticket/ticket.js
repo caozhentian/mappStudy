@@ -1,31 +1,113 @@
+var network_util = require('../../utils/network_util.js');
+var json_util = require('../../utils/json_util.js');
+var util = require('../../utils/util2.js');
+let actualUrl = "ticketList" 
 
 Page({
-  data: {
-    url: "http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" ,
-    price:100 ,
-    name:"最美秦岭",
-    simpleName:"秦岭"
-  },
-  onLoad: function () {
-    
-  },
-  onTicketDetail:function(){ //进入购买协议界面
-    // this.setData({ price: 200 })
+  data :{
+    url: actualUrl, 
+    list: [],
+    type: 'year_ticket',
+    city:'610100',
+    page: 1,
+    pageSize: 10,
+    hasMore: true,
+    loadMoreing: false //是否正在加载更多中
+  } ,
+  onTicketDetail: function (event) { //进入购买协议界面
     //进入购买协议界面
     wx.navigateTo({
       url: '../../pages/ticketdetail/ticketdetail'
     });
   },
-  gotoPay:function(){
+  gotoPay: function (event) {
     wx.navigateTo({
       url: '../../pages/ticketpayinfo/ticketpayinfo'
     });
   },
-  gotoSpots:function(){
+  gotoSpots: function (event) {
     //景区列表
+    let ticketId = event.currentTarget.dataset.ticketId
     wx.navigateTo({
-      //url: '../../pages/sightspotlist/sightspotlist'
-      url: '../../pages/sightspotlist/sightspotlist'
+      url: '../../pages/sightspotlist/sightspotlist?id=' + ticketId
     });
+  },
+  onLoad:function(options) { 
+    wx.startPullDownRefresh({  
+    })
+  },
+  onPullDownRefresh:function() {
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading'
+    })
+    this.refresh()
+  },
+  stopPullDownRefresh:function() {
+    wx.stopPullDownRefresh({
+      complete: function (res) {
+        wx.hideToast()
+      }
+    })
+  },
+  refresh:function() {
+    var that = this;
+    let startPageIndex = 0 
+    var url = this.data.url 
+    network_util._post1(url, {
+      type:that.data.type,
+      city: that.data.city ,
+      page: startPageIndex ,
+      page_size: that.data.pageSize
+      },
+      function (res) {
+        that.stopPullDownRefresh()
+        let datas = res.data.list;
+        that.setData({
+          list: datas,
+          page: startPageIndex,
+          hasRefesh: false,
+        });
+
+      },
+      function (res) {
+        console.log(res);
+        that.stopPullDownRefresh()
+      })
+  },
+
+  loadMore:function() {
+    var that = this;
+    if (this.data.loadMoreing) {
+      return
+    } else {
+      this.setData({
+        loadMoreing: true
+      })
+    }
+    var url = this.data.url 
+    network_util._post1(url, {
+      type: that.data.type,
+      city: that.data.city,
+      page: ++that.data.page ,
+      page_size: that.data.pageSize
+    },
+      function (res) {
+        that.setData({
+          list: that.data.list.concat(res.data.object),
+          hasRefesh: false,
+          loadMoreing: false
+        });
+      },
+      function (res) {
+        that.setData({
+          loadMoreing: false
+        });
+      })
+  } ,
+  onReachBottom:function() {
+    this.loadMore()
   }
-})
+},
+
+)
