@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/question/question",
+    "pages/commentlist/commentlist",
+    
     "pages/comment/comment",
     "pages/ticket/ticket",
     "pages/userlogin/userlogin",
