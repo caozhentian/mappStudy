@@ -1,0 +1,12 @@
+<i-panel class="cell-panel-demo">
+    <i-cell title="QQ群"  value="详细信息"></i-cell>
+</i-panel>
+<i-panel class="cell-panel-demo">
+    <i-cell title="客服电话"  value="详细信息2"></i-cell>
+</i-panel>
+<i-panel class="cell-panel-demo">
+    <i-cell title="网址"  value="详细信息"></i-cell>
+</i-panel>
+<i-panel class="cell-panel-demo">
+    <i-cell title="备案号"  value="详细信息"></i-cell>
+</i-panel>

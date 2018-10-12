@@ -46,6 +46,9 @@
     <view class="my-item" bindtap="resetPassword">
       <navigator url="/pages/passwordreset/passwordreset" hover-class="navigator-hover">重置密码</navigator>
     </view>
+    <view class="my-item" bindtap="contactUs">
+      <navigator url="/pages/contactus/contactus" hover-class="navigator-hover">联系我们</navigator>
+    </view>
     <view class="my-item" bindtap="aboutUs">
       <navigator url="/pages/agent/agent" hover-class="navigator-hover">关于我们</navigator>
     </view>

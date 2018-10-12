@@ -1,9 +1,10 @@
 {
   "pages":[
+    "pages/index/index",
+    "pages/comment/comment",
     "pages/ticket/ticket",
     "pages/userlogin/userlogin",
     "pages/register/register",
-    "pages/index/index",
     "pages/mytrace/mytrace",
     "pages/ticketdetail/ticketdetail",
     "pages/mine/mine",

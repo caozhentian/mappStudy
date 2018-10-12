@@ -11,8 +11,38 @@ Page({
     password:"123456" ,
     confirmPassword:"123456" ,
     smscode:"",
+    targetTime: 0,
+    myFormat: ['时', '分', '秒'],
+    clearTimer: false,
+    hidenSmscode:false ,
+    hideCountDown:true ,
   },
 
+  onLoad(){
+    this.setData({
+      hidenSmscode: true,
+      hideCountDown: true,
+    });
+  },
+  onUnload() {
+    this.setData({
+      clearTimer: true
+    });
+  },
+  
+  getSmsCode:function(){
+    this.setData({
+      targetTime: new Date().getTime() + 60000,
+      hidenSmscode: true,
+      hideCountDown: false,
+    });
+  },
+  myLinsterner:function(){
+    this.setData({
+      hidenSmscode: false,
+      hideCountDown: true
+    });
+  },
   register:function(){
     let idcard = this.data.idcard
     if (idcard.length == 0 || idcard == undefined){
@@ -97,9 +127,6 @@ Page({
         wx.navigateBack({
 
         })
-      },
-      function (res) {
-        console.log(res);
       })
    
   },
