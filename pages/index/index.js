@@ -28,7 +28,9 @@ Page({
     })
   },
   gotoMineComment:function(){
-
+    wx.navigateTo({
+      url: '../commentlist/commentlist',
+    })
   },
   gotoMineComment2: function () {
 
@@ -49,10 +51,8 @@ Page({
   },
   //选择年票问答
   select_ticket_question: function () {
-    wx.showToast({
-      title: '年票问答...',
-      icon: 'success',
-      duration: 2000
+    wx.navigateTo({
+      url: '../question/question',
     })
   },
   onLoad: function () {
