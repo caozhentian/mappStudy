@@ -1,9 +1,14 @@
 <view class="container">
-  <i-panel title="基础用法">
-    <i-input value="{{ inputValue }}" type="textarea" title="详细地址" placeholder="请输入详细地址(最多50字)" maxlength="50" />
-    <i-rate bind:change="onChange2" value="{{starIndex}}" size="32">
-    </i-rate>
-    <i-button bind:click="handleClick" type="success" shape="circle" size="small">小尺寸</i-button>
-  </i-panel>
 
+  <i-panel title="评论内容"> 
+  <i-input value="{{ inputValue }}" bindchange="handleChange" type="textarea" placeholder="请输入评论(最多100字)" maxlength="100" />
+  </i-panel>
+  <i-cell-group>
+    <i-cell title="评论星级">
+      <i-rate bind:change="onChange" value="{{starIndex}}" size="32">
+      </i-rate>
+    </i-cell>
+  </i-cell-group>
+
+  <i-button bind:click="handleClick" type="primary" shape="circle" size="small">提交</i-button>
 </view>

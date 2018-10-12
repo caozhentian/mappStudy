@@ -86,13 +86,14 @@ Page({
       function (netdata) {
         //关闭当前页面
         app.globalData.hasLogin = true;
+        app.globalData.isUserLoign = true;
         app.globalData.token = netdata.data.token;
         app.globalData.member_id = netdata.data.member_id;
         wx.showToast({
           title: '注册成功',
         })
         wx.navigateBack({
-
+          delta: -1
         })
       },
       function (res) {

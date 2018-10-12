@@ -37,7 +37,7 @@ Page({
   },
   gotoComment:function(){
     wx.navigateTo({
-      url: '/pages/orderlist/orderlist',
+      url: '/pages/comment/comment?id=' + this.data.spotId ,
     })
   }
 })
