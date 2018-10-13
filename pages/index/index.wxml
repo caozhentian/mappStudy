@@ -36,11 +36,14 @@
     </i-grid-item>
   </i-grid>
   <!-- 公告 -->
-  <view class='notice-container' bindtap="select_notice">
+  <!-- <view class='notice-container' bindtap="select_notice">
     <text class='notice_head'>公告</text>
     <image class='notice_image' mode='scaleToFill' src='../../image/icon_home_notice.png'></image>
     <text class='notice'>{{notice}}</text>
-  </view>
+  </view> -->
+  <i-notice-bar icon="systemprompt" loop>
+    2018年世界杯,将于6月14日至7月15日举行
+</i-notice-bar>
   <!-- 分割线 -->
   <view class="divLine"></view>
   <!--功能区的瀑布流布局-->
