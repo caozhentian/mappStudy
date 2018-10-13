@@ -16,7 +16,7 @@
     <!--底部操作栏 -->
     <view class='page-pay-foot'>
       <button class='btn' bindtap='login' type='primary' size='mini'>登录</button>
-      <button class='btn' bindtap='wxlogin' size='mini'>微信登录</button>
+      <!-- <button class='btn' bindtap='wxlogin' size='mini'>微信登录</button> -->
       <button class='btn' bindtap='register' type='primary' size='mini'>注册</button>
     </view>
     

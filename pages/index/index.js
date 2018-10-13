@@ -20,6 +20,7 @@ Page({
     duration: 1000,
     //公告内容
     notice: "国庆节，景点大优惠。大家赶紧来看啊！高速随便走，走告诉免费" ,
+    visible:false,
   },
   //公告列表
   select_notice:function(){
@@ -28,6 +29,10 @@ Page({
     })
   },
   gotoMineComment:function(){
+    if (app.globalData.member_id == -1){
+      this.gotologin();
+      return ;
+    }
     wx.navigateTo({
       url: '../commentlist/commentlist',
     })
@@ -36,6 +41,10 @@ Page({
 
   },
   gotoMineTrace: function () {
+    if (app.globalData.member_id == -1) {
+      this.gotologin();
+      return;
+    }
     wx.navigateTo({
       url: '../mytrace/mytrace',
     })
@@ -93,5 +102,25 @@ Page({
   },
   onTabItemTap: function(item) {
     
-  }
+  },
+  gotologin:function(){
+    this.setData({
+      visible:true
+    })
+  },
+  handleOK() {
+    this.setData({
+      visible: false
+    });
+    wx.navigateTo({
+      url: '../userlogin/userlogin',
+    })
+  },
+
+  handleCancel() {
+    this.setData({
+      visible: false
+    });
+  },
+
 })

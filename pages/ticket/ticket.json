@@ -1,4 +1,7 @@
 {
     "navigationBarTitleText": "年",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "i-modal": "../../dist/modal/index"
+    }
 }

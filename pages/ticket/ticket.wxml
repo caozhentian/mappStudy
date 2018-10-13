@@ -6,4 +6,7 @@
     <template is="item" data="{{...item}}"/>
   </view>
  <include src="../../pages/list/list-page-footer"/>
+ <i-modal title="登录" visible="{{ visible }}" actions="{{ actions }}" bind:click="handleClick">
+    <view>请先登录，选择登录用户类型。</view>
+  </i-modal>
 </view>
