@@ -84,5 +84,10 @@ Page({
       visible: false
     });
   },
+  onShow: function () {
+    this.setData({
+      userInfo: curUserInfo, //用户
+    })
+  }
 
 })

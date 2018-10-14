@@ -4,10 +4,10 @@
   time: string
 -->
 <template name="item">
-  <view class='ticket_container' bindtap='onTicketDetail'>
+  <view class='ticket_container' >
     <text class='ticket_name'>{{name}}</text>
     <!-- 背景图 -->
-    <image class='ticket_bg' mode="scaleToFil" src="{{image}}"> </image>
+    <image bindtap='onTicketDetail' class='ticket_bg' mode="scaleToFil" src="{{image}}"> </image>
     <!-- 价格 -->
     <text class='ticket_price'>价格：{{price}}元</text>
 

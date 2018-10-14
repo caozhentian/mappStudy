@@ -4,7 +4,7 @@
   time: string
 -->
 <template name="sightspotItem">
-    <view class="page__bd">
+    
         <view class="weui-form-preview">
             <view class="weui-form-preview__hd">
                 <view class="weui-form-preview__item">
@@ -34,5 +34,5 @@
                 <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">详情</navigator>
             </view>
         </view>
-    </view>
+   
 </template>

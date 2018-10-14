@@ -1,11 +1,11 @@
 <view class="container">
   <view class="container_sub">
-    <view hidden='{{userInfo.isMember}}'>
+    <view hidden='{{userInfo.isAgent}}'>
       <view class="userinfo">
         <view class="userinfo-avatar" background-size="cover">
           <open-data type="userAvatarUrl"></open-data>
         </view>
-        <button type='primary' bindtap="loginRegister" size='mini' hidden='{{!isGuest}}'>登录/注册 </button>
+        <button type='primary' bindtap="loginRegister" size='mini' hidden='{{!userInfo.isGuest}}'>登录/注册 </button>
       </view>
       <i-grid>
         <i-grid-item bindtap="gotoMineOrder">
@@ -35,7 +35,7 @@
       </i-grid>
     </view>
     <!--代理商部分 -->
-    <view hidden='{{ true}}'>
+    <view hidden='{{ userInfo.isGuest||userInfo.isMember}}'>
       <view class="userinfo">
         <view class="userinfo-avatar" background-size="cover">
           <open-data type="userAvatarUrl"></open-data>
@@ -95,7 +95,7 @@
     </view>
   </view>
   <!--底部操作栏 -->
-  <view class='page-login-foot'>
+  <view class='page-login-foot' hidden='{{userInfo.isAgent||userInfo.isMember}}'>
     <button class='btn' bindtap='agentLogin' type='primary' size='mini'>我是代理</button>
     <button class='btn' bindtap='serviceLogin' type='primary' size='mini'>我是客服</button>
   </view>
