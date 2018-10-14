@@ -1,4 +1,7 @@
 {
     "navigationBarTitleText": "景区列表",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "i-card": "../../dist/card/index"
+    }
 }

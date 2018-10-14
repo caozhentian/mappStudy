@@ -3,7 +3,7 @@
   name: string
   time: string
 -->
-<template name="sightspotItem">
+<!-- <template name="sightspotItem">
     
         <view class="weui-form-preview">
             <view class="weui-form-preview__hd">
@@ -35,4 +35,13 @@
             </view>
         </view>
    
+</template> -->
+
+<template name="sightspotItem">
+    <i-card title="{{name}}" extra="" thumb="{{image}}">
+    <view slot="content">价格:  {{price}}元</view>
+    <view slot="content">地址:  {{address}}</view>
+    <view slot="content">电话:  {{tel}}</view>
+    <view slot="footer">时间:  {{open_time}}</view>
+</i-card>
 </template>

@@ -72,6 +72,7 @@ Page({
       })
     }
     var url = this.data.url 
+    let startPageIndex = this.data.page++;
     network_util._post1(url, {
       tid: that.data.tid,
       page: startPageIndex,
