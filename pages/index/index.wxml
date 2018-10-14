@@ -9,7 +9,7 @@
     </block>
   </swiper>
   <!--快捷菜单-->
-  <i-grid hidden='{{isGuest || (platformUser.userType != USER_TYPE_COMM)}}'>
+  <i-grid hidden='{{userInfo.isAgent}}'>
     <i-grid-item bindtap="gotoMineComment">
       <i-grid-icon>
         <image src="../../image/icon_ticket_HL.png" />

@@ -39,10 +39,7 @@ Page({
     network_util._post1('/login', this.data,
       function (netdata) {
         //关闭当前页面.data.token
-        app.globalData.hasLogin = true ;
-        app.globalData.isUserLoign = true;
-        app.globalData.token = netdata.data.token ;
-        app.globalData.member_id = netdata.data.member_id;
+        app.globalData.userInfo.setUserinfo(false, true, false, netdata.data.token,  netdata.data.member_id  ) ;
         wx.showToast({
           title: '登录成功',
         })

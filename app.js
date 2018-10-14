@@ -2,35 +2,27 @@
 const openIdUrl = require('./config').openIdUrl
 App({
   onLaunch: function () {
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
   },
 
   globalData: {
-    hasLogin: false,
-    isUserLoign:false , 
-    openid: null,
-    userInfo: null,
-    token:'',
-    member_id:-1
+    userInfo:{
+      isGuest: true,
+      isMember: false,
+      isAgent: false,
+      openid: "",
+      token: '',
+      member_id: -1 ,
+
+      setUserinfo: function (isGuest, isMember, isAgent, member_id, token ) {
+        this.isGuest  =  isGuest   ;
+        this.isMember =  isMember  ;
+        this.isAgent  =  isAgent   ;
+        this.member_id = member_id ;
+        this.token    = token ;
+      }
+    } 
+
+     
   },
   
   // lazy loading openid

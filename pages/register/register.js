@@ -85,8 +85,9 @@ Page({
     network_util._post1('register', this.data,
       function (netdata) {
         //关闭当前页面
-        app.globalData.hasLogin = true;
-        app.globalData.isUserLoign = true;
+        app.globalData.isGuest = false;
+        app.globalData.isMember = true;
+        app.globalData.isAgent = false;
         app.globalData.token = netdata.data.token;
         app.globalData.member_id = netdata.data.member_id;
         wx.showToast({
