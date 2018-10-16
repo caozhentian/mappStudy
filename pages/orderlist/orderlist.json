@@ -1,4 +1,9 @@
 {
     "navigationBarTitleText":"订单列表",
-    "enablePullDownRefresh": false
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+      "i-tabs": "../../dist/tabs/index",
+      "i-tab": "../../dist/tab/index",
+      "i-panel": "../../dist/panel/index"
+    }
 }

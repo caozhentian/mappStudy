@@ -17,7 +17,7 @@ Page({
   },
   getSpotdetail: function (spotId){
     var that = this ;
-    network_util._post1('scenicDetail', {
+    network_util._post1('Api/scenicDetail', {
       sid: that.data.spotId
     },
       function (netdata) {

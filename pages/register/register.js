@@ -82,7 +82,7 @@ Page({
       return
     }
 
-    network_util._post1('register', this.data,
+    network_util._post1('Api/register', this.data,
       function (netdata) {
         //关闭当前页面
         app.globalData.isGuest = false;

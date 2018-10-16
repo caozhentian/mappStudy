@@ -36,7 +36,7 @@ Page({
       return
     }
     
-    network_util._post1('/login', this.data,
+    network_util._post1('Api//login', this.data,
       function (netdata) {
         //关闭当前页面.data.token
         app.globalData.userInfo.setUserinfo(false, true, false, netdata.data.token,  netdata.data.member_id  ) ;

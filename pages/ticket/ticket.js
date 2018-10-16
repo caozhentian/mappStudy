@@ -1,7 +1,7 @@
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
 var util = require('../../utils/util2.js');
-let actualUrl = "ticketList"
+let actualUrl = "Api/ticketList"
 const app = getApp()
 Page({
     data: {
@@ -35,10 +35,10 @@ Page({
       });
     },
     gotoPay: function(event) {
-      if (app.globalData.member_id == -1) {
-        this.gotologin();
-        return;
-      }
+      // if (app.globalData.member_id == -1) {
+      //   this.gotologin();
+      //   return;
+      // }
       let ticketId = event.currentTarget.dataset.ticketId
       wx.navigateTo({
         url: '../../pages/ticketpayinfo/ticketpayinfo?id=' + ticketId

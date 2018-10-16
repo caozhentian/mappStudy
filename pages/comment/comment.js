@@ -25,7 +25,7 @@ Page({
     this.data.inputValue = e.detail.detail.value;
   },
   handleClick: function() {
-    if (app.globalData.token == '') {
+    if (app.globalData.userInfo.token == '') {
       //跳转到登陆界面
       if (!app.globalData.isUserLoign) {
         wx.navigateTo({
@@ -49,8 +49,8 @@ Page({
       return;
     }
     var that = this;
-    network_util._post1('comment', {
-        token: app.globalData.token,
+    network_util._post1('Api/comment', {
+        token: app.globalData.userInfo.token,
         sid: that.data.sid,
         content: that.data.inputValue 
       },
