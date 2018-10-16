@@ -13,4 +13,7 @@
     <template is="{{item.status}}" />
   </view>
   <include src="../../pages/list/list-page-footer"/>
+  <i-modal visible="{{ visible }}" bind:ok="cancelOrder" bind:cancel="cancleDlg">
+    <view>确认取消订单吗?</view>
+</i-modal>
 </view>

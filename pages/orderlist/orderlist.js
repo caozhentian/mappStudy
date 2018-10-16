@@ -4,6 +4,7 @@ var app = getApp()
 const curUserinfo = app.globalData.userInfo
 Page({
   data:{
+    visible:false ,
     url: actualUrl,
     page: 1,
     pageSize: 10,
@@ -11,6 +12,8 @@ Page({
     loadMoreing: false, //是否正在加载更多中
     list: [],
     currentType:0,
+    curOrderId:"" ,
+    curOrderPrice:0 ,
   },
   handleChange({ detail }) {
     this.setData({
@@ -30,37 +33,31 @@ Page({
       url: "/pages/order-details/index?id=" + orderId
     })
   },
-  cancelOrderTap:function(e){
-    var that = this;
-    var orderId = e.currentTarget.dataset.id;
-     wx.showModal({
-      title: '确定要取消该订单吗？',
-      content: '',
-      success: function(res) {
-        if (res.confirm) {
-          wx.showLoading();
-          wx.request({
-            url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/close',
-            data: {
-              token: app.globalData.token,
-              orderId: orderId
-            },
-            success: (res) => {
-              wx.hideLoading();
-              if (res.data.code == 0) {
-                that.onShow();
-              }
-            }
-          })
-        }
-      }
-    })
+  showDlg:function(e){
+    this.setData({
+      visible:true ,
+    }) 
+    this.data.curOrderId = e.currentTarget.dataset.orderid;
   },
-  toPayTap:function(e){
+  cancleDlg:function(){
+    this.setData({
+      visible: false,
+    }) 
+  },
+  cancelOrder:function(){
     var that = this;
-    var orderId = e.currentTarget.dataset.id;
-    var money = e.currentTarget.dataset.money;
-    
+    //var orderId = e.currentTarget.dataset.id;
+    this.setData({
+      visible: false,
+    }) 
+  },
+  toPay:function(e){
+    var that = this;
+    that.data.curOrderId = e.currentTarget.dataset.orderid;
+    that.data.curOrderPrice = e.currentTarget.dataset.orderprice;
+    wx.navigateTo({
+      url: '../../pages/ticketpay/ticketpay?orderId=' + that.data.curOrderId + '&price=' + that.data.curOrderPrice,
+    })
   },
   onLoad: function (options) {
     wx.startPullDownRefresh({})

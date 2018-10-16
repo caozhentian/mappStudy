@@ -5,8 +5,8 @@
     </view>
     <view slot="footer">
       <i-row i-class="row-class">
-        <i-col span="6" offset="11" i-class="col-class">支</i-col>
-        <i-col span="6" offset="1" i-class="col-class light">取消</i-col>
+        <i-col bindtap="toPay"  data-orderid="12233" data-orderprice="80" bindtap="toPay" span="6" offset="11" i-class="col-class">支</i-col>
+        <i-col bindtap="showDlg" data-orderid="12233" span="6" offset="1" i-class="col-class light">取消</i-col>
       </i-row>
     </view>
   </i-card>
