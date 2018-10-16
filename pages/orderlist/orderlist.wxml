@@ -1,39 +1,16 @@
+<import src="item.wxml" />
 <view class="container">
-  <view class="status-box">
-    <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
-      {{item}}
-      <view class="{{tabClass[index]}}"></view>
-    </view>
+  <i-tabs current="{{ currentType }}" bindchange="handleChange">
+    <i-tab key="0" title="全部"></i-tab>
+    <i-tab key="1" title="待支付"></i-tab>
+    <i-tab key="2" title="待审核"></i-tab>
+    <i-tab key="3" title="审核不通过"></i-tab>
+    <i-tab key="4" title="已完成"></i-tab>
+    <i-tab key="5" title="已取消"></i-tab>
+  </i-tabs>
+  <!-- 列表的主题部分-->
+  <view class="item_list" wx:for="{{list}}" wx:for-item="item" >
+    <template is="{{item.status}}" />
   </view>
-  <view class="no-order" hidden="{{orderList ? true : false}}">
-    <image src="/images/no-order.png" class="no-order-img"></image>
-    <view class="text">暂无订单</view>
-  </view>
-  <view class="order-list" hidden="{{orderList ? false : true}}">
-    <view class="a-order" wx:for-items="{{orderList}}" wx:key="{{index}}">
-      <view class="order-date">
-        <view class="date-box">下单时间：{{item.dateAdd}}</view>
-        <view class="status {{(item.status==-1 || item.status==4) ? '':'red'}}">{{item.statusStr}}</view>
-      </view>
-      <view class="goods-info" bindtap="orderDetail" data-id="{{item.id}}">
-        <view class="goods-des">
-          <view>订单号:{{item.orderNumber}} </view>
-          <view wx:if="{{item.remark && item.remark != ''}}">备注： {{item.remark}}</view>
-        </view>
-      </view>
-      <view>
-        <scroll-view class="goods-img-container" scroll-x="true">
-          <view class="img-box" wx:for-items="{{goodsMap[item.id]}}" wx:key="{{index}}">
-            <image src="{{item.pic}}" class="goods-img"></image>
-          </view>
-        </scroll-view>
-      </view>
-      <view class="price-box">
-        <view class="total-price">合计：¥ {{item.amountReal}}</view>
-        <view class="btn cancel-btn" hidden="{{item.status==0? fslse : true}}" bindtap="cancelOrderTap" data-id="{{item.id}}">取消订单</view>
-        <view class="btn topay-btn" hidden="{{item.status==0? fslse : true}}" bindtap="toPayTap" data-id="{{item.id}}" data-money="{{item.amountReal}}">马上付款</view>
-      </view>
-    </view>
-
-  </view>
+  <include src="../../pages/list/list-page-footer"/>
 </view>

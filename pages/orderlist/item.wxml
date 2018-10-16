@@ -1,0 +1,41 @@
+<template name="0">
+  <i-card full title="标题0" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">
+
+    </view>
+    <view slot="footer">
+      <i-row i-class="row-class">
+        <i-col span="6" offset="11" i-class="col-class">支</i-col>
+        <i-col span="6" offset="1" i-class="col-class light">取消</i-col>
+      </i-row>
+    </view>
+  </i-card>
+</template>
+<template name="1">
+  <i-card full title="标题1" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="footer">
+      已支
+    </view>
+  </i-card>
+</template>
+<template name="2">
+  <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="footer">
+      申
+    </view>
+  </i-card>
+</template>
+<template name="3">
+  <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="footer">
+      可使用
+    </view>
+  </i-card>
+</template>
+<template name="4">
+  <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="footer">
+      可完成
+    </view>
+  </i-card>
+</template>

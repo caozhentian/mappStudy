@@ -1,19 +1,29 @@
-//var wxpay = require('../../utils/pay.js')
+var network_util = require('../../utils/network_util.js');
+let actualUrl = "Order/orderList"
 var app = getApp()
+const curUserinfo = app.globalData.userInfo
 Page({
   data:{
-    statusType: ["待付款", "待发货", "待收货", "待评价", "已完成"],
+    url: actualUrl,
+    page: 1,
+    pageSize: 10,
+    hasMore: true,
+    loadMoreing: false, //是否正在加载更多中
+    list: [],
     currentType:0,
-    tabClass: ["", "", "", "", ""]
   },
-  statusTap:function(e){
-     var curType =  e.currentTarget.dataset.index;
-     this.data.currentType = curType
-     this.setData({
-       currentType:curType
-     });
-     this.onShow();
+  handleChange({ detail }) {
+    this.setData({
+      currentType: detail.key
+    });
+    if(this.data.currentType == '1'){
+      this.setData({
+        list: [{ status: '0' }, { status: '0' }, { status: '0' }]
+      });
+    }
+    wx.startPullDownRefresh({})
   },
+ 
   orderDetail : function (e) {
     var orderId = e.currentTarget.dataset.id;
     wx.navigateTo({
@@ -50,141 +60,17 @@ Page({
     var that = this;
     var orderId = e.currentTarget.dataset.id;
     var money = e.currentTarget.dataset.money;
-    wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
-      data: {
-        token: app.globalData.token
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          // res.data.data.balance
-          money = money - res.data.data.balance;
-          if (money <= 0) {
-            // 直接使用余额支付
-            wx.request({
-              url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/pay',
-              method:'POST',
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              data: {
-                token: app.globalData.token,
-                orderId: orderId
-              },
-              success: function (res2) {
-                wx.reLaunch({
-                  url: "/pages/order-list/index"
-                });
-              }
-            })
-          } else {
-            //wxpay.wxpay(app, money, orderId, "/pages/order-list/index");
-          }
-        } else {
-          wx.showModal({
-            title: '错误',
-            content: '无法获取用户资金信息',
-            showCancel: false
-          })
-        }
-      }
-    })    
-  },
-  onLoad:function(options){
-    // 生命周期函数--监听页面加载
-   
-  },
-  onReady:function(){
-    // 生命周期函数--监听页面初次渲染完成
- 
-  },
-  getOrderStatistics : function () {
-    var that = this;
-    wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/statistics',
-      data: { token: app.globalData.token },
-      success: (res) => {
-        wx.hideLoading();
-        if (res.data.code == 0) {
-          var tabClass = that.data.tabClass;
-          if (res.data.data.count_id_no_pay > 0) {
-            tabClass[0] = "red-dot"
-          } else {
-            tabClass[0] = ""
-          }
-          if (res.data.data.count_id_no_transfer > 0) {
-            tabClass[1] = "red-dot"
-          } else {
-            tabClass[1] = ""
-          }
-          if (res.data.data.count_id_no_confirm > 0) {
-            tabClass[2] = "red-dot"
-          } else {
-            tabClass[2] = ""
-          }
-          if (res.data.data.count_id_no_reputation > 0) {
-            tabClass[3] = "red-dot"
-          } else {
-            tabClass[3] = ""
-          }
-          if (res.data.data.count_id_success > 0) {
-            //tabClass[4] = "red-dot"
-          } else {
-            //tabClass[4] = ""
-          }
-
-          that.setData({
-            tabClass: tabClass,
-          });
-        }
-      }
-    })
-  },
-  onShow:function(){
-    // 获取订单列表
-    wx.showLoading();
-    var that = this;
-    var postData = {
-      token: app.globalData.token
-    };
-    postData.status = that.data.currentType;
-    this.getOrderStatistics();
-    wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/list',
-      data: postData,
-      success: (res) => {
-        wx.hideLoading();
-        if (res.data.code == 0) {
-          that.setData({
-            orderList: res.data.data.orderList,
-            logisticsMap : res.data.data.logisticsMap,
-            goodsMap : res.data.data.goodsMap
-          });
-        } else {
-          this.setData({
-            orderList: null,
-            logisticsMap: {},
-            goodsMap: {}
-          });
-        }
-      }
-    })
     
   },
-  onHide:function(){
-    // 生命周期函数--监听页面隐藏
- 
+  onLoad: function (options) {
+    wx.startPullDownRefresh({})
   },
-  onUnload:function(){
-    // 生命周期函数--监听页面卸载
- 
-  },
-
   onPullDownRefresh: function () {
     wx.showToast({
-      title: '加载...',
+      title: '加载中...',
       icon: 'loading'
     })
+    this.refresh()
   },
   stopPullDownRefresh: function () {
     wx.stopPullDownRefresh({
@@ -192,6 +78,77 @@ Page({
         wx.hideToast()
       }
     })
+  },
+  refresh: function () {
+    var that = this;
+    let startPageIndex = 0
+    var url = this.data.url
+    network_util._post1(url, {
+      token: curUserinfo.token,
+      pay_status: that.data.currentType,
+      page: startPageIndex,
+      page_size: that.data.pageSize
+    },
+      function (res) {
+        that.stopPullDownRefresh()
+        that.data.list = []
+        let datas = res.data.list;
+        datas.forEach(function (currentValue) {
+          var fullPath = network_util.BASE_PIC_URL + currentValue.image;
+          currentValue.image = fullPath;
+        })　;
+        that.setData({
+          list: datas,
+          page: startPageIndex,
+          hasRefesh: false,
+        });
+
+      },
+      function (res) {
+        console.log(res);
+        that.stopPullDownRefresh()
+      })
+  },
+
+  loadMore: function () {
+    var that = this;
+    if (this.data.loadMoreing) {
+      return
+    } else {
+      this.setData({
+        loadMoreing: true
+      })
+    }
+    var url = this.data.url
+    network_util._post1(url, {
+      token: curUserinfo.token,
+      pay_status: that.data.currentType,
+      page: ++that.data.page,
+      page_size: that.data.pageSize
+    },
+      function (res) {
+        let datas = res.data.list;
+        datas.forEach(function (currentValue) {
+          var fullPath = network_util.BASE_PIC_URL + currentValue.image;
+          currentValue.image = fullPath;
+        })　;
+        that.setData({
+          list: that.data.list.concat(datas),
+          hasRefesh: false,
+          loadMoreing: false
+        });
+      },
+      function (res) {
+        that.setData({
+          loadMoreing: false
+        });
+      })
+  },
+  onReachBottom: function () {
+    this.loadMore()
   }
+ 
+ 
+  
 
 })
