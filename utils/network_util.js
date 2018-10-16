@@ -1,7 +1,7 @@
 import util from 'util.js';
 
 //const BASE_URL = 'http://jsjr.3tichina.com:80/jinshangjinrong/jinshangjinrong/'
-const BASE_URL = 'https://www.xazhihe.cn/Api/'
+const BASE_URL = 'https://www.xazhihe.cn/'
 const BASE_PIC_URL = 'https://www.xazhihe.cn/data/'
 /**
  * url 请求地址

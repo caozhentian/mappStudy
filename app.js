@@ -13,7 +13,7 @@ App({
       token: '',
       member_id: -1 ,
 
-      setUserinfo: function (isGuest, isMember, isAgent, member_id, token ) {
+      setUserinfo: function (isGuest, isMember, isAgent, token ,member_id) {
         this.isGuest  =  isGuest   ;
         this.isMember =  isMember  ;
         this.isAgent  =  isAgent   ;

@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/orderlist/orderlist",
     "pages/index/index",
     "pages/question/question",
     "pages/commentlist/commentlist",
@@ -24,7 +25,6 @@
     "pages/forum/forum",
     "pages/ticketagree/ticketagree" ,
     "pages/ticketpay/ticketpay" ,
-    "pages/orderlist/orderlist",
     "pages/noticelist/noticelist",
     "pages/sightspotlist/sightspotlist"
   ],
