@@ -106,11 +106,6 @@ function _post1(url,data, success, fail ) {
     });
      console.log( "----end-----_get----" );
 }
-
-
-
-
-
     /**
  * url 请求地址
  * success 成功的回调
@@ -119,10 +114,10 @@ function _post1(url,data, success, fail ) {
 function _post_json(url,data, success, fail ) {
      console.log( "----_post--start-------" );
     wx.request( {
-        url: url,
-        // header: {
-        //     'content-type': 'application/json',
-        // },
+        url: BASE_URL +url,
+        header: {
+            'content-type': 'application/json',
+        },
         method:'POST',
         data:data,
         success: function( res ) {
