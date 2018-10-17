@@ -14,6 +14,12 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const hideTel= tel =>{
+  const hidedTel = tel.substr(0, 3) + "****" + tel.substr(7);
+  return hidedTel
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  hideTel: hideTel
 }

@@ -14,12 +14,12 @@ Page({
    })
   },
   
-  // agentLogin:function(){
-  //   this.userInfo
-  //   wx.navigateTo({
-  //     url: '/pages/agentlogin/agentlogin',
-  //   })
-  // },
+  logout:function(){
+    curUserInfo.logout() ;
+    wx.navigateTo({
+      url: '/pages/userlogin/userlogin',
+    })
+  },
   gotoMineOrder:function(){
     wx.navigateTo({
       url: '/pages/orderlist/orderlist',
@@ -30,4 +30,5 @@ Page({
       userInfo: curUserInfo, //用户
     })
   }
+  //代理相关操作
 })

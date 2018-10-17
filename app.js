@@ -19,6 +19,15 @@ App({
         this.isAgent  =  isAgent   ;
         this.member_id = member_id ;
         this.token    = token ;
+      },
+
+      logout:function(){
+        this.isGuest = true;
+        this.isMember = false;
+        this.isAgent = false;
+        this.member_id = -1;
+        this.token = "";
+        this.openid="";
       }
     } 
 

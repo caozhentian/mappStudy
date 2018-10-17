@@ -84,7 +84,20 @@
         </i-grid-item>
       </i-grid>
     </view>
-    <view class="my-item" bindtap="resetPassword">
+
+    <i-panel class="cell-panel-class">
+      <i-cell title="重置密码" is-link url="/pages/passwordreset/passwordreset"></i-cell>
+    </i-panel>
+    <i-panel class="cell-panel-class">
+      <i-cell title="联系我们" is-link url="/pages/contactus/contactus"></i-cell>
+    </i-panel>
+    <i-panel class="cell-panel-class">
+      <i-cell title="关于我们" is-link url="/pages/agent/agent"></i-cell>
+    </i-panel>
+    <i-panel class="cell-panel-class" bindtap="logout">
+      <i-cell title="退出登录" ></i-cell>
+    </i-panel>
+    <!-- <view class="my-item" bindtap="resetPassword">
       <navigator url="/pages/passwordreset/passwordreset" hover-class="navigator-hover">重置密码</navigator>
     </view>
     <view class="my-item" bindtap="contactUs">
@@ -92,7 +105,7 @@
     </view>
     <view class="my-item" bindtap="aboutUs">
       <navigator url="/pages/agent/agent" hover-class="navigator-hover">关于我们</navigator>
-    </view>
+    </view> -->
   </view>
   <!--底部操作栏 -->
   <view class='page-login-foot' hidden='{{userInfo.isAgent||userInfo.isMember}}'>
