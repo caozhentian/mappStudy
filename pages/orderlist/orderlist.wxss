@@ -17,3 +17,9 @@
 .col-class.light{
     background: #5cadff;
 }
+
+.i-cell-class{
+  height: 24px;
+  line-height: 24px;
+  font-size: 10px;
+}

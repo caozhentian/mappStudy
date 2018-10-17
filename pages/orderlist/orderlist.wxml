@@ -1,19 +1,22 @@
 <import src="item.wxml" />
 <view class="container">
   <i-tabs current="{{ currentType }}" bindchange="handleChange">
-    <i-tab key="0" title="全部"></i-tab>
-    <i-tab key="1" title="待支付"></i-tab>
+    <i-tab key="0" title="待支付"></i-tab>
+    <i-tab key="1" title="已支付"></i-tab>
     <i-tab key="2" title="待审核"></i-tab>
-    <i-tab key="3" title="审核不通过"></i-tab>
-    <i-tab key="4" title="已完成"></i-tab>
+    <i-tab key="3" title="审核失败"></i-tab>
+    <i-tab key="4" title="可使用"></i-tab>
     <i-tab key="5" title="已取消"></i-tab>
   </i-tabs>
   <!-- 列表的主题部分-->
-  <view class="item_list" wx:for="{{list}}" wx:for-item="item" >
+  <view class="item_list" wx:for="{{list}}" wx:for-item="item">
     <template is="{{item.status}}" />
   </view>
-  <include src="../../pages/list/list-page-footer"/>
+  <include src="../../pages/list/list-page-footer" />
   <i-modal visible="{{ visible }}" bind:ok="cancelOrder" bind:cancel="cancleDlg">
-    <view>确认取消订单吗?</view>
-</i-modal>
+    <view>{{msg}}</view>
+  </i-modal>
+  <i-modal visible="{{ visibleRerent }}" bind:ok="rerentOrder" bind:cancel="cancleRerentDlg">
+    <view>{{msg}}</view>
+  </i-modal>
 </view>

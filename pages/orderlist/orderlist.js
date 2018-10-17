@@ -1,10 +1,14 @@
 var network_util = require('../../utils/network_util.js');
 let actualUrl = "Order/orderList"
+const cancelUrl = ""
+const rerentUrl = ""
 var app = getApp()
 const curUserinfo = app.globalData.userInfo
 Page({
   data:{
     visible:false ,
+    visibleRerent:false ,
+    msg:"继续操作吗?",
     url: actualUrl,
     page: 1,
     pageSize: 10,
@@ -21,18 +25,12 @@ Page({
     });
     if(this.data.currentType == '1'){
       this.setData({
-        list: [{ status: '0' }, { status: '0' }, { status: '0' }]
+        list: [{ status: '0' }, { status: '1' }, { status: '2' },{ status: '3' }, { status: '4' }, { status: '5' }]
       });
     }
     wx.startPullDownRefresh({})
   },
- 
-  orderDetail : function (e) {
-    var orderId = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: "/pages/order-details/index?id=" + orderId
-    })
-  },
+  //取消订单
   showDlg:function(e){
     this.setData({
       visible:true ,
@@ -44,13 +42,49 @@ Page({
       visible: false,
     }) 
   },
-  cancelOrder:function(){
+  cancelOrder:function(){//取消订单的请求
     var that = this;
-    //var orderId = e.currentTarget.dataset.id;
     this.setData({
       visible: false,
     }) 
+    var that = this;
+    this.setData({
+      visibleRerent: false,
+    })
+    network_util._post1(cancelUrl, {
+      orderId: that.data.curOrderId,
+    },
+      function (res) {
+        //取消订单成功 刷新订单
+        wx.startPullDownRefresh({})
+      })
   },
+  //续租订单
+  showRerentDlg: function (e) {
+    this.setData({
+      visibleRerent: true,
+    })
+    this.data.curOrderId = e.currentTarget.dataset.orderid;
+  },
+  cancleRerentDlg: function () {
+    this.setData({
+      visibleRerent: false,
+    })
+  },
+  rerentOrder: function () {//续租的实际请求
+    var that = this;
+    this.setData({
+      visibleRerent: false,
+    })
+    network_util._post1(rerentUrl, {
+      orderId: that.data.curOrderId,
+    },
+      function (res) {
+        //续租成功 刷新订单
+        wx.startPullDownRefresh({})
+      })
+  },
+  //去支付功能
   toPay:function(e){
     var that = this;
     that.data.curOrderId = e.currentTarget.dataset.orderid;
@@ -59,9 +93,22 @@ Page({
       url: '../../pages/ticketpay/ticketpay?orderId=' + that.data.curOrderId + '&price=' + that.data.curOrderPrice,
     })
   },
+  //审核失败 重新上传
+  toRetryUpload:function(e){
+    var that = this;
+    that.data.curOrderId = e.currentTarget.dataset.orderid;
+    that.data.curOrderPrice = e.currentTarget.dataset.orderprice;
+    wx.navigateTo({
+      url: '../../pages/ticketpayinfo/ticketpayinfo?orderId=' + that.data.curOrderId 
+    })
+  },
   onLoad: function (options) {
     wx.startPullDownRefresh({})
   },
+  onShow:function(){//支付完成 或者重新上传 返回，刷新订单
+    wx.startPullDownRefresh({})
+  },
+  // 下拉刷新功能
   onPullDownRefresh: function () {
     wx.showToast({
       title: '加载中...',

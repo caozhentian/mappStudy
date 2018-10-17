@@ -1,16 +1,21 @@
+<!--待支付-->
 <template name="0">
-  <i-card full title="标题0" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+  <i-card full title="名称" extra="西南中国" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
     <view slot="content">
-
+      <i-panel>
+        <i-cell i-class ="i-cell-class"  title="订单编号"  value="SN89898"></i-cell>
+        <i-cell i-class ="i-cell-class" title="手机号"  value="1316789090"></i-cell>
+      </i-panel>
     </view>
     <view slot="footer">
       <i-row i-class="row-class">
-        <i-col bindtap="toPay"  data-orderid="12233" data-orderprice="80" bindtap="toPay" span="6" offset="11" i-class="col-class">支</i-col>
-        <i-col bindtap="showDlg" data-orderid="12233" span="6" offset="1" i-class="col-class light">取消</i-col>
+        <i-col bindtap="toPay" data-orderid="12233" data-orderprice="80" bindtap="toPay" span="6" offset="11" i-class="col-class">去支付</i-col>
+        <i-col bindtap="showDlg" data-orderid="12233" span="6" offset="1" i-class="col-class light">取消订单</i-col>
       </i-row>
     </view>
   </i-card>
 </template>
+<!--已支付-->
 <template name="1">
   <i-card full title="标题1" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
     <view slot="footer">
@@ -18,6 +23,7 @@
     </view>
   </i-card>
 </template>
+<!--待审核-->
 <template name="2">
   <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
     <view slot="footer">
@@ -25,17 +31,34 @@
     </view>
   </i-card>
 </template>
+<!--审核失败-->
 <template name="3">
+  <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="footer">
+      <i-row i-class="row-class">
+        <i-col bindtap="toRetryUpload" data-orderid="12233" span="6" offset="18" i-class="col-class">重新上传</i-col>
+      </i-row>
+    </view>
+  </i-card>
+</template>
+<!--可使用-->
+<template name="4">
   <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
     <view slot="footer">
       可使用
     </view>
+    <view slot="footer">
+      <i-row i-class="row-class">
+        <i-col bindtap="showRerentDlg" data-orderid="12233" span="6" offset="18" i-class="col-class">续租</i-col>
+      </i-row>
+    </view>
   </i-card>
 </template>
-<template name="4">
+<!--已取消-->
+<template name="5">
   <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
     <view slot="footer">
-      可完成
+      已取消
     </view>
   </i-card>
 </template>
