@@ -26,7 +26,8 @@ Page({
       idcard: "132330198109142478",
       tel: "13186075290",
     },
-    url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+    urlIdCard: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+    urlResidentfrtgh:"http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" ,
     isHidden: true
   },
   onLoad: function(option) {
@@ -121,7 +122,7 @@ Page({
     })
   },
 
-  upload: function() {
+  uploadIdcard: function() {
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有

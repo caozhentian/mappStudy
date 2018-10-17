@@ -23,13 +23,14 @@
     </view>
 
 
+  <!--身份证 -->
+  <view class='container_upload' hidden='{{isHidden}}'>
+    <image class='image_upload' src='{{urlIdCard}}'></image>
+    <button type='primary' size='mini' bindtap='uploadIdcard'>上传正面照片</button>
+  </view>
   <!--居住证 -->
   <view class='container_upload' hidden='{{isHidden}}'>
-    <image class='image_upload' src='{{url}}'></image>
-    <button type='primary' size='mini' bindtap='upload'>上传正面照片</button>
-  </view>
-  <view class='container_upload' hidden='{{isHidden}}'>
-    <image class='image_upload' src='{{url2}}'></image>
+    <image class='image_upload' src='{{urlResidentfrtgh}}'></image>
     <button type='primary' size='mini' bindtap='upload'>上传正面照片</button>
   </view>
   </view>

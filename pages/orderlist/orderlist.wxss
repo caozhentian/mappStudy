@@ -23,3 +23,8 @@
   line-height: 24px;
   font-size: 10px;
 }
+
+.order-item-class{
+  display: flex ;
+  justify-content: space-between;
+}
