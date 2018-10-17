@@ -2,8 +2,9 @@ const paymentUrl = require('../../config').paymentUrl
 const identitycode = require('../../utils/identitycode.js')
 const phonevaliate = require('../../utils/phonevaliate.js')
 var network_util = require('../../utils/network_util.js');
-var app = getApp()
-
+const app = getApp()
+const curUserInfo = app.globalData.userInfo
+const agentLoginUrl = ""
 Page({
   data: {
     idcard: "132330198109142478",
@@ -13,6 +14,9 @@ Page({
   },
 
   login:function(){
+    curUserInfo.isAgent = true   ;
+    curUserInfo.isMember = false ;
+    curUserInfo.isGuest = false  ;
     let idcard = this.data.idcard
     if (idcard.length == 0 || idcard == undefined){
       wx.showToast({
@@ -22,7 +26,6 @@ Page({
       return 
     }
    
-    
     let password = this.data.password
     if (password == '' || password == undefined) {
       wx.showToast({
@@ -32,7 +35,7 @@ Page({
       return
     }
     
-    network_util._post1('/abdn', this.data,
+    network_util._post1(agentLoginUrl, this.data,
       function (res) {
         //关闭当前页面
         wx.navigateBack({

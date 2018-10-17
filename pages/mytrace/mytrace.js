@@ -1,7 +1,7 @@
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
 var util = require('../../utils/util2.js');
-let actualUrl = "information/findInformationList" 
+let actualUrl = "Api/ticketList" 
 
 Page({
   data :{
@@ -35,6 +35,8 @@ Page({
     let startPageIndex = 0 
     var url = this.data.url 
     network_util._post1(url, {
+      type: 'year_ticket',
+      city: '610100',
       nextPage: startPageIndex ,
       pageSize: that.data.pageSize
       },
@@ -65,12 +67,14 @@ Page({
     }
     var url = this.data.url 
     network_util._post1(url, {
+      type: 'year_ticket',
+      city: '610100',
       nextPage: ++that.data.page ,
       pageSize: that.data.pageSize
     },
       function (res) {
         that.setData({
-          list: that.data.list.concat(res.data.object),
+          list: that.data.list.concat(res.data.list),
           hasRefesh: false,
           loadMoreing: false
         });

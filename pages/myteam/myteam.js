@@ -11,7 +11,7 @@ Page({
       endDate: "2018/09/27",
     },
     //列表相关的数据
-    pagedata: new PageData("message/findMessageList"),
+    pagedata: new PageData("Api/ticketList"),
   },
   bindStartDateChange: function(e) {
     this.setData({
@@ -73,12 +73,14 @@ Page({
     this.data.pagedata.refreshing = true
     var url = this.data.pagedata.url
     network_util._post1(url, {
+      type: 'year_ticket',
+      city: '610100',
         'nextPage': startPageIndex,
         'pageSize': this.data.pagedata.pageSize
       },
       function(res) {
         that.stopPullDownRefresh()
-        let datas = res.data.object
+        let datas = res.data.list
         that.setData({
           'pagedata.list': datas,
           'pagedata.pageIndex': startPageIndex,
@@ -103,12 +105,14 @@ Page({
     }
     var url = this.data.pagedata.url
     network_util._post1(url, {
+      type: 'year_ticket',
+      city: '610100',
         nextPage: ++that.data.pagedata.pageIndex,
         pageSize: this.data.pagedata.pageSize
       },
       function(res) {
         that.setData({
-          'pagedata.list': that.data.pagedata.list.concat(res.data.object),
+          'pagedata.list': that.data.pagedata.list.concat(res.data.list),
           'pagedata.loadMoreing': false
         });
       },

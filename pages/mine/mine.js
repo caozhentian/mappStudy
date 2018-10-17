@@ -5,15 +5,15 @@ const app = getApp()
 const curUserInfo = app.globalData.userInfo
 Page({
   data: {
-    grids: [0, 1, 2, 3]
+    grids: [0, 1, 2, 3],
+    visible: false,
+    userInfo: curUserInfo, //用户
   },
-  userInfo: curUserInfo, //用户
   loginRegister:function(){ //登录或者注册
    wx.navigateTo({
      url: '/pages/userlogin/userlogin',
    })
   },
-  
   logout:function(){
     curUserInfo.logout() ;
     wx.navigateTo({
@@ -21,6 +21,12 @@ Page({
     })
   },
   gotoMineOrder:function(){
+    if (!curUserInfo.isMember){
+      this.setData({
+        visible: true
+      })
+      return ;  
+    }
     wx.navigateTo({
       url: '/pages/orderlist/orderlist',
     })
@@ -29,6 +35,44 @@ Page({
     this.setData({
       userInfo: curUserInfo, //用户
     })
-  }
-  //代理相关操作
+  },
+  handleOK:function(){
+    this.setData({
+      visible: false
+    })
+    wx.navigateTo({
+      url: '/pages/userlogin/userlogin',
+    })
+  },
+  handleCancel:function(){
+    this.setData({
+      visible:false 
+    })
+  },
+  //代理操作
+  agentLogin:function(){
+    wx.navigateTo({
+      url: '/pages/agentlogin/agentlogin',
+    })
+  },
+  gotoAgentProduct:function(){
+    wx.navigateTo({
+      url: '/pages/agentproduct/agentproduct',
+    })
+  },
+  gotoQrCode: function () {
+    wx.navigateTo({
+      url: '/pages/agentProduct/agentProduct',
+    })
+  },
+  gotoMyTeam: function () {
+    wx.navigateTo({
+      url: '/pages/myteam/myteam',
+    })
+  },
+  gotoMyincome: function () {
+    wx.navigateTo({
+      url: '/pages/myincome/myincome',
+    })
+  },
 })

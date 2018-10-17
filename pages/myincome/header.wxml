@@ -52,8 +52,8 @@
       </view>
     </view>
 
-    <view class="button-sp-area">
-      <button class="weui-btn" type="primary" plain="true">搜索</button>
+    <view class="button-sp-area search-class2">
+      <button class="weui-btn search-class" type="primary" plain="true">搜索</button>
     </view>
 
   </view>

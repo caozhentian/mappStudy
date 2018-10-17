@@ -44,13 +44,13 @@
         <text class="agent-level">第一季{{level}}</text>
       </view>
       <i-grid>
-        <i-grid-item>
+        <i-grid-item bindtap="gotoAgentProduct">
           <i-grid-icon>
             <image src="../../image/icon_ticket_HL.png" />
           </i-grid-icon>
           <i-grid-label>代理商品</i-grid-label>
         </i-grid-item>
-        <i-grid-item>
+        <i-grid-item bindtap="gotoQrCode">
           <i-grid-icon>
             <image src="../../image/icon_ticket_HL.png" />
           </i-grid-icon>
@@ -64,7 +64,7 @@
         </i-grid-item>
       </i-grid>
       <i-grid>
-        <i-grid-item>
+        <i-grid-item bindtap="gotoMyTeam">
           <i-grid-icon>
             <image src="../../image/icon_ticket_HL.png" />
           </i-grid-icon>
@@ -76,7 +76,7 @@
           </i-grid-icon>
           <i-grid-label>海报制作</i-grid-label>
         </i-grid-item>
-        <i-grid-item>
+        <i-grid-item bindtap="gotoMyincome">
           <i-grid-icon>
             <image src="../../image/icon_ticket_HL.png" />
           </i-grid-icon>
@@ -94,23 +94,18 @@
     <i-panel class="cell-panel-class">
       <i-cell title="关于我们" is-link url="/pages/agent/agent"></i-cell>
     </i-panel>
-    <i-panel class="cell-panel-class" bindtap="logout">
-      <i-cell title="退出登录" ></i-cell>
-    </i-panel>
-    <!-- <view class="my-item" bindtap="resetPassword">
-      <navigator url="/pages/passwordreset/passwordreset" hover-class="navigator-hover">重置密码</navigator>
+    <view hidden='{{userInfo.isGuest}}'>
+      <i-panel class="cell-panel-class" bindtap="logout">
+        <i-cell title="退出登录"></i-cell>
+      </i-panel>
     </view>
-    <view class="my-item" bindtap="contactUs">
-      <navigator url="/pages/contactus/contactus" hover-class="navigator-hover">联系我们</navigator>
-    </view>
-    <view class="my-item" bindtap="aboutUs">
-      <navigator url="/pages/agent/agent" hover-class="navigator-hover">关于我们</navigator>
-    </view> -->
   </view>
   <!--底部操作栏 -->
   <view class='page-login-foot' hidden='{{userInfo.isAgent||userInfo.isMember}}'>
     <button class='btn' bindtap='agentLogin' type='primary' size='mini'>我是代理</button>
     <button class='btn' bindtap='serviceLogin' type='primary' size='mini'>我是客服</button>
   </view>
-
+  <i-modal visible="{{visible}}" bind:ok="handleOK" bind:cancel="handleCancel">
+    <view>请先登录</view>
+  </i-modal>
 </view>

@@ -1,7 +1,9 @@
 var util = require('../../utils/util2.js');
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
-import { PageData } from '../list/PageData.js'  
+import {
+  PageData
+} from '../list/PageData.js'
 Page({
   data: {
     header: {
@@ -9,7 +11,7 @@ Page({
       endDate: "2018/09/27",
     },
     //列表相关的数据
-    pagedata: new PageData("message/findMessageList"),
+    pagedata: new PageData("Api/ticketList"),
   },
   bindStartDateChange: function(e) {
     this.setData({
@@ -30,14 +32,13 @@ Page({
     this.setData({
       'header.endDate': nowDate
     })
-	wx.startPullDownRefresh({  
-    }) //刷新
+    wx.startPullDownRefresh({}) //刷新
   },
 
   //列表下拉 加载相关的数据
-  stopPullDownRefresh: function () {
+  stopPullDownRefresh: function() {
     wx.stopPullDownRefresh({
-      complete: function (res) {
+      complete: function(res) {
         wx.hideToast()
       }
     })
@@ -45,18 +46,20 @@ Page({
   refresh: function() {
     if (this.data.pagedata.loadMoreing || this.data.pagedata.refreshing) {
       return
-    } 
+    }
     var that = this;
     let startPageIndex = 0
     this.data.pagedata.refreshing = true
     var url = this.data.pagedata.url
     network_util._post1(url, {
+        type: 'year_ticket',
+        city: '610100',
         'nextPage': startPageIndex,
         'pageSize': this.data.pagedata.pageSize
       },
       function(res) {
         that.stopPullDownRefresh()
-        let datas = res.data.object
+        let datas = res.data.list
         that.setData({
           'pagedata.list': datas,
           'pagedata.pageIndex': startPageIndex,
@@ -81,12 +84,14 @@ Page({
     }
     var url = this.data.pagedata.url
     network_util._post1(url, {
+        type: 'year_ticket',
+        city: '610100',
         nextPage: ++that.data.pagedata.pageIndex,
         pageSize: this.data.pagedata.pageSize
       },
       function(res) {
         that.setData({
-          'pagedata.list': that.data.pagedata.list.concat(res.data.object),
+          'pagedata.list': that.data.pagedata.list.concat(res.data.list),
           'pagedata.loadMoreing': false
         });
       },

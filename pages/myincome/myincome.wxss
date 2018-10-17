@@ -37,3 +37,17 @@ r1{
    justify-content: center;
 }
 
+.search-class{
+  margin-left: 15px   ;
+  margin-right: 15px  ;
+  font-size: 12px     ;
+  height: 30px        ;
+}
+
+.search-class2{
+  margin-left: 15px   ;
+  margin-right: 15px  ;
+  margin-bottom: 10px ;
+  font-size: 12px     ;
+  height: 34px        ;
+}
