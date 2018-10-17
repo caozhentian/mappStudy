@@ -4,7 +4,6 @@ const app = getApp()
 const curUserInfo = app.globalData.userInfo 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: curUserInfo,
     //轮播图
     imgUrls: [

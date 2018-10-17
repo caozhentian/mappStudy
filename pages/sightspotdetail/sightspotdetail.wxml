@@ -35,7 +35,7 @@
     <view class="page__bd page__bd_spacing">
       <view class="button-sp-area">
         <button class="weui-btn mini-btn" type="primary" size="mini">购买</button>
-        <button class="weui-btn mini-btn" type="default" size="mini">按钮</button>
+        
         <button class="weui-btn mini-btn" bindtap="gotoComment" type="primary" size="mini">评论</button>
       </view>
     </view>

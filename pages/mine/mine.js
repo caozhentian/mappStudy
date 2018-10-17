@@ -8,6 +8,7 @@ Page({
     grids: [0, 1, 2, 3],
     visible: false,
     userInfo: curUserInfo, //用户
+    mobileHidden: ""
   },
   loginRegister:function(){ //登录或者注册
    wx.navigateTo({
@@ -34,7 +35,9 @@ Page({
   onShow:function(){
     this.setData({
       userInfo: curUserInfo, //用户
+      mobileHidden: util.hideTel(curUserInfo.mobile)
     })
+    
   },
   handleOK:function(){
     this.setData({

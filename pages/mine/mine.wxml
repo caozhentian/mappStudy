@@ -5,6 +5,7 @@
         <view class="userinfo-avatar" background-size="cover">
           <open-data type="userAvatarUrl"></open-data>
         </view>
+        <view>{{mobileHidden}}</view>
         <button type='primary' bindtap="loginRegister" size='mini' hidden='{{!userInfo.isGuest}}'>登录/注册 </button>
       </view>
       <i-grid>
@@ -12,13 +13,13 @@
           <i-grid-icon>
             <image src="../../image/icon_ticket_HL.png" />
           </i-grid-icon>
-          <i-grid-label>年</i-grid-label>
+          <i-grid-label>年票</i-grid-label>
         </i-grid-item>
         <i-grid-item>
           <i-grid-icon>
             <image src="../../image/icon_ticket_HL.png" />
           </i-grid-icon>
-          <i-grid-label>普</i-grid-label>
+          <i-grid-label>普票</i-grid-label>
         </i-grid-item>
         <i-grid-item>
           <i-grid-icon>
