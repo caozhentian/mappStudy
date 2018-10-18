@@ -5,70 +5,44 @@ var app = getApp()
 Page({
   data: {
     orderId: "",
-    price: ""
+    price: "",
+    payinfo: {
+      timeStamp: '',
+      nonceStr: '',
+      package2: '',
+      signType: '',
+      paySign: '',
+    }
   },
   onLoad: function(options) {
     this.setData({
-      orderId: options.orderId,
-      price: options.price
+       orderId: options.orderId,
+       price: options.price,
+      'payinfo.timeStamp': options.timeStamp,
+      'payinfo.nonceStr': options.nonceStr,
+      'payinfo.package2': options.package,
+      'payinfo.signType': options.signType,
+      'payinfo.paySign': options.paySign,
     })
   },
   requestPayment: function() {
+    let self = this;
     self.setData({
       loading: true
     })
-    //微信登录登录 
-    var that = this
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        network_util._post1('Often/getOpenid', {
-            js_code: res.code,
-
-          },
-          function(netdata) {
-
-          },
-          function(res) {
-
-          })
+    wx.requestPayment({
+      'timeStamp': self.data.payinfo.timeStamp,
+      'nonceStr': self.data.payinfo.nonceStr,
+      'package': self.data.payinfo.package2,
+      'signType': self.data.payinfo.signType,
+      'paySign': self.data.payinfo.paySign,
+      'success': function(res) {
+        console.log('成功:' + res);
       },
-      function() {},
-      function() {
-        that.setData({
-          loading: true
-        })
-      }
-    })
-
-
-    // 此处需要先调用wx.login方法获取code，然后在服务端调用微信接口使用code换取下单用户的openId
-    // 具体文档参考https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-login.html?t=20161230#wxloginobject
-    app.getUserOpenId(function(err, openid) {
-      if (!err) {
-        wx.request({
-          url: paymentUrl,
-          data: {
-            openid
-          },
-          method: 'POST',
-          success: function(res) {
-            console.log('unified order success, response is:', res)
-            var payargs = res.data.payargs
-            wx.requestPayment({
-              timeStamp: payargs.timeStamp,
-              nonceStr: payargs.nonceStr,
-              package: payargs.package,
-              signType: payargs.signType,
-              paySign: payargs.paySign
-            })
-
-            self.setData({
-              loading: false
-            })
-          }
-        })
-      } else {
+      'fail': function(res) {
+        console.log('失败:' + res);
+      },
+      'complete': function(res) {
         self.setData({
           loading: false
         })

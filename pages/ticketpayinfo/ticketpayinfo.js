@@ -149,23 +149,12 @@ Page({
       success: function(res) {
         if (res.data.msg == "success") {
           wx.navigateTo({
-            url: '../../pages/ticketpay/ticketpay?orderId=' + "" + '&price=' + that.data.ticketInfo.price,
-          })
-          wx.requestPayment({
-            'timeStamp': res.data.data.timeStamp,
-            'nonceStr': res.data.data.nonceStr,
-            'package': res.data.data.package,
-            'signType': 'MD5',
-            'paySign': res.data.data.paySign,
-            'success': function(res) {
-              console.log('成功:' + res);
-            },
-            'fail': function(res) {
-              console.log('失败:' + res);
-            },
-            'complete': function(res) {
-              console.log('完成:' + res);
-            }
+            url: '../../pages/ticketpay/ticketpay?orderId=' + "" + '&price=' + that.data.ticketInfo.price
+              + '&timeStamp=' + res.data.data.timeStamp 
+              + '&nonceStr=' + res.data.data.nonceStr 
+              + '&package=' + res.data.data.package 
+              + '&signType=' + res.data.data.signType 
+              + '&paySign=' + res.data.data.paySign,
           })
         }
       }
