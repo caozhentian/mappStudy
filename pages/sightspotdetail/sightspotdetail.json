@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "景点详情",
+  "navigationBarTitleText": "",
   "usingComponents": {
     "i-grid": "../../dist/grid/index",
     "i-grid-item": "../../dist/grid-item/index",

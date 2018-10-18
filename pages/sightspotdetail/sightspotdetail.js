@@ -21,6 +21,9 @@ Page({
       sid: that.data.spotId
     },
       function (netdata) {
+        wx.setNavigationBarTitle({
+          title: netdata.data.name
+        });
         let picUrl = network_util.BASE_PIC_URL + netdata.data.image;
         that.setData({
           name: netdata.data.name,

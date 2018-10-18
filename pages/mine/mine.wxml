@@ -93,7 +93,7 @@
       <i-cell title="联系我们" is-link url="/pages/contactus/contactus"></i-cell>
     </i-panel>
     <i-panel class="cell-panel-class">
-      <i-cell title="关于我们" is-link url="/pages/agent/agent"></i-cell>
+      <i-cell title="关于我们" is-link url=""></i-cell>
     </i-panel>
     <view hidden='{{userInfo.isGuest}}'>
       <i-panel class="cell-panel-class" bindtap="logout">

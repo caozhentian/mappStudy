@@ -39,12 +39,12 @@ Page({
       'ticketInfo.price': options.price
     })
   },
-  onShow: function() {
-    this.setData({
-      'ticketInfo.idcard': curUserInfo.idcard,
-      'ticketInfo.tel': curUserInfo.mobile
-    })
-  },
+  // onShow: function() {
+  //   this.setData({
+  //     'ticketInfo.idcard': curUserInfo.idcard,
+  //     'ticketInfo.tel': curUserInfo.mobile
+  //   })
+  // },
   createOrder: function() {
     //创建订单
     let member_id = curUserInfo.member_id;
@@ -96,21 +96,14 @@ Page({
       })
       return
     }
-    let type = this.data.ticketInfo.type ;
-    if(type == 2){
-      if(!this.data.isUploadIdCard){
+    let type = this.data.ticketInfo.idCardType ;
+    if(type == '2'){
+      if (!this.data.isUploadIdCard && !this.data.isResidentfrtgh ){
         wx.showToast({
-          title: '请上传身份证正面照片',
+          title: '请上传至少一张身份证或者居住证正面照片',
           icon: 'none',
         })
         return ;
-      }
-      if (!this.data.isResidentfrtgh) {
-        wx.showToast({
-          title: '请上传居住证照片',
-          icon: 'none',
-        })
-        return;
       }
     }
     if (!this.data.isAgree) {
@@ -121,6 +114,9 @@ Page({
       return
     }
     var that = this;
+    wx.showLoading({
+      title: '',
+    })
     wx.login({
       success: function(res) {
         if (res.code) {
@@ -137,7 +133,10 @@ Page({
             }
           })
         } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
+          wx.showToast({
+            title: '无法获取openId，请重试！',
+            icon:'none'
+          })
         }
       }
     });
@@ -160,7 +159,8 @@ Page({
               + '&package=' + res.data.data.package 
               + '&signType=' + res.data.data.signType 
               + '&paySign=' + res.data.data.paySign,
-          })
+          });
+          wx.hideLoading();
         }
         else{
           wx.showToast({
@@ -169,6 +169,12 @@ Page({
           })
           return;
         }
+      },
+      fail:function(){
+        wx.showToast({
+          title: '无法创建订单，请重试！',
+          icon: 'none'
+        })
       }
     })
   },
@@ -210,6 +216,9 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
         //上传图片
+        wx.showLoading({
+          title: '',
+        });
         wx.uploadFile({
           url: 'https://www.xazhihe.cn/Api/uploadImg',
           filePath: tempFilePaths[0],

@@ -13,7 +13,7 @@
     </view>
 
     <view class="page-section">
-      <view class="page-section-title">身份证号：</view>
+      <view class="page-section-title">身份证号码：</view>
       <input class="weui-input" value="{{ticketInfo.idcard}}" bindinput="bindIdcardKeyInput" type="idcard" placeholder="请输入身份证" maxlength="18" confirm-type='next' />
     </view>
 
@@ -24,6 +24,9 @@
 
 
     <!--身份证 -->
+    <view class="page-section" hidden='{{isHidden}}'>
+      <view class="page-section-title">身份证或者居住证至少上传一张:</view>
+    </view>
     <view class='container_upload' hidden='{{isHidden}}'>
       <image class='image_upload' src='{{urlIdCard}}'></image>
       <button type='primary' data-img-type="1" size='mini' bindtap='uploadIdcard'>上传身份证正面照片</button>
@@ -31,22 +34,22 @@
     <!--居住证 -->
     <view class='container_upload' hidden='{{isHidden}}'>
       <image class='image_upload' src='{{urlResidentfrtgh}}'></image>
-      <button type='primary'  data-img-type="2" size='mini' bindtap='uploadResidentfrtgh'>上传居住证照片</button>
+      <button type='primary' data-img-type="2" size='mini' bindtap='uploadResidentfrtgh'>上传居住证正面照片</button>
     </view>
   </view>
   <!--底部操作栏 -->
-   <checkbox-group bindchange="bindAgreeChange">
-      <label class="weui-agree" for="weuiAgree">
-        <view class="weui-agree__text">
-          <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
-          <view class="weui-agree__checkbox-icon">
-            <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
-          </view>
-          阅读并同意
-          <navigator url="/pages/ticketagree/ticketagree" class="weui-agree__link">《相关条款》</navigator>
+  <checkbox-group bindchange="bindAgreeChange">
+    <label class="weui-agree" for="weuiAgree">
+      <view class="weui-agree__text">
+        <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+        <view class="weui-agree__checkbox-icon">
+          <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
         </view>
-      </label>
-    </checkbox-group>
+        阅读并同意
+        <navigator url="/pages/ticketagree/ticketagree" class="weui-agree__link">《相关条款》</navigator>
+      </view>
+    </label>
+  </checkbox-group>
   <view class='page-pay-foot'>
     <button class='btn' bindtap='gopay' type='primary' size='mini'>去支付</button>
   </view>
