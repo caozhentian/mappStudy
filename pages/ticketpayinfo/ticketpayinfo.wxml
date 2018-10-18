@@ -2,42 +2,53 @@
   <view class="page-body">
     <view class="page-section">
       <view class="page-section-title">身份证类型:</view>
-        <radio-group bindchange="radioChange">
-          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
-            <view class="weui-cell__hd">
-              <radio value="{{item.value}}" checked="{{item.checked}}" />
-            </view>
-            <view class="weui-cell__bd">{{item.name}}</view>
-          </label>
-        </radio-group>
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+          <view class="weui-cell__hd">
+            <radio value="{{item.value}}" checked="{{item.checked}}" />
+          </view>
+          <view class="weui-cell__bd">{{item.name}}</view>
+        </label>
+      </radio-group>
     </view>
 
     <view class="page-section">
       <view class="page-section-title">身份证号：</view>
-      <input class="weui-input" value ="{{ticketInfo.idcard}}" bindinput="bindIdcardKeyInput" type="idcard" placeholder="请输入身份证" maxlength="18" confirm-type='next' />
+      <input class="weui-input" value="{{ticketInfo.idcard}}" bindinput="bindIdcardKeyInput" type="idcard" placeholder="请输入身份证" maxlength="18" confirm-type='next' />
     </view>
 
     <view class="page-section">
       <view class="page-section-title">手机号：</view>
-      <input class="weui-input" value ="{{ticketInfo.tel}}" bindinput="bindTelKeyInput" type="number" placeholder="请输入手机号" maxlength="11" confirm-type='done' />
+      <input class="weui-input" value="{{ticketInfo.tel}}" bindinput="bindTelKeyInput" type="number" placeholder="请输入手机号" maxlength="11" confirm-type='done' />
     </view>
 
 
-  <!--身份证 -->
-  <view class='container_upload' hidden='{{isHidden}}'>
-    <image class='image_upload' src='{{urlIdCard}}'></image>
-    <button type='primary' size='mini' bindtap='uploadIdcard'>上传正面照片</button>
-  </view>
-  <!--居住证 -->
-  <view class='container_upload' hidden='{{isHidden}}'>
-    <image class='image_upload' src='{{urlResidentfrtgh}}'></image>
-    <button type='primary' size='mini' bindtap='upload'>上传正面照片</button>
-  </view>
+    <!--身份证 -->
+    <view class='container_upload' hidden='{{isHidden}}'>
+      <image class='image_upload' src='{{urlIdCard}}'></image>
+      <button type='primary' data-img-type="1" size='mini' bindtap='uploadIdcard'>上传身份证正面照片</button>
+    </view>
+    <!--居住证 -->
+    <view class='container_upload' hidden='{{isHidden}}'>
+      <image class='image_upload' src='{{urlResidentfrtgh}}'></image>
+      <button type='primary'  data-img-type="2" size='mini' bindtap='uploadResidentfrtgh'>上传居住证照片</button>
+    </view>
   </view>
   <!--底部操作栏 -->
+   <checkbox-group bindchange="bindAgreeChange">
+      <label class="weui-agree" for="weuiAgree">
+        <view class="weui-agree__text">
+          <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+          <view class="weui-agree__checkbox-icon">
+            <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+          </view>
+          阅读并同意
+          <navigator url="/pages/ticketagree/ticketagree" class="weui-agree__link">《相关条款》</navigator>
+        </view>
+      </label>
+    </checkbox-group>
   <view class='page-pay-foot'>
-    <text class='acount'>订单金额 ￥：100</text>
-    <button class = 'btn' bindtap='gopay' type='primary' size='mini'>去支付</button>
+    <button class='btn' bindtap='gopay' type='primary' size='mini'>去支付</button>
   </view>
-  
+
 </view>

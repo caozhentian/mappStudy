@@ -22,16 +22,28 @@ Page({
     ticketInfo: {
       ticketId: "",
       idCardType: 1,
-      prince: 100,
-      idcard: "132330198109142478",
-      tel: "13186075290",
+      price: "",
+      idcard: curUserInfo.idcard,
+      tel: curUserInfo.mobile,
     },
-    urlIdCard: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-    urlResidentfrtgh: "http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg",
-    isHidden: true
+    urlIdCard: '',
+    urlResidentfrtgh: "",
+    isUploadIdCard:false,
+    isResidentfrtgh:false  ,
+    isHidden: true,
+    isAgree: false,
   },
   onLoad: function(options) {
-    this.data.ticketInfo.ticketId = options.id;
+    this.setData({
+      'ticketInfo.ticketId': options.id,
+      'ticketInfo.price': options.price
+    })
+  },
+  onShow: function() {
+    this.setData({
+      'ticketInfo.idcard': curUserInfo.idcard,
+      'ticketInfo.tel': curUserInfo.mobile
+    })
   },
   createOrder: function() {
     //创建订单
@@ -48,30 +60,9 @@ Page({
       openid: curUserInfo.openid,
       id_card: this.data.ticketInfo.idcard,
       mobile: this.data.ticketInfo.tel,
-      id_card_image1: "abc",
-      id_card_image2: "abc",
-
-    }) ;
-    // network_util._post_json('Order/createOrder', {
-    //     member_id: member_id,
-    //     tid: this.data.ticketInfo.ticketId,
-    //     token: token,
-    //     openid: curUserInfo.openid,
-    //     id_card: this.data.ticketInfo.idcard,
-    //     mobile: this.data.ticketInfo.tel,
-    //     id_card_image1: "abc",
-    //     id_card_image2: "abc",
-
-    //   },
-    //   function(netdata) {
-    //     wx.navigateTo({
-    //       url: '../../pages/ticketpay/ticketpay?orderId=' + 1 + 'price:' + 10,
-    //     })
-    //   },
-    //   function(res) {
-    //     console.log(res);
-    //   })
-
+      id_card_image1: this.data.urlIdCard,
+      id_card_image2: this.data.urlResidentfrtgh,
+    });
   },
   gopay: function() {
     let idcard = this.data.ticketInfo.idcard
@@ -85,6 +76,7 @@ Page({
     if (!identitycode.identityCodeValid(idcard)) {
       wx.showToast({
         title: '身份证输入有误',
+        icon: 'none',
       })
       return
     }
@@ -101,22 +93,28 @@ Page({
       })
       return
     }
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //     network_util._post1('Often/getOpenid', {
-    //       js_code: res.code,
-    //       },
-    //       function(netdata) {
-    //         createOrder()
-    //       },
-    //       function(res) {
-
-    //       })
-    //   },
-    //   function() {},
-    //   function() {}
-    // })
+    let type = this.data.ticketInfo.type ;
+    if(type == 2){
+      if(!this.data.isUploadIdCard){
+        wx.showToast({
+          title: '请先上传身份证正面照片',
+        })
+        return ;
+      }
+      if (!this.data.isResidentfrtgh) {
+        wx.showToast({
+          title: '请先上传居住证照片',
+        })
+        return;
+      }
+    }
+    if (!this.data.isAgree) {
+      wx.showToast({
+        title: '请同意《相关条款》内容',
+        icon: 'none',
+      })
+      return
+    }
     var that = this;
     wx.login({
       success: function(res) {
@@ -139,7 +137,7 @@ Page({
       }
     });
   },
-  formSubmit: function (formData) {
+  formSubmit: function(formData) {
     var that = this;
     wx.request({
       url: 'https://www.xazhihe.cn/Order/createOrder',
@@ -147,36 +145,39 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function (res) {
-        /*if (res.data.flag == 'error') {
-          that.checkValue1(res.data.msg);
-        } else {
-          that.confirm_one();
-        }*/
-        console.log(res);
+      responseType:'application/json',
+      success: function(res) {
         if (res.data.msg == "success") {
-          wx.requestPayment(
-            {
-              'timeStamp': res.data.data.timeStamp,
-              'nonceStr': res.data.data.nonceStr,
-              'package': res.data.data.package,
-              'signType': 'MD5',
-              'paySign': res.data.data.paySign,
-              'success': function (res) {
-                console.log('成功:' + res);
-              },
-              'fail': function (res) {
-                console.log('失败:' + res);
-              },
-              'complete': function (res) {
-                console.log('完成:' + res);
-              }
-            })
+          wx.navigateTo({
+            url: '../../pages/ticketpay/ticketpay?orderId=' + "" + '&price=' + that.data.ticketInfo.price,
+          })
+          wx.requestPayment({
+            'timeStamp': res.data.data.timeStamp,
+            'nonceStr': res.data.data.nonceStr,
+            'package': res.data.data.package,
+            'signType': 'MD5',
+            'paySign': res.data.data.paySign,
+            'success': function(res) {
+              console.log('成功:' + res);
+            },
+            'fail': function(res) {
+              console.log('失败:' + res);
+            },
+            'complete': function(res) {
+              console.log('完成:' + res);
+            }
+          })
         }
       }
     })
   },
-  
+
+  //UI事件
+  bindAgreeChange: function(e) {
+    this.setData({
+      isAgree: !!e.detail.value.length
+    });
+  },
   bindIdcardKeyInput: function(e) {
     this.setData({
       'ticketInfo.idcard': e.detail.value
@@ -189,31 +190,91 @@ Page({
     })
   },
 
-  uploadIdcard: function() {
+  //上传照片
+  uploadIdcard: function (event) {
+    let imgType = event.currentTarget.dataset.imgType
+    this.uploadImg(imgType)
+  },
+  uploadResidentfrtgh: function (event) {
+    let imgType = event.currentTarget.dataset.imgType
+    this.uploadImg(imgType)
+  },
+  uploadImg: function (imgType) {
+    let that = this;
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function(res) {
+      success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
         //上传图片
         wx.uploadFile({
-          url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
+          url: 'https://www.xazhihe.cn/Api/uploadImg',
           filePath: tempFilePaths[0],
-          name: 'file',
-          formData: {
-            'user': 'test'
+          name: 'image',
+          success: function (res) {
+            var data = json_util.stringToJson(res.data);
+            if (data.code == 0) {
+              if (imgType == '1') {
+                that.setData({
+                  urlIdCard: network_util.BASE_PIC_UPLOAD_URL + data.data.img_url,
+                  isUploadIdCard: true
+                });
+              } else {
+                that.setData({
+                  urlResidentfrtgh: network_util.BASE_PIC_UPLOAD_URL + data.data.img_url,
+                  isResidentfrtgh: true
+                });
+              }
+              wx.showToast({
+                title: '上传成功',
+                icon: 'success',
+                duration: 1000
+              })
+            } else {
+              wx.showToast({
+                title: data.msg,
+                icon: 'fail',
+                duration: 1000
+              })
+              if (imgType == 1) {
+                that.setData({
+                  urlIdCard: '',
+                  isUploadIdCard: false
+                });
+              } else {
+                that.setData({
+                  urlResidentfrtgh: '',
+                  isResidentfrtgh: false
+                });
+              }
+            }
           },
-          success: function(res) {
-            var data = res.data
-            //do something
+          fail: function ({
+            errMsg
+          }) {
+            wx.showToast({
+              title: '上传失败',
+              icon: 'success',
+              duration: 1000
+            });
+            if (imgType == 1) {
+              that.setData({
+                urlIdCard: '',
+                isUploadIdCard: false
+              });
+            } else {
+              that.setData({
+                urlResidentfrtgh: '',
+                isResidentfrtgh: false
+              });
+            }
           }
         })
       }
     })
   },
-
   radioChange: function(e) {
     let value = e.detail.value
     if (value == 1) {

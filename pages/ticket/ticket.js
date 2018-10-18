@@ -40,8 +40,9 @@ Page({
       //   return;
       // }
       let ticketId = event.currentTarget.dataset.ticketId
+      let ticketPrice = event.currentTarget.dataset.ticketPrice
       wx.navigateTo({
-        url: '../../pages/ticketpayinfo/ticketpayinfo?id=' + ticketId
+        url: '../../pages/ticketpayinfo/ticketpayinfo?id=' + ticketId + '&price=' + ticketPrice
       });
     },
     gotologin: function() {
