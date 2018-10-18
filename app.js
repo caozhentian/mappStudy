@@ -12,13 +12,17 @@ App({
       openid: "",
       token: '',
       member_id: -1 ,
+      mobile:"",
+      idcard:"",
 
-      setUserinfo: function (isGuest, isMember, isAgent, token ,member_id) {
+      setUserinfo: function (isGuest, isMember, isAgent, token, member_id, mobile, idcard) {
         this.isGuest  =  isGuest   ;
         this.isMember =  isMember  ;
         this.isAgent  =  isAgent   ;
         this.member_id = member_id ;
         this.token    = token ;
+        this.mobile = mobile;
+        this.idcard = idcard;
       },
 
       logout:function(){
@@ -28,6 +32,8 @@ App({
         this.member_id = -1;
         this.token = "";
         this.openid="";
+        this.mobile = "";
+        this.idcard = "";
       }
     } 
 

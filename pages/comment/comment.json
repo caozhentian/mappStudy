@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "个人中心",
+  "navigationBarTitleText": "评论",
   "usingComponents": {
     "i-panel": "../../dist/panel/index",
     "i-rate": "../../dist/rate/index",

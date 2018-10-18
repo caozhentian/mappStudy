@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "首页",
   "usingComponents": {
     "i-grid": "../../dist/grid/index",
     "i-grid-item": "../../dist/grid-item/index",

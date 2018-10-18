@@ -15,7 +15,10 @@ const formatNumber = n => {
 }
 
 const hideTel= tel =>{
-  const hidedTel = tel.substr(0, 3) + "****" + tel.substr(7);
+  if (tel ==''){
+    return "";
+  }
+  const hidedTel = tel.substring(0, 3) + "****" + tel.substring(7);
   return hidedTel
 }
 

@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "问答",
+    "navigationBarTitleText": "年票问答",
     "enablePullDownRefresh": true,
     "usingComponents": {
       "i-cell": "../../dist/cell/index"

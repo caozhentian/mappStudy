@@ -20,18 +20,58 @@ Page({
     ],
 
     ticketInfo: {
-      ticketId: "-1",
+      ticketId: "",
       idCardType: 1,
       prince: 100,
       idcard: "132330198109142478",
       tel: "13186075290",
     },
     urlIdCard: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-    urlResidentfrtgh:"http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" ,
+    urlResidentfrtgh: "http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg",
     isHidden: true
   },
-  onLoad: function(option) {
+  onLoad: function(options) {
     this.data.ticketInfo.ticketId = options.id;
+  },
+  createOrder: function() {
+    //创建订单
+    let member_id = curUserInfo.member_id;
+    let token = curUserInfo.token;
+    if (curUserInfo.isGuest) {
+      member_id = ""
+      token = ""
+    }
+    this.formSubmit({
+      member_id: member_id,
+      tid: this.data.ticketInfo.ticketId,
+      token: token,
+      openid: curUserInfo.openid,
+      id_card: this.data.ticketInfo.idcard,
+      mobile: this.data.ticketInfo.tel,
+      id_card_image1: "abc",
+      id_card_image2: "abc",
+
+    }) ;
+    // network_util._post_json('Order/createOrder', {
+    //     member_id: member_id,
+    //     tid: this.data.ticketInfo.ticketId,
+    //     token: token,
+    //     openid: curUserInfo.openid,
+    //     id_card: this.data.ticketInfo.idcard,
+    //     mobile: this.data.ticketInfo.tel,
+    //     id_card_image1: "abc",
+    //     id_card_image2: "abc",
+
+    //   },
+    //   function(netdata) {
+    //     wx.navigateTo({
+    //       url: '../../pages/ticketpay/ticketpay?orderId=' + 1 + 'price:' + 10,
+    //     })
+    //   },
+    //   function(res) {
+    //     console.log(res);
+    //   })
+
   },
   gopay: function() {
     let idcard = this.data.ticketInfo.idcard
@@ -61,55 +101,82 @@ Page({
       })
       return
     }
+    // wx.login({
+    //   success: res => {
+    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    //     network_util._post1('Often/getOpenid', {
+    //       js_code: res.code,
+    //       },
+    //       function(netdata) {
+    //         createOrder()
+    //       },
+    //       function(res) {
+
+    //       })
+    //   },
+    //   function() {},
+    //   function() {}
+    // })
+    var that = this;
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        network_util._post1('Often/getOpenid', {
-            js_code: res.code,
-          },
-          function(netdata) {
-            createOrder()
-          },
-          function(res) {
-
+      success: function(res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'https://www.xazhihe.cn/Often/getOpenid',
+            data: {
+              js_code: res.code
+            },
+            success: function(res) {
+              console.log(res);
+              curUserInfo.openid = res.data.data.openid
+              that.createOrder()
+            }
           })
-      },
-      function() {},
-      function() {}
-    })
-
-
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
   },
-
-  createOrder: function() {
-    //创建订单
-    let member_id = curUserInfo.member_id;
-    let token = curUserInfo.token;
-    if (curUserInfo.isGueset) {
-      member_id = ""
-      token = ""
-    }
-    network_util._post1('Order/createOrder', {
-        member_id: member_id,
-        tid: this.data.ticketInfo.ticketId,
-        token: token,
-        openid: "123",
-        id_card: this.data.ticketInfo.idcard,
-        mobile: this.data.ticketInfo.tel,
-        id_card_image1: "abc",
-        id_card_image2: "abc",
-
+  formSubmit: function (formData) {
+    var that = this;
+    wx.request({
+      url: 'https://www.xazhihe.cn/Order/createOrder',
+      data: formData,
+      header: {
+        'Content-Type': 'application/json'
       },
-      function(netdata) {
-        wx.navigateTo({
-          url: '../../pages/ticketpay/ticketpay?orderId=' + 1 + 'price:' + 10,
-        })
-      },
-      function(res) {
+      success: function (res) {
+        /*if (res.data.flag == 'error') {
+          that.checkValue1(res.data.msg);
+        } else {
+          that.confirm_one();
+        }*/
         console.log(res);
-      })
-
+        if (res.data.msg == "success") {
+          wx.requestPayment(
+            {
+              'timeStamp': res.data.data.timeStamp,
+              'nonceStr': res.data.data.nonceStr,
+              'package': res.data.data.package,
+              'signType': 'MD5',
+              'paySign': res.data.data.paySign,
+              'success': function (res) {
+                console.log('成功:' + res);
+              },
+              'fail': function (res) {
+                console.log('失败:' + res);
+              },
+              'complete': function (res) {
+                console.log('完成:' + res);
+              }
+            })
+        }
+      }
+    })
   },
+  
   bindIdcardKeyInput: function(e) {
     this.setData({
       'ticketInfo.idcard': e.detail.value
