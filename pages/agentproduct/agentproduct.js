@@ -23,6 +23,11 @@ Page({
     })
     wx.startPullDownRefresh({}) //刷新
   },
+  agenGotoPayt:function(event){
+    wx,wx.navigateTo({
+      url: '/pages/ticketpayinfo/ticketpayinfo',
+    })
+  },
   itemClick: function(e) {
     var $data = e.currentTarget.dataset; //item传递参数的写法
     wx.showToast({
