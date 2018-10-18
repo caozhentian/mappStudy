@@ -1,7 +1,7 @@
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
 var util = require('../../utils/util2.js');
-let actualUrl = "ticketList" 
+let actualUrl = "Api/ticketList" 
 
 Page({
   data :{
@@ -46,10 +46,6 @@ Page({
         that.stopPullDownRefresh()
         that.data.list = []
         let datas = res.data.list;
-        datas.forEach(function(currentValue){
-          var fullPath = network_util.BASE_PIC_URL + currentValue.image;
-          currentValue.image = fullPath ;
-        })　;　
         that.setData({
           list: datas,
           page: startPageIndex,
@@ -80,11 +76,7 @@ Page({
       page_size: that.data.pageSize
     },
       function (res) {
-        let datas = res.data.list;
-        datas.forEach(function (currentValue) {
-          var fullPath = network_util.BASE_PIC_URL + currentValue.image;
-          currentValue.image = fullPath;
-        })　;　
+        let datas = res.data.list;　
         that.setData({
           list: that.data.list.concat(datas),
           hasRefesh: false,

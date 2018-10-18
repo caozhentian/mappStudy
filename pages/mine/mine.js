@@ -10,36 +10,48 @@ Page({
     userInfo: curUserInfo, //用户
     mobileHidden: ""
   },
-  loginRegister:function(){ //登录或者注册
-   wx.navigateTo({
-     url: '/pages/userlogin/userlogin',
-   })
-  },
-  logout:function(){
-    curUserInfo.logout() ;
+  loginRegister: function() { //登录或者注册
     wx.navigateTo({
       url: '/pages/userlogin/userlogin',
     })
   },
-  gotoMineOrder:function(){
-    if (!curUserInfo.isMember){
+  //退出登录
+  logout: function() {
+    const that = this;
+    wx.showModal({
+      content: "确认退出吗?",
+      confirmText: "确定",
+      cancelText: "取消",
+      success: function(res) {
+        if (res.confirm) {
+          curUserInfo.logout();
+          that.setData({
+            userInfo: curUserInfo, //用户
+            mobileHidden: util.hideTel(curUserInfo.mobile)
+          })
+        }
+      }
+    })
+  },
+  gotoMineOrder: function() {
+    if (!curUserInfo.isMember) {
       this.setData({
         visible: true
       })
-      return ;  
+      return;
     }
     wx.navigateTo({
       url: '/pages/orderlist/orderlist',
     })
   },
-  onShow:function(){
+  onShow: function() {
     this.setData({
       userInfo: curUserInfo, //用户
       mobileHidden: util.hideTel(curUserInfo.mobile)
     })
-    
+
   },
-  handleOK:function(){
+  handleOK: function() {
     this.setData({
       visible: false
     })
@@ -47,33 +59,33 @@ Page({
       url: '/pages/userlogin/userlogin',
     })
   },
-  handleCancel:function(){
+  handleCancel: function() {
     this.setData({
-      visible:false 
+      visible: false
     })
   },
   //代理操作
-  agentLogin:function(){
+  agentLogin: function() {
     wx.navigateTo({
       url: '/pages/agentlogin/agentlogin',
     })
   },
-  gotoAgentProduct:function(){
+  gotoAgentProduct: function() {
     wx.navigateTo({
       url: '/pages/agentproduct/agentproduct',
     })
   },
-  gotoQrCode: function () {
+  gotoQrCode: function() {
     wx.navigateTo({
       url: '/pages/agentProduct/agentProduct',
     })
   },
-  gotoMyTeam: function () {
+  gotoMyTeam: function() {
     wx.navigateTo({
       url: '/pages/myteam/myteam',
     })
   },
-  gotoMyincome: function () {
+  gotoMyincome: function() {
     wx.navigateTo({
       url: '/pages/myincome/myincome',
     })

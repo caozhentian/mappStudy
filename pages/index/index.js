@@ -17,7 +17,6 @@ Page({
     duration: 1000,
     //公告内容
     notice: "国庆节，景点大优惠。大家赶紧来看啊！高速随便走，走告诉免费" ,
-    visible:false,
   },
   //公告列表
   select_notice:function(){
@@ -65,23 +64,20 @@ Page({
     
   },
   gotologin:function(){
-    this.setData({
-      visible:true
-    })
-  },
-  handleOK() {
-    this.setData({
-      visible: false
-    });
-    wx.navigateTo({
-      url: '../userlogin/userlogin',
-    })
-  },
 
-  handleCancel() {
-    this.setData({
-      visible: false
-    });
+    const that = this;
+    wx.showModal({
+      content: "确认登录吗?",
+      confirmText: "确定",
+      cancelText: "取消",
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '../userlogin/userlogin',
+          })
+        }
+      }
+    })
   },
   onShow: function () {
     this.setData({

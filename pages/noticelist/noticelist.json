@@ -1,4 +1,7 @@
 {
-    "navigationBarTitleText": "微信新闻",
-    "enablePullDownRefresh": true
+    "navigationBarTitleText": "公告",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "i-card": "../../dist/card/index"
+    }
 }

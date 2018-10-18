@@ -5,6 +5,6 @@
 -->
 <template name="item">
   <i-panel class="cell-panel-demo">
-    <i-cell title="1.单行列表为什么找不到答案的昂是固定的？" label="答：美德的地方无法的替昂哦点击。小河森林公馆内地方的的美女。附加描述" value=""></i-cell>
+    <i-cell title="1. 单行列表为什么找不到答案的昂是固定的？" label="答： 美德的地方无法的替昂哦点击。小河森林公馆内地方的的美女。附加描述" value=""></i-cell>
   </i-panel>
 </template>

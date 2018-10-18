@@ -68,7 +68,4 @@
       </view>
     </view>
   </view>
-  <i-modal visible="{{ visible }}" bind:ok="handleOK" bind:cancel="handleCancel">
-    <view>请先登录</view>
-  </i-modal>
 </view>

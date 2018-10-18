@@ -20,7 +20,7 @@ Page({
 
   onLoad(){
     this.setData({
-      hidenSmscode: true,
+      hidenSmscode: false,
       hideCountDown: true,
     });
   },
@@ -29,13 +29,54 @@ Page({
       clearTimer: true
     });
   },
-  
+  // 倒计时
+  count_down: function (countDown_time) {
+    var that = this;
+    var time = countDown_time.split(':')
+    var hhh = parseInt(time[0])
+    var mmm = parseInt(time[1])
+    var sss = parseInt(time[2])
+    this.setData({
+      sss: (sss < 10) ? '0' + sss : sss,
+      mmm: (mmm < 10) ? '0' + mmm : mmm,
+      hhh: (hhh < 10) ? '0' + hhh : hhh
+    })
+    var Interval = setInterval(function () {
+      if (sss > 0) {
+        sss--
+      } else {
+        console.log('时间到')
+        clearInterval(Interval)
+        that.setData({
+          hidenSmscode: false,
+          hideCountDown: true,
+        });
+      }
+      if (sss == 0) {
+        if (mmm > 0) {
+          mmm--
+          sss = 59;
+        }
+        if (mmm == 0 && hhh > 0) {
+          hhh--
+          sss = 59;
+          mmm = 59;
+        }
+      }
+      that.setData({
+        sss: (sss < 10) ? '0' + sss : sss,
+        mmm: (mmm < 10) ? '0' + mmm : mmm,
+        hhh: (hhh < 10) ? '0' + hhh : hhh
+      })
+    }, 1000)
+  },
   getSmsCode:function(){
     this.setData({
-      targetTime: new Date().getTime() + 60000,
       hidenSmscode: true,
       hideCountDown: false,
     });
+    var countDown_time = '00:00:59';
+    this.count_down(countDown_time)
   },
   myLinsterner:function(){
     this.setData({

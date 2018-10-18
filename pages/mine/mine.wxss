@@ -76,5 +76,5 @@
 .cell-panel-class{
     display: block;
     margin-top: 5px;
-    margin-left: 15px;
+    /* pading-left: 15px; */
 }
