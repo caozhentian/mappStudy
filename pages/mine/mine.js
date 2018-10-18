@@ -6,7 +6,6 @@ const curUserInfo = app.globalData.userInfo
 Page({
   data: {
     grids: [0, 1, 2, 3],
-    visible: false,
     userInfo: curUserInfo, //用户
     mobileHidden: ""
   },
@@ -19,7 +18,7 @@ Page({
   logout: function() {
     const that = this;
     wx.showModal({
-      content: "确认退出吗?",
+      content: "确认退出登录吗?",
       confirmText: "确定",
       cancelText: "取消",
       success: function(res) {
@@ -35,9 +34,7 @@ Page({
   },
   gotoMineOrder: function() {
     if (!curUserInfo.isMember) {
-      this.setData({
-        visible: true
-      })
+      this.gotologin();
       return;
     }
     wx.navigateTo({
@@ -51,17 +48,19 @@ Page({
     })
 
   },
-  handleOK: function() {
-    this.setData({
-      visible: false
-    })
-    wx.navigateTo({
-      url: '/pages/userlogin/userlogin',
-    })
-  },
-  handleCancel: function() {
-    this.setData({
-      visible: false
+  gotologin: function () {
+    const that = this;
+    wx.showModal({
+      content: "确认登录吗?",
+      confirmText: "确定",
+      cancelText: "取消",
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '../userlogin/userlogin',
+          })
+        }
+      }
     })
   },
   //代理操作
