@@ -1,10 +1,5 @@
-<!--
-  index: int
-  name: string
-  time: string
--->
 <template name="item">
   <i-panel >
-    <i-cell title="{{name}}" value="1次"></i-cell>
+    <i-cell title="{{date}}" value="{{name}}"></i-cell>
   </i-panel>
 </template>

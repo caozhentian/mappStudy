@@ -10,7 +10,7 @@ Page({
     page: 1,
     pageSize: 20,
     hasMore: true,
-    loadMoreing: false //是否正在加载更多中
+    loadMoreing: false ,//是否正在加载更多中
   } ,
   onLoad:function(options) { 
     wx.startPullDownRefresh({  

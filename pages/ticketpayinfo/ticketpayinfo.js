@@ -69,6 +69,7 @@ Page({
     if (idcard.length == 0 || idcard == undefined) {
       wx.showToast({
         title: '请输入身份证',
+        icon: 'none',
       })
       return
     }
@@ -84,12 +85,14 @@ Page({
     if (tel.length == 0 || tel == undefined) {
       wx.showToast({
         title: '请输入手机号码',
+        icon: 'none',
       })
       return
     }
     if (!phonevaliate.isPhoneAvailable(tel)) {
       wx.showToast({
         title: '手机号输入有误',
+        icon: 'none',
       })
       return
     }
@@ -97,13 +100,15 @@ Page({
     if(type == 2){
       if(!this.data.isUploadIdCard){
         wx.showToast({
-          title: '请先上传身份证正面照片',
+          title: '请上传身份证正面照片',
+          icon: 'none',
         })
         return ;
       }
       if (!this.data.isResidentfrtgh) {
         wx.showToast({
-          title: '请先上传居住证照片',
+          title: '请上传居住证照片',
+          icon: 'none',
         })
         return;
       }
@@ -156,6 +161,13 @@ Page({
               + '&signType=' + res.data.data.signType 
               + '&paySign=' + res.data.data.paySign,
           })
+        }
+        else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+          })
+          return;
         }
       }
     })

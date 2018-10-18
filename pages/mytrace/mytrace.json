@@ -1,7 +1,9 @@
 {
     "navigationBarTitleText": "我的足迹",
     "enablePullDownRefresh": true,
-    "i-cell-group": "../../dist/cell-group/index",
-    "i-cell": "../../dist/cell/index",
-    "i-panel": "../../dist/panel/index"
+    "usingComponents": {
+      "i-cell-group": "../../dist/cell-group/index",
+      "i-cell": "../../dist/cell/index",
+      "i-panel": "../../dist/panel/index"
+    }
 }

@@ -1,15 +1,16 @@
 {
   "pages":[
+    "pages/commentlist/commentlist",
+    "pages/mytrace/mytrace",
     "pages/index/index",
     "pages/mine/mine",
     "pages/orderlist/orderlist",
     "pages/question/question",
-    "pages/commentlist/commentlist",
     "pages/comment/comment",
     "pages/ticket/ticket",
     "pages/userlogin/userlogin",
     "pages/register/register",
-    "pages/mytrace/mytrace",
+    
     "pages/ticketdetail/ticketdetail",
     "pages/agentproduct/agentproduct",
     "pages/myincome/myincome",
@@ -30,7 +31,7 @@
   "window":{
     "navigationBarTextStyle":"black",
     "navigationBarBackgroundColor": "#FAFAFA",
-    "navigationBarTitleText": "iView WeApp",
+    "navigationBarTitleText": "",
     "backgroundTextStyle": "dark",
     "backgroundColor": "#f9f9f9"
   },

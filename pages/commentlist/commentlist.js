@@ -1,7 +1,7 @@
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
 var util = require('../../utils/util2.js');
-let actualUrl = "ticketList" 
+let actualUrl = "Api/ticketList" 
 
 Page({
   data :{
