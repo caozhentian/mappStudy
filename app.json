@@ -1,18 +1,16 @@
 {
   "pages":[
+    "pages/mine/mine",
     "pages/index/index",
     "pages/orderlist/orderlist",
-    
     "pages/question/question",
     "pages/commentlist/commentlist",
-    
     "pages/comment/comment",
     "pages/ticket/ticket",
     "pages/userlogin/userlogin",
     "pages/register/register",
     "pages/mytrace/mytrace",
     "pages/ticketdetail/ticketdetail",
-    "pages/mine/mine",
     "pages/agentproduct/agentproduct",
     "pages/myincome/myincome",
     "pages/myteam/myteam",
@@ -30,14 +28,15 @@
     "pages/sightspotlist/sightspotlist"
   ],
   "window":{
-    "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"black",
+    "navigationBarBackgroundColor": "#FAFAFA",
+    "navigationBarTitleText": "iView WeApp",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#f9f9f9"
   },
   "tabBar": {
     "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "selectedColor": "#E64340",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
