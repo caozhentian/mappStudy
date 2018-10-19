@@ -39,6 +39,7 @@ var config = {
     resetPasswordUrl:'resetPasswordUrl' ,
     changePasswordUrl: 'resetPasswordUrl',
     getSmscodeUrl:'resetPasswordUrl',
+    ticketDetailUrl:"Api/dfj"
 };
 
 module.exports = config
