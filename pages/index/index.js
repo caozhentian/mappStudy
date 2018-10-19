@@ -46,7 +46,13 @@ Page({
     })
   },
   gotoMineTicketFolder: function () {
-
+    if (curUserInfo.isGuest) {
+      this.gotologin();
+      return;
+    }
+    wx.navigateTo({
+      url: '../myticketfolder/myticketfolder',
+    })
   },
   //选择年票
   select_ticket: function() {

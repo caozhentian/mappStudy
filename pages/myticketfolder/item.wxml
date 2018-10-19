@@ -1,0 +1,19 @@
+<!--
+  index: int
+  name: string
+  time: string
+-->
+<template name="item">
+  <view class='ticket_container' >
+    <text class='ticket_name'>{{name}}</text>
+    <!-- 背景图 -->
+    <image class='ticket_bg' mode="scaleToFil" src="{{image}}"> </image>
+    <!-- 价格 -->
+    <text class='ticket_price'>价格：{{price}}元</text>
+
+    <view class='view_operate'>
+      <button data-ticket-id ="{{id}}"   bindtap='onTicketDetail' type='primary' size='mini' class='btn_go_to_pay'>年票详情</button>
+      <button data-ticket-id ="{{id}}" bindtap='checkticket' type='primary' size='mini' class='btn_go_to_spot'>去验票</button>
+    </view>
+  </view>
+</template>

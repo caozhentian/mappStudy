@@ -1,0 +1,36 @@
+<template name="item">
+<view class='ticket_container' >
+    <text class='ticket_name'>{{name}}</text>
+    <!-- 背景图 -->
+    <image class='ticket_bg' mode="scaleToFil" src="{{image}}"> </image>
+    <!-- 价格 -->
+    <text class='ticket_price'>价格：{{price}}元</text>
+    <view class='view_operate'>
+      <button data-ticket-id ="{{id}}" bindtap='checkticket' type='primary' size='mini' class='btn_go_to_spot'>二维码验票</button>
+    </view>
+  </view>
+  <i-panel>
+    <i-cell title="身份证号码" value="详细信息"></i-cell>
+  </i-panel>
+  <i-panel>
+    <i-cell title="手机号" value="详细信息爱的就看见了放假开发工具"></i-cell>
+  </i-panel>
+  <i-panel>
+    <i-cell title="年票有效期" value="2018/01 - 2018/12"></i-cell>
+  </i-panel>
+  <i-panel>
+    <i-cell title="年票状态" value="正常"></i-cell>
+  </i-panel>
+  <i-panel>
+    <i-cell title="年票状态" is-link url="/pages/index/index"></i-cell>
+  </i-panel>
+  <i-panel>
+    <i-cell title="当前景区名称" value="秦始皇兵马俑博物院"></i-cell>
+  </i-panel>
+  <i-panel>
+    <i-cell title="当前验票状态" value=""></i-cell>
+  </i-panel>
+  <i-panel>
+    <i-cell title="当前景区游玩次数" value="3次"></i-cell>
+  </i-panel>
+</template>
