@@ -26,11 +26,23 @@
         <rich-text nodes="{{kandian}}"></rich-text>
       </view>
     </i-card>
+    <view style="margin: 16px"></view>
+    <i-card  bindtap="more"  title="我的评论" extra="查看更多评论">
+      <view slot="content">
+        <view>内容不错学的季节的未读的的空间发卡大家福晶科技发动机看的风景大卡车大幅度解放军</view>
+        <i-rate disabled="{{true}}" value="4">
+        </i-rate>
+      </view>
+      <view slot="footer">
+        <view>评论人: 李明</view>
+        <view>评论时间: 2018/10/18</view>
+      </view>
+    </i-card>
   </scroll-view>
   <view class="weui-footer footer-margin">
     <view class="page__bd page__bd_spacing">
       <view class="button-sp-area">
-        <button class="weui-btn mini-btn" type="primary" size="mini">购买</button>
+        <button bindtap='gotoPay' class="weui-btn mini-btn" type="primary" size="mini">购买年票</button>
         <button class="weui-btn mini-btn" bindtap="gotoComment" type="primary" size="mini">评论</button>
       </view>
     </view>

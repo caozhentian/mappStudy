@@ -6,19 +6,6 @@ const app = getApp()
 Page({
     data: {
       url: actualUrl,
-      visible: false,
-      actions: [{
-          name: '会员',
-          color: '#2d8cf0',
-        },
-        {
-          name: '代理商',
-          color: '#19be6b'
-        },
-        {
-          name: '取消'
-        }
-      ],
       list: [],
       type: 'year_ticket',
       city: '610100',

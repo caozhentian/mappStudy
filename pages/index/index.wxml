@@ -9,42 +9,44 @@
     </block>
   </swiper>
   <!--快捷菜单-->
-  <i-grid hidden='{{userInfo.isAgent}}'>
-    <i-grid-item bindtap="gotoMineComment">
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>我的评论</i-grid-label>
-    </i-grid-item>
-    <i-grid-item>
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>我的发布</i-grid-label>
-    </i-grid-item>
-    <i-grid-item bindtap="gotoMineTrace">
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>我的足迹</i-grid-label>
-    </i-grid-item>
-    <i-grid-item bindtap="gotoMineTicketFolder">
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>我的票夹</i-grid-label>
-    </i-grid-item>
-  </i-grid>
+  <view hidden='{{userInfo.isAgent}}'>
+    <i-grid>
+      <i-grid-item bindtap="gotoMineComment">
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>我的评论</i-grid-label>
+      </i-grid-item>
+      <i-grid-item>
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>我的发布</i-grid-label>
+      </i-grid-item>
+      <i-grid-item bindtap="gotoMineTrace">
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>我的足迹</i-grid-label>
+      </i-grid-item>
+      <i-grid-item bindtap="gotoMineTicketFolder">
+        <i-grid-icon>
+          <image src="../../image/icon_ticket_HL.png" />
+        </i-grid-icon>
+        <i-grid-label>我的票夹</i-grid-label>
+      </i-grid-item>
+    </i-grid>
+  </view>
   <!-- 公告 -->
   <i-notice-bar bindtap="select_notice" icon="systemprompt" loop>
-    2018年世界杯,将于6月14日至7月15日举行
+    {{notice}}
   </i-notice-bar>
   <!-- 分割线 -->
   <view class="divLine"></view>
   <!--功能区的瀑布流布局-->
   <view class="flow-container">
-    <view class='flow-container-first-part-left' bindtap="select_ticket">
-      <view class='.flow-container-first-part-top'>
+    <view class='flow-container-first-part-left' >
+      <view class='.flow-container-first-part-top' bindtap="select_ticket">
         <image class='.image' src="../../image/icon_home_ticket.png"></image>
         <text class=".name">年票</text>
       </view>

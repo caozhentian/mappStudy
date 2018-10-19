@@ -1,4 +1,6 @@
 //index.js
+const network_util = require('../../utils/network_util.js');
+const config = require('../../config');
 //获取应用实例
 const app = getApp()
 const curUserInfo = app.globalData.userInfo 
@@ -17,6 +19,21 @@ Page({
     duration: 1000,
     //公告内容
     notice: "国庆节，景点大优惠。大家赶紧来看啊！高速随便走，走告诉免费" ,
+  },
+  onLoad:function(){
+    this.getHomeData()
+  },
+  //获取首页数据
+  getHomeData:function(){
+    var that = this;
+    network_util._post1(config.homeUrl, {
+    },
+      function (netdata) {
+        this.setData({
+          'imgUrls': hideIdCard,
+          'notice': hideTel,
+        })
+      })
   },
   //公告列表
   select_notice:function(){

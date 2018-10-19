@@ -47,12 +47,7 @@
         "selectedIconPath": "image/icon_home_HL.png",
         "text": "首页"
       },
-      {
-        "pagePath": "pages/forum/forum",
-        "iconPath": "image/icon_forum.png",
-        "selectedIconPath": "image/icon_forum_HL.png",
-        "text": "论坛"
-      },
+      
       {
         "pagePath": "pages/mine/mine",
         "iconPath": "image/icon_mine.png",

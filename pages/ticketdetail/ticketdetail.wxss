@@ -1,5 +1,4 @@
 .head-row {
-  margin-bottom: 5px;
   margin-left: 16px;
   margin-right: 16px;
   background: rgba(0, 153, 229, 0.7);

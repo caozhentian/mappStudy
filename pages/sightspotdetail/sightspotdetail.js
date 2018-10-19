@@ -9,7 +9,8 @@ Page({
     intro:"",
     traffic:"",
     gaikuang:"",
-    kandian:""
+    kandian:"",
+    ticketId:'1'
   },
   onLoad: function (option) {
     this.data.spotId = option.id;
@@ -31,7 +32,8 @@ Page({
           intro: netdata.data.intro,
           traffic: netdata.data.traffic,
           gaikuang: netdata.data.gaikuang,
-          kandian: netdata.data.kandian
+          kandian: netdata.data.kandian,
+          ticketId:'1'
         });
       },
       function (res) {
@@ -42,5 +44,18 @@ Page({
     wx.navigateTo({
       url: '/pages/comment/comment?id=' + this.data.spotId ,
     })
+  },
+  more:function(){
+    wx.navigateTo({
+      url: '/pages/commentlist/commentlist?id=' + this.data.spotId,
+    })
+  },
+  gotoPay:function(){
+    let ticketId = this.data.ticketId
+    let ticketPrice = "10"
+    wx.navigateTo({
+      url: '../../pages/ticketpayinfo/ticketpayinfo?id=' + ticketId + '&price=' + ticketPrice
+    });
   }
+
 })

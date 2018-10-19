@@ -36,6 +36,8 @@ var config = {
     // 下载示例图片接口
     downloadExampleUrl: `https://${host}/static/weapp.jpg`,
 
+    //首页URL
+    homeUrl :'Api/home',
     resetPasswordUrl:'resetPasswordUrl' ,
     changePasswordUrl: 'resetPasswordUrl',
     getSmscodeUrl:'resetPasswordUrl',

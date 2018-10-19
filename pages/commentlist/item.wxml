@@ -2,10 +2,8 @@
   <i-card title="景点名称" extra="陕西省西安市大雁塔" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
     <view slot="content">
       <view>内容不错学的季节的未读的的空间发卡大家福晶科技发动机看的风景大卡车大幅度解放军</view>
-
       <i-rate disabled="{{true}}" value="4">
       </i-rate>
-
     </view>
     <view slot="footer">
       <view>评论人: 李明</view>

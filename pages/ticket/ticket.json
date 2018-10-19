@@ -2,6 +2,6 @@
     "navigationBarTitleText": "年票",
     "enablePullDownRefresh": true,
     "usingComponents": {
-      "i-modal": "../../dist/modal/index"
+      
     }
 }

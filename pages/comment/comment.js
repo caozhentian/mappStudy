@@ -9,7 +9,13 @@ Page({
   onLoad: function(option) {
     this.data.sid = option.id;
   },
-
+  //更多评论
+  more:function(){
+    wx.navigateTo({
+      url: '/pages/commentlist/commentlist',
+    })
+  },
+  //去评论
   comment: function() {
     wx.navigateTo({
       url: '/pages/orderlist/orderlist',
@@ -52,7 +58,8 @@ Page({
     network_util._post1('Api/comment', {
         token: app.globalData.userInfo.token,
         sid: that.data.sid,
-        content: that.data.inputValue 
+        content: that.data.inputValue ,
+        level: that.data.starIndex
       },
       function(netdata) {
         wx.showToast({
