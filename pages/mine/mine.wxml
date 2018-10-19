@@ -86,6 +86,11 @@
       </i-grid>
     </view>
 
+    <view hidden='{{userInfo.isGuest}}'>
+      <i-panel class="cell-panel-class">
+        <i-cell title="修改密码" is-link url="/pages/passwordchange/passwordchange"></i-cell>
+      </i-panel>
+    </view>
     <i-panel class="cell-panel-class">
       <i-cell title="重置密码" is-link url="/pages/passwordreset/passwordreset"></i-cell>
     </i-panel>

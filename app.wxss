@@ -232,3 +232,8 @@ form{
  margin-left: 10px;
  margin-bottom: 2px
 }
+
+.page-footer{
+  display: flex ;
+  justify-content: space-between
+}

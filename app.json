@@ -1,38 +1,35 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/passwordreset/passwordreset",
-    
+    "pages/ticketdetail/ticketdetail",
+    "pages/myticketfolder/myticketfolder",
+    "pages/checkticket/checkticket",
     "pages/mine/mine",
+    "pages/passwordchange/passwordchange",
+    "pages/passwordreset/passwordreset",
     "pages/noticelist/noticelist",
     "pages/question/question",
     "pages/commentlist/commentlist",
     "pages/mytrace/mytrace",
     "pages/orderlist/orderlist",
-    
     "pages/comment/comment",
     "pages/ticket/ticket",
     "pages/userlogin/userlogin",
     "pages/register/register",
-    
-    "pages/ticketdetail/ticketdetail",
     "pages/agentproduct/agentproduct",
     "pages/myincome/myincome",
     "pages/myteam/myteam",
     "pages/agent/agent",
     "pages/agentlogin/agentlogin",
-    
-    
     "pages/ticketpayinfo/ticketpayinfo",
     "pages/sightspotdetail/sightspotdetail",
-    
     "pages/forum/forum",
-    "pages/ticketagree/ticketagree" ,
-    "pages/ticketpay/ticketpay" ,
+    "pages/ticketagree/ticketagree",
+    "pages/ticketpay/ticketpay",
     "pages/sightspotlist/sightspotlist"
   ],
-  "window":{
-    "navigationBarTextStyle":"black",
+  "window": {
+    "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#FAFAFA",
     "navigationBarTitleText": "",
     "backgroundTextStyle": "dark",

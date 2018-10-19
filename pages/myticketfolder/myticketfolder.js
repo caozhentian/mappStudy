@@ -6,19 +6,6 @@ const app = getApp()
 Page({
     data: {
       url: actualUrl,
-      visible: false,
-      actions: [{
-          name: '会员',
-          color: '#2d8cf0',
-        },
-        {
-          name: '代理商',
-          color: '#19be6b'
-        },
-        {
-          name: '取消'
-        }
-      ],
       list: [],
       type: 'year_ticket',
       city: '610100',
@@ -29,50 +16,15 @@ Page({
     },
     onTicketDetail: function(event) { //进入年票详情界面
       let ticketId = event.currentTarget.dataset.ticketId
-      let ticketPrice = event.currentTarget.dataset.ticketPrice
       wx.navigateTo({
-        url: '../../pages/ticketdetail/ticketdetail?id=' + ticketId + '&price=' + ticketPrice
+        url: '../../pages/ticketdetail/ticketdetail?id=' + ticketId
       });
     },
-    gotoPay: function(event) {
-      // if (app.globalData.member_id == -1) {
-      //   this.gotologin();
-      //   return;
-      // }
-      let ticketId = event.currentTarget.dataset.ticketId
-      let ticketPrice = event.currentTarget.dataset.ticketPrice
-      wx.navigateTo({
-        url: '../../pages/ticketpayinfo/ticketpayinfo?id=' + ticketId + '&price=' + ticketPrice
-      });
-    },
-    gotologin: function() {
-      this.setData({
-        visible: true
-      })
-    },
-    handleClick({
-      detail
-    }) {
-      const index = detail.index;
-      if (index === 0) {
-        wx.navigateTo({
-          url: '../userlogin/userlogin',
-        })
-      } else if (index === 1) {
-        wx.navigateTo({
-          url: '../agentlogin/agentlogin',
-        })
-      }
-
-      this.setData({
-        visible: false
-      });
-    },
-    gotoSpots: function(event) {
-      //景区列表
+    checkticket: function(event) {
+      //验票
       let ticketId = event.currentTarget.dataset.ticketId
       wx.navigateTo({
-        url: '../../pages/sightspotlist/sightspotlist?id=' + ticketId
+        url: '../../pages/checkticket/checkticket?id=' + ticketId
       });
     },
     onLoad: function(options) {

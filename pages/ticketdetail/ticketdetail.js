@@ -1,71 +1,46 @@
 var util = require('../../utils/util2.js');
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
-import {
-  PageData
-} from '../list/PageData.js'
+const config = require('../../config.js');
+const ticketDetailUrl = config.ticketDetailUrl
 Page({
   data: {
-    header: {
-
+    info: {
+      list: [0, 1, 2, 3, 1, 2, 3, 1, 2, 3],
+      content: '内容如下 美丽的中国',
+      otherDesc: '其它介绍 主要时间'
     },
-    //列表相关的数据
-    pagedata: new PageData("message/findMessageList"),
-  },
-
-  onLoad: function(options) {
-    var nowDate = util.getNowFormatSimpleDate()
-    this.setData({
-      'header.startDate': nowDate
-    })
-    this.setData({
-      'header.endDate': nowDate
-    })
-    wx.startPullDownRefresh({}) //刷新
-  },
-  itemClick: function(e) {
-    var $data = e.currentTarget.dataset; //item传递参数的写法
-    wx.showToast({
-      title: "" + $data.index
-    })
-  },
-  //列表下拉 加载相关的数据
-  stopPullDownRefresh: function() {
-    wx.stopPullDownRefresh({
-      complete: function(res) {
-        wx.hideToast()
-      }
-    })
-  },
-  refresh: function() {
-    if (this.data.pagedata.loadMoreing || this.data.pagedata.refreshing) {
-      return
+    ticket: {
+      ticketId: '',
+      ticketPrice: ''
     }
+  },
+  onLoad: function(options) {
+    this.data.ticket.ticketId = options.id;
+    this.data.ticket.ticketPrice = options.price;
+    getTicketDetail(options.id)
+  },
+  getTicketDetail(ticketId) {
     var that = this;
-    let startPageIndex = 0
-    this.data.pagedata.refreshing = true
-    var url = this.data.pagedata.url
-    network_util._post1(url, {
-        'nextPage': startPageIndex,
-        'pageSize': this.data.pagedata.pageSize
+    network_util._post1(ticketDetailUrl, {
+        sid: that.data.spotId
       },
-      function(res) {
-        that.stopPullDownRefresh()
-        let datas = res.data.object
+      function(netdata) {
         that.setData({
-          'pagedata.list': datas,
-          'pagedata.pageIndex': startPageIndex,
-          'pagedata.refreshing': false,
+          'info.list': netdata.data.name,
+          'info.content': picUrl,
+          'info.otherDesc': netdata.data.intro,
         });
-
-      },
-      function(res) {
-        console.log(res);
-        that.stopPullDownRefresh()
       })
   },
-  onPullDownRefresh: function() {
-    // 显示顶部刷新图标   
-    this.refresh();
+  gotopay: function() {
+    let ticketId = this.data.ticket.ticketId;
+    let ticketPrice = this.data.ticket.ticketPrice;
+    wx.navigateTo({
+      url: '../../pages/ticketpayinfo/ticketpayinfo?id=' + ticketId + '&price=' + ticketPrice
+    });
   },
+  allIntro: function() {
+
+  }
 })

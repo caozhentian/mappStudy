@@ -22,7 +22,22 @@ const hideTel= tel =>{
   return hidedTel
 }
 
+const hideIdCard = idcard => {
+  if (idcard == '') {
+    return "";
+  }
+  let hidedIdcard=  "****" ;
+  if (idcard.length == 18){
+    hidedIdcard = idcard.substring(0, 6) + "********" + idcard.substring(14);
+  }
+  else{
+    hidedIdcard = idcard.substring(0, 6) + "********" + idcard.substring(14);
+  }
+  return hidedIdcard;
+}
+
 module.exports = {
   formatTime: formatTime,
-  hideTel: hideTel
+  hideTel: hideTel,
+  hideIdCard: hideIdCard,
 }

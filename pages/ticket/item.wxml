@@ -7,7 +7,7 @@
   <view class='ticket_container' >
     <text class='ticket_name'>{{name}}</text>
     <!-- 背景图 -->
-    <image bindtap='onTicketDetail' class='ticket_bg' mode="scaleToFil" src="{{image}}"> </image>
+    <image bindtap='onTicketDetail' data-ticket-id ="{{id}}"  data-ticket-price ="{{price}}" class='ticket_bg' mode="scaleToFil" src="{{image}}"> </image>
     <!-- 价格 -->
     <text class='ticket_price'>价格：{{price}}元</text>
 
