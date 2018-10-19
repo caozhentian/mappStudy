@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/passwordreset/passwordreset",
-    
     "pages/mine/mine",
+    "pages/passwordchange/passwordchange",
+    "pages/passwordreset/passwordreset",
+    "pages/index/index",
     "pages/noticelist/noticelist",
     "pages/question/question",
     "pages/commentlist/commentlist",

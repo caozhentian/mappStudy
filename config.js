@@ -34,7 +34,11 @@ var config = {
     uploadFileUrl: `https://${host}/upload`,
 
     // 下载示例图片接口
-    downloadExampleUrl: `https://${host}/static/weapp.jpg`
+    downloadExampleUrl: `https://${host}/static/weapp.jpg`,
+
+    resetPasswordUrl:'resetPasswordUrl' ,
+    changePasswordUrl: 'resetPasswordUrl',
+    getSmscodeUrl:'resetPasswordUrl',
 };
 
 module.exports = config
