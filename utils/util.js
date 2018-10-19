@@ -28,10 +28,10 @@ const hideIdCard = idcard => {
   }
   let hidedIdcard=  "****" ;
   if (idcard.length == 18){
-    hidedIdcard = idcard.substring(0, 6) + "****" + idcard.substring(10);
+    hidedIdcard = idcard.substring(0, 6) + "********" + idcard.substring(14);
   }
   else{
-    hidedIdcard = idcard.substring(0, 6) + "****" + idcard.substring(10);
+    hidedIdcard = idcard.substring(0, 6) + "********" + idcard.substring(14);
   }
   return hidedIdcard;
 }

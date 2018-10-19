@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/ticketdetail/ticketdetail",
     "pages/myticketfolder/myticketfolder",
     "pages/checkticket/checkticket",
     "pages/mine/mine",
     "pages/passwordchange/passwordchange",
     "pages/passwordreset/passwordreset",
-    "pages/index/index",
     "pages/noticelist/noticelist",
     "pages/question/question",
     "pages/commentlist/commentlist",
@@ -15,7 +16,6 @@
     "pages/ticket/ticket",
     "pages/userlogin/userlogin",
     "pages/register/register",
-    "pages/ticketdetail/ticketdetail",
     "pages/agentproduct/agentproduct",
     "pages/myincome/myincome",
     "pages/myteam/myteam",

@@ -27,11 +27,11 @@ Page({
       hasMore: true,
       loadMoreing: false //是否正在加载更多中
     },
-    onTicketDetail: function(event) { //进入购买协议界面
-      //进入购买协议界面
+    onTicketDetail: function(event) { //进入年票详情界面
       let ticketId = event.currentTarget.dataset.ticketId
+      let ticketPrice = event.currentTarget.dataset.ticketPrice
       wx.navigateTo({
-        url: '../../pages/ticketdetail/ticketdetail?id=' + ticketId
+        url: '../../pages/ticketdetail/ticketdetail?id=' + ticketId + '&price=' + ticketPrice
       });
     },
     gotoPay: function(event) {
