@@ -67,7 +67,7 @@ Page({
 
     const that = this;
     wx.showModal({
-      content: "确认登录吗?",
+      content: "请先登录",
       confirmText: "确定",
       cancelText: "取消",
       success: function (res) {
