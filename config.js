@@ -38,9 +38,11 @@ var config = {
 
     //首页URL
     homeUrl :'Api/home',
-    resetPasswordUrl:'resetPasswordUrl' ,
-    changePasswordUrl: 'resetPasswordUrl',
-    getSmscodeUrl:'resetPasswordUrl',
+    //重置密码
+    resetPasswordUrl:'Api/findPwd' ,
+    // 修改密码
+    changePasswordUrl: 'Api/pwdEdit',
+    getSmscodeUrl:'Api/sendSms',
     ticketDetailUrl:"Api/dfj"
 };
 

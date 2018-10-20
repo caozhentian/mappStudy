@@ -5,9 +5,9 @@ var network_util = require('../../utils/network_util.js');
 var app = getApp()
   Page({
     data: {
-      password: "123456",
-      newPassword:'dsds',
-      confirmPassword: "123456"
+      password: "",
+      newPassword:'',
+      confirmPassword: ""
     },
 
     changepassword: function() {
@@ -59,15 +59,15 @@ var app = getApp()
       
       if (newPassword != confirmPassword) {
         wx.showToast({
-          title: '两次输入的密码不一致',
+          title: '新密码与确认密码不一致',
           icon: 'none',
         })
         return
       }
       network_util._post1(changePasswordUrl, {
-          1: password,
-          1: newPassword,
-          1: confirmPassword,
+         password: password,
+         password: newPassword,
+         password_confirm: confirmPassword,
         },
         function(res) {
           wx.showToast({

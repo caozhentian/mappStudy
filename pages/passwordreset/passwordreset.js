@@ -7,10 +7,11 @@ var app = getApp()
 const resetUrl =
   Page({
     data: {
-      idcard: "132330198109142478",
-      tel: "13186075334",
-      password: "123456",
-      confirmPassword: "123456",
+      idcard: "",
+      tel: "",
+      password: "",
+      confirmPassword: "",
+      vcode:'',
       smscode: "",
       hidenSmscode: false,
       hideCountDown: true,
@@ -86,7 +87,7 @@ const resetUrl =
       var countDown_time = '00:00:59';
       this.count_down(countDown_time);
       network_util._post1(getSmscodeUrl, {
-          1: tel
+          mobile: tel
         },
         function(res) {
           wx.showToast({
@@ -96,22 +97,22 @@ const resetUrl =
         })
     },
     register: function() {
-      let idcard = this.data.idcard
-      if (idcard.length == 0 || idcard == undefined) {
-        wx.showToast({
-          title: '请输入身份证',
-          icon: 'none',
-        })
-        return
-      }
-      //校验身份证
-      if (!identitycode.identityCodeValid(idcard)) {
-        wx.showToast({
-          title: '身份证输入有误',
-          icon: 'none',
-        })
-        return
-      }
+      // let idcard = this.data.idcard
+      // if (idcard.length == 0 || idcard == undefined) {
+      //   wx.showToast({
+      //     title: '请输入身份证',
+      //     icon: 'none',
+      //   })
+      //   return
+      // }
+      // //校验身份证
+      // if (!identitycode.identityCodeValid(idcard)) {
+      //   wx.showToast({
+      //     title: '身份证输入有误',
+      //     icon: 'none',
+      //   })
+      //   return
+      // }
       let tel = this.data.tel
       if (tel.length == 0 || tel == undefined) {
         wx.showToast({
@@ -174,11 +175,11 @@ const resetUrl =
       }
 
       network_util._post1(resetPasswordUrl, {
-          1: idcard,
-          1: tel,
-          1: smscode,
-          1: password,
-          1: confirmPassword,
+          mobile: tel,
+          sms_code: smscode,
+          vcode: smscode,
+          password: password,
+          password_confirm: confirmPassword,
         },
         function(res) {
           wx.showToast({
