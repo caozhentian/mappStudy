@@ -8,6 +8,8 @@
         <view>{{mobileHidden}}</view>
         <button type='primary' bindtap="loginRegister" size='mini' hidden='{{!userInfo.isGuest}}'>登录/注册 </button>
       </view>
+      <i-panel title="我的订单">
+      </i-panel>
       <i-grid>
         <i-grid-item bindtap="gotoMineOrder">
           <i-grid-icon>

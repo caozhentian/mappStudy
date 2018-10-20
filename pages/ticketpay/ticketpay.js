@@ -1,7 +1,6 @@
 const paymentUrl = require('../../config').paymentUrl
 var network_util = require('../../utils/network_util.js');
 var app = getApp()
-
 Page({
   data: {
     orderId: "",
@@ -20,7 +19,7 @@ Page({
        price: options.price,
       'payinfo.timeStamp': options.timeStamp,
       'payinfo.nonceStr': options.nonceStr,
-      'payinfo.package2': options.package,
+      'payinfo.package2': options.package + '=' + options.packageSu,
       'payinfo.signType': options.signType,
       'payinfo.paySign': options.paySign,
     })

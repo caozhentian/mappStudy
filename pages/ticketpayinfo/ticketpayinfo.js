@@ -152,12 +152,14 @@ Page({
       responseType:'application/json',
       success: function(res) {
         if (res.data.msg == "success") {
+          let fullPacekage = res.data.data.package.split('=');
           wx.navigateTo({
             url: '../../pages/ticketpay/ticketpay?orderId=' + res.data.data.order_id
  + '&price=' + that.data.ticketInfo.price
               + '&timeStamp=' + res.data.data.timeStamp 
               + '&nonceStr=' + res.data.data.nonceStr 
-              + '&package=' + res.data.data.package 
+              + '&package=' + fullPacekage[0]
+              + '&packageSu=' + fullPacekage[1]
               + '&signType=' + res.data.data.signType 
               + '&paySign=' + res.data.data.paySign,
           });
