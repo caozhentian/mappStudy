@@ -43,7 +43,10 @@ var config = {
     // 修改密码
     changePasswordUrl: 'Api/pwdEdit',
     getSmscodeUrl:'Api/sendSms',
-    ticketDetailUrl:"Api/dfj"
+    ticketDetailUrl:"Api/dfj",
+    ticketDirUrl: "Api/dfj",
+    //代理登录URL
+    agentLoginUrl:'dhdf'
 };
 
 module.exports = config

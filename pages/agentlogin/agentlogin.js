@@ -1,22 +1,20 @@
-const paymentUrl = require('../../config').paymentUrl
-const identitycode = require('../../utils/identitycode.js')
-const phonevaliate = require('../../utils/phonevaliate.js')
+const agentLoginUrl = require('../../config').agentLoginUrl
 var network_util = require('../../utils/network_util.js');
 const app = getApp()
 const curUserInfo = app.globalData.userInfo
-const agentLoginUrl = ""
 Page({
   data: {
     idcard: "132330198109142478",
-    tel: "13186075334",
     password:"123456" ,
-    confirmPassword:"123456" ,
   },
 
   login:function(){
     curUserInfo.isAgent = true   ;
     curUserInfo.isMember = false ;
     curUserInfo.isGuest = false  ;
+    wx.navigateBack({
+
+    })
     let idcard = this.data.idcard
     if (idcard.length == 0 || idcard == undefined){
       wx.showToast({
@@ -35,7 +33,9 @@ Page({
       return
     }
     
-    network_util._post1(agentLoginUrl, this.data,
+    network_util._post1(agentLoginUrl,{
+      
+    },
       function (res) {
         //关闭当前页面
         wx.navigateBack({
@@ -53,23 +53,10 @@ Page({
       'idcard': e.detail.value
     })
   },
-
-  bindTelKeyInput: function (e) {
-    this.setData({
-      'tel': e.detail.value
-    })
-  },
-
   bindPasswordKeyInput: function (e) {
     this.setData({
       'password': e.detail.value
     })
-  },
-  bindConfirmPasswordKeyInput: function (e) {
-    this.setData({
-      'confirmPassword': e.detail.value
-    })
-  },
-
+  }
 })
 

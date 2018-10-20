@@ -11,7 +11,6 @@ const resetUrl =
       tel: "",
       password: "",
       confirmPassword: "",
-      vcode:'',
       smscode: "",
       hidenSmscode: false,
       hideCountDown: true,
@@ -90,6 +89,7 @@ const resetUrl =
           mobile: tel
         },
         function(res) {
+          wx.setStorageSync('vcode',res.data.vcode);
           wx.showToast({
             title: '验证码已发送',
             icon: 'none',
@@ -173,11 +173,11 @@ const resetUrl =
         })
         return
       }
-
+      let vcode = wx.getStorageSync('vcode')
       network_util._post1(resetPasswordUrl, {
           mobile: tel,
           sms_code: smscode,
-          vcode: smscode,
+          vcode: vcode,
           password: password,
           password_confirm: confirmPassword,
         },

@@ -1,0 +1,31 @@
+<import src="header.wxml" />
+<view class="container">
+  <scroll-view class="page-body">
+    <template is="header" data="{{...header}}" />
+    <!-- 列表的主题部分-->
+    <view wx:for="{{info.list}}" wx:for-item="item">
+      <view wx:if="{{index %2 == 0}}">
+        <i-row i-class="item-row-odd">
+          <i-col span="4">{{index+1}}</i-col>
+          <i-col span="4">'##'</i-col>
+          <i-col span="4">'##'</i-col>
+          <i-col span="4">名称</i-col>
+          <i-col span="4">30元/次</i-col>
+          <i-col span="4">1</i-col>
+        </i-row>
+      </view>
+      <view wx:else>
+        <i-row i-class="item-row-even">
+          <i-col span="4">{{index+1}}</i-col>
+          <i-col span="4">区域</i-col>
+          <i-col span="4">分类</i-col>
+          <i-col span="4">名称</i-col>
+          <i-col span="4">
+            <nobr>60元/次</nobr>
+          </i-col>
+          <i-col span="4">2</i-col>
+        </i-row>
+      </view>
+    </view>
+  </scroll-view>
+</view>

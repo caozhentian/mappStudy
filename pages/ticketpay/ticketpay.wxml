@@ -5,7 +5,7 @@
     <view class="page-section">
       <view>支付金额</view>
       <view class="price">{{price}}元</view>
-      <!-- <view class="desc">订单编号：{{orderId}}</view> -->
+      <view class="desc">订单编号：{{orderId}}</view>
       <view class="btn-area">
         <button type="primary" bindtap="requestPayment" loading="{{loading}}">支付</button>
       </view>

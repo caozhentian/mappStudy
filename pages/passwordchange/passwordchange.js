@@ -65,7 +65,7 @@ var app = getApp()
         return
       }
       network_util._post1(changePasswordUrl, {
-         password: password,
+         old_password: password,
          password: newPassword,
          password_confirm: confirmPassword,
         },

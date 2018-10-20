@@ -39,12 +39,12 @@ Page({
       'ticketInfo.price': options.price
     })
   },
-  // onShow: function() {
-  //   this.setData({
-  //     'ticketInfo.idcard': curUserInfo.idcard,
-  //     'ticketInfo.tel': curUserInfo.mobile
-  //   })
-  // },
+  onShow: function() {
+    this.setData({
+      'ticketInfo.idcard': curUserInfo.idcard,
+      'ticketInfo.tel': curUserInfo.mobile
+    })
+  },
   createOrder: function() {
     //创建订单
     let member_id = curUserInfo.member_id;
@@ -153,7 +153,8 @@ Page({
       success: function(res) {
         if (res.data.msg == "success") {
           wx.navigateTo({
-            url: '../../pages/ticketpay/ticketpay?orderId=' + "" + '&price=' + that.data.ticketInfo.price
+            url: '../../pages/ticketpay/ticketpay?orderId=' + res.data.data.order_id
+ + '&price=' + that.data.ticketInfo.price
               + '&timeStamp=' + res.data.data.timeStamp 
               + '&nonceStr=' + res.data.data.nonceStr 
               + '&package=' + res.data.data.package 

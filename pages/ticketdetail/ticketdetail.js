@@ -41,6 +41,9 @@ Page({
     });
   },
   allIntro: function() {
-
+    let ticketId = this.data.ticket.ticketId;
+    wx.navigateTo({
+      url: '../../pages/ticketdir/ticketdir?id=' + ticketId 
+    });
   }
 })
