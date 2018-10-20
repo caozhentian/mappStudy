@@ -1,0 +1,5 @@
+<template name="item">
+  <i-panel >
+    <i-cell title="2018/9/15 15:00" value="3次"></i-cell>
+  </i-panel>
+</template>

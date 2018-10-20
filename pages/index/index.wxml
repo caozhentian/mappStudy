@@ -17,7 +17,7 @@
         </i-grid-icon>
         <i-grid-label>我的评论</i-grid-label>
       </i-grid-item>
-      <i-grid-item>
+      <i-grid-item bindtap='mypublish'>
         <i-grid-icon>
           <image src="../../image/icon_ticket_HL.png" />
         </i-grid-icon>
@@ -45,22 +45,22 @@
   <view class="divLine"></view>
   <!--功能区的瀑布流布局-->
   <view class="flow-container">
-    <view class='flow-container-first-part-left' >
+    <view class='flow-container-first-part-left'>
       <view class='.flow-container-first-part-top' bindtap="select_ticket">
         <image class='.image' src="../../image/icon_home_ticket.png"></image>
         <text class=".name">年票</text>
       </view>
-      <view class='.flow-container-first-part-bottom'>
+      <view class='.flow-container-first-part-bottom' bindtap="stay">
         <image class='.image' src="../../image/icon_home_stay.png"></image>
         <text class=".name">住宿</text>
       </view>
     </view>
-    <view class='flow-container-first-part-right'>
+    <view class='flow-container-first-part-right' bindtap="commTicket">
       <view class='.flow-container-first-part-bottom'>
         <image class='.image' src="../../image/icon_home_comm_ticket.png"></image>
         <text class=".name">普票</text>
       </view>
-      <view class='.flow-container-first-part-bottom'>
+      <view class='.flow-container-first-part-bottom' bindtap="game">
         <image class='.image' src="../../image/icon_home_play.png"></image>
         <text class=".name">娱乐</text>
       </view>

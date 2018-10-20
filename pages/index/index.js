@@ -50,8 +50,11 @@ Page({
       url: '../commentlist/commentlist',
     })
   },
-  gotoMineComment2: function () {
-
+  mypublish: function () {
+    wx.showToast({
+      title: '功能开发中，敬请期待！',
+      icon: 'none'
+    })
   },
   gotoMineTrace: function () {
     if (curUserInfo.isGuest) {
@@ -75,6 +78,24 @@ Page({
   select_ticket: function() {
     wx.navigateTo({
       url: '../ticket/ticket',
+    })
+  },
+  commTicket: function () {
+    wx.showToast({
+      title: '功能开发中，敬请期待！',
+      icon:'none'
+    })
+  },
+  stay: function () {
+    wx.showToast({
+      title: '功能开发中，敬请期待！',
+      icon: 'none'
+    })
+  },
+  game: function () {
+    wx.showToast({
+      title: '功能开发中，敬请期待！',
+      icon: 'none'
     })
   },
   //选择年票问答

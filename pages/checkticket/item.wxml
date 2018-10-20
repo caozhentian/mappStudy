@@ -22,7 +22,7 @@
     <i-cell title="年票状态" value="{{status}}"></i-cell>
   </i-panel>
   <i-panel>
-    <i-cell title="验票记录" is-link url="/pages/mytrace/mytrace"></i-cell>
+    <i-cell title="验票记录" is-link url="/pages/mycheckrecord/mycheckrecord?id={{ticketId}}"></i-cell>
   </i-panel>
   <i-panel>
     <i-cell title="当前景区名称" value="{{spotName}}"></i-cell>

@@ -5,6 +5,7 @@
     "pages/ticketdetail/ticketdetail",
     "pages/myticketfolder/myticketfolder",
     "pages/checkticket/checkticket",
+    "pages/mycheckrecord/mycheckrecord",
     "pages/mine/mine",
     "pages/passwordchange/passwordchange",
     "pages/passwordreset/passwordreset",

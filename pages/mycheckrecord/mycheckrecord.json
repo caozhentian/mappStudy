@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "验票记录",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "i-cell-group": "../../dist/cell-group/index",
+      "i-cell": "../../dist/cell/index",
+      "i-panel": "../../dist/panel/index"
+    }
+}
