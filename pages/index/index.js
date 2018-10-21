@@ -22,6 +22,7 @@ Page({
   },
   onLoad:function(){
     this.getHomeData()
+    wx.authorize({ scope: "scope.userInfo" })
   },
   //获取首页数据
   getHomeData:function(){

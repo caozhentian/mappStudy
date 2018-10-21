@@ -36,10 +36,19 @@ Page({
       'signType': self.data.payinfo.signType,
       'paySign': self.data.payinfo.paySign,
       'success': function(res) {
-        console.log('成功:' + res);
+        wx.showToast({
+          title: '微信支付成功',
+          icon: 'none'
+        })
+        wx.navigateBack({
+          delta:2
+        });
       },
       'fail': function(res) {
-        console.log('失败:' + res);
+        wx.showToast({
+          title: '微信支付失败',
+          icon:'none'
+        })
       },
       'complete': function(res) {
         self.setData({

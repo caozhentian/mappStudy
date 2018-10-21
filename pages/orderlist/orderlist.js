@@ -18,15 +18,25 @@ Page({
     currentType:0,
     curOrderId:"" ,
     curOrderPrice:0 ,
+    cur_pay_status:0 ,
+    cur_status:''
   },
   handleChange({ detail }) {
     this.setData({
       currentType: detail.key
     });
-    if(this.data.currentType == '1'){
-      this.setData({
-        list: [{ status: '0' }, { status: '1' }, { status: '2' },{ status: '3' }, { status: '4' }, { status: '5' }]
-      });
+    if(this.data.currentType == '0'){
+      this.data.cur_pay_status = 0 ;
+      this.data.cur_status ='';
+    } else if (this.data.currentType == '1') {
+      this.data.cur_pay_status = 1;
+      this.data.cur_status = 'pending';
+    } else if (this.data.currentType == '2') {
+      this.data.cur_pay_status = 1;
+      this.data.cur_status = 'active';
+    } else if (this.data.currentType == '3') {
+      this.data.cur_pay_status = 1;
+      this.data.cur_status = 'dead';
     }
     wx.startPullDownRefresh({})
   },
@@ -103,7 +113,7 @@ Page({
     })
   },
   onLoad: function (options) {
-    wx.startPullDownRefresh({})
+    //wx.startPullDownRefresh({})
   },
   onShow:function(){//支付完成 或者重新上传 返回，刷新订单
     wx.startPullDownRefresh({})
@@ -129,7 +139,8 @@ Page({
     var url = this.data.url
     network_util._post1(url, {
       token: curUserinfo.token,
-      pay_status: that.data.currentType,
+      pay_status: that.data.cur_pay_status,
+      status: that.data.cur_status ,
       page: startPageIndex,
       page_size: that.data.pageSize
     },
@@ -166,7 +177,8 @@ Page({
     var url = this.data.url
     network_util._post1(url, {
       token: curUserinfo.token,
-      pay_status: that.data.currentType,
+      pay_status: that.data.cur_pay_status,
+      status: that.data.cur_status,
       page: ++that.data.page,
       page_size: that.data.pageSize
     },
