@@ -38,7 +38,7 @@
     </i-grid>
   </view>
   <!-- 公告 -->
-  <i-notice-bar bindtap="select_notice" icon="systemprompt" loop>
+  <i-notice-bar bindtap="select_notice" icon="systemprompt"  speed = "2000" loop>
     {{notice}}
   </i-notice-bar>
   <!-- 分割线 -->

@@ -20,6 +20,7 @@ Page({
   },
   onLoad: function(option) {
     this.data.spotId = option.id;
+    //this.data.spotId = 7
   },
   onShow: function() {
     this.getSpotdetail(this.data.spotId)
@@ -45,9 +46,9 @@ Page({
           ticketPrice: netdata.data.price,
 
         });
-        if (netdata.data.comment != null) { //存在评论
+        if (netdata.data.content != null) { //存在评论
           that.setData({
-            comment: netdata.data.comment,
+            comment: netdata.data.content,
             mobile: netdata.data.mobile,
             pubtime: netdata.data.pubtime,
             rate: netdata.data.level ,

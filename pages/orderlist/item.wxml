@@ -1,35 +1,39 @@
 <!--待支付-->
 <template name="0">
-  <i-card i-class="row-class"  title="名称" extra="西南中国" thumb="{{image}}">
-    <view slot="content">
-      <view class="order-item-class">
-        <view>订单编号: </view>
-        <view>{{order_id}}</view>
+  <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
+    <i-card i-class="row-class" title="名称" extra="西南中国" thumb="{{image}}">
+      <view slot="content">
+        <view class="order-item-class">
+          <view>订单编号: </view>
+          <view>{{order_id}}</view>
+        </view>
+        <view class="order-item-class">
+          <view>手机号:</view>
+          <view> {{mobile}}</view>
+        </view>
+        <view class="order-item-class">
+          <view>金额:</view>
+          <view> {{total_amount}}元</view>
+        </view>
       </view>
-      <view class="order-item-class">
-        <view>手机号:</view>
-        <view> {{mobile}}</view>
+      <view slot="footer">
+        <i-row i-class="row-class">
+          <i-col bindtap="toPay" data-orderid="{{order_id}}" data-orderprice="{{total_amount}}" bindtap="toPay" span="6" offset="11" i-class="col-class">去支付</i-col>
+          <i-col bindtap="showDlg" data-orderid="{{order_id}}" span="6" offset="1" i-class="col-class light">取消订单</i-col>
+        </i-row>
       </view>
-      <view class="order-item-class">
-        <view>金额:</view>
-        <view> {{total_amount}}元</view>
-      </view>
-    </view>
-    <view slot="footer">
-      <i-row i-class="row-class">
-        <i-col bindtap="toPay" data-orderid="{{order_id}}" data-orderprice="{{total_amount}}" bindtap="toPay" span="6" offset="11" i-class="col-class">去支付</i-col>
-        <i-col bindtap="showDlg" data-orderid="{{order_id}}" span="6" offset="1" i-class="col-class light">取消订单</i-col>
-      </i-row>
-    </view>
-  </i-card>
+    </i-card>
+  </view>
 </template>
 <!--待审核-->
 <template name="1">
-  <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="footer">
-      申
-    </view>
-  </i-card>
+  <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
+    <i-card title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+      <view slot="footer">
+        申
+      </view>
+    </i-card>
+  </view>
 </template>
 <!--审核失败-->
 <template name="3">
@@ -43,22 +47,26 @@
 </template>
 <!--可使用-->
 <template name="4">
-  <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="footer">
-      可使用
-    </view>
-    <view slot="footer">
-      <i-row i-class="row-class">
-        <i-col bindtap="showRerentDlg" data-orderid="12233" span="6" offset="18" i-class="col-class">续租</i-col>
-      </i-row>
-    </view>
-  </i-card>
+  <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
+    <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+      <view slot="footer">
+        可使用
+      </view>
+      <view slot="footer">
+        <i-row i-class="row-class">
+          <i-col bindtap="showRerentDlg" data-orderid="12233" span="6" offset="18" i-class="col-class">续租</i-col>
+        </i-row>
+      </view>
+    </i-card>
+  </view>
 </template>
 <!--已取消-->
 <template name="5">
-  <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="footer">
-      已取消
-    </view>
-  </i-card>
+  <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
+    <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+      <view slot="footer">
+        已取消
+      </view>
+    </i-card>
+  </view>
 </template>

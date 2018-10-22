@@ -7,6 +7,7 @@ let actualUrl = config.commentListUrl;
 Page({
     data: {
       url: actualUrl,
+      spotId:'',
       list: [],
       page: 1,
       pageSize: 10,
@@ -18,7 +19,7 @@ Page({
       }
     },
     onLoad: function(options) {
-      this.data.spotId = options.spotId
+      this.data.spotId = options.id
       wx.startPullDownRefresh({})
     },
     onPullDownRefresh: function() {
@@ -40,7 +41,7 @@ Page({
       let startPageIndex = 0
       var url = this.data.url
       network_util._post1(url, {
-          sid: 7,
+          sid: this.data.spotId,
           page: startPageIndex,
           page_size: that.data.pageSize
         },
@@ -72,7 +73,7 @@ Page({
       }
       var url = this.data.url
       network_util._post1(url, {
-          sid: 7,
+          sid: this.data.spotId,
           page: ++that.data.page,
           page_size: that.data.pageSize
         },

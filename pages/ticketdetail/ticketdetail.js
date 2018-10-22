@@ -6,7 +6,7 @@ const ticketDetailUrl = config.ticketDetailUrl
 Page({
   data: {
     info: {
-      list: [0, 1, 2, 3, 1, 2, 3, 1, 2, 3],
+      list: [],
       content: '',
       otherDesc: ''
     },
@@ -16,9 +16,10 @@ Page({
     }
   },
   onLoad: function(options) {
+    //options.id = 1 //debug
     this.data.ticket.ticketId = options.id;
     this.data.ticket.ticketPrice = options.price;
-    getTicketDetail(options.id)
+    this.getTicketDetail(options.id)
   },
   getTicketDetail(ticketId) {
     var that = this;

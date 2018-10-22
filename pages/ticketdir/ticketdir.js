@@ -4,7 +4,7 @@ const ticketDirUrl = config.ticketDirUrl
 Page({
   data: {
     info: {
-      list: [0, 1, 2, 3, 1, 2, 3, 1, 2, 3, 0, 1, 2, 3, 1, 2, 3, 1, 2, 3],
+      list: [],
     },
     ticket: {
       ticketId: '',
@@ -14,7 +14,7 @@ Page({
   onLoad: function(options) {
     this.data.ticket.ticketId = options.id;
     this.data.ticket.ticketPrice = options.price;
-    getTicketDir(options.id)
+    this.getTicketDir(options.id)
   },
   getTicketDir(ticketId) {
     var that = this;

@@ -27,7 +27,7 @@
       </view>
     </i-card>
     <view style="margin: 16px"></view>
-    <view hidden='{{!isShowCommen}}'>
+    <view hidden='{{!isShowComment}}'>
     <i-card  bindtap="more"  title="我的评论" extra="查看更多评论">
       <view slot="content">
         <view>{{comment}}</view>
