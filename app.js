@@ -2,6 +2,11 @@
 const openIdUrl = require('./config').openIdUrl
 App({
   onLaunch: function () {
+    //Debug start
+    this.globalData.userInfo.token = '7af537ee3bc8525a90b5cc6f3ba3e714'
+    this.globalData.userInfo.member_id = 3
+    this.globalData.userInfo.isMember  = true
+    //Debug end
   },
 
   globalData: {
@@ -23,6 +28,7 @@ App({
         this.token    = token ;
         this.mobile = mobile;
         this.idcard = idcard;
+
       },
 
       logout:function(){

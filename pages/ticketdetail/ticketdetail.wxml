@@ -7,34 +7,32 @@
       <view wx:if="{{index %2 == 0}}">
         <i-row i-class="item-row-odd">
           <i-col span="4">{{index+1}}</i-col>
-          <i-col span="4">'##'</i-col>
-          <i-col span="4">'##'</i-col>
-          <i-col span="4">名称</i-col>
-          <i-col span="4">30元/次</i-col>
-          <i-col span="4">1</i-col>
+          <i-col span="4">{{region}}</i-col>
+          <i-col span="4">{{type}}</i-col>
+          <i-col span="4">{{name}}</i-col>
+          <i-col span="4">{{price}}元/次</i-col>
+          <i-col span="4">{{limit_count}}</i-col>
         </i-row>
       </view>
       <view wx:else>
         <i-row i-class="item-row-even">
           <i-col span="4">{{index+1}}</i-col>
-          <i-col span="4">区域</i-col>
-          <i-col span="4">分类</i-col>
-          <i-col span="4">名称</i-col>
-          <i-col span="4">
-            <nobr>60元/次</nobr>
-          </i-col>
-          <i-col span="4">2</i-col>
+          <i-col span="4">{{region}}</i-col>
+          <i-col span="4">{{type}}</i-col>
+          <i-col span="4">{{name}}</i-col>
+          <i-col span="4">{{price}}元/次</i-col>
+          <i-col span="4">{{limit_count}}</i-col>
         </i-row>
       </view>
     </view>
     <!--内容部分 -->
     <view style="margin: 16px"></view>
     <i-card title="简介">
-      <view slot="content">{{info.content}}</view>
+      <view slot="content"><rich-text nodes="{{info.content}}"></rich-text></view>
     </i-card>
     <view style="margin: 16px"></view>
     <i-card title="其它">
-      <view slot="content">{{info.otherDesc}}</view>
+      <view slot="content"><rich-text nodes="{{info.otherDesc}}"></rich-text></view>
     </i-card>
   </scroll-view>
   <!--底部操作按钮-->

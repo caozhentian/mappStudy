@@ -43,8 +43,14 @@ var config = {
     // 修改密码
     changePasswordUrl: 'Api/pwdEdit',
     getSmscodeUrl:'Api/sendSms',
-    ticketDetailUrl:"Api/dfj",
+    ticketDetailUrl:"Api/ticketDetail",
     ticketDirUrl: "Api/dfj",
+    orderListUrl:'Order/orderList',
+    orderPayUrl:'Payment/goPay',
+    orderCancelUrl: 'Order/orderCancel',
+    articleAnswersUrl: 'Api/articleAnswers',
+    articleNotificationUrl: 'Api/articleNotification',
+    articleSlide:'Api/articleSlide' ,
     //代理登录URL
     agentLoginUrl:'dhdf'
 };

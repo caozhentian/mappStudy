@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/noticelist/noticelist",
+    "pages/question/question",
+    "pages/orderlist/orderlist",
     "pages/index/index",
     "pages/ticketdir/ticketdir",
     "pages/ticketdetail/ticketdetail",
@@ -9,11 +12,8 @@
     "pages/mine/mine",
     "pages/passwordchange/passwordchange",
     "pages/passwordreset/passwordreset",
-    "pages/noticelist/noticelist",
-    "pages/question/question",
     "pages/commentlist/commentlist",
     "pages/mytrace/mytrace",
-    "pages/orderlist/orderlist",
     "pages/comment/comment",
     "pages/ticket/ticket",
     "pages/userlogin/userlogin",
@@ -28,6 +28,7 @@
     "pages/forum/forum",
     "pages/ticketagree/ticketagree",
     "pages/ticketpay/ticketpay",
+    "pages/ticketpay2/ticketpay2",
     "pages/sightspotlist/sightspotlist"
   ],
   "window": {

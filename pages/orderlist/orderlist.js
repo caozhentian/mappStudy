@@ -1,7 +1,7 @@
 var network_util = require('../../utils/network_util.js');
-let actualUrl = "Order/orderList"
-const cancelUrl = ""
-const rerentUrl = ""
+let actualUrl    = require('../../config').orderListUrl;
+const cancelUrl  = require('../../config').orderCancelUrl ;
+const rerentUrl  = ""
 var app = getApp()
 const curUserinfo = app.globalData.userInfo
 Page({
@@ -62,7 +62,7 @@ Page({
       visibleRerent: false,
     })
     network_util._post1(cancelUrl, {
-      orderId: that.data.curOrderId,
+      order_id: that.data.curOrderId,
     },
       function (res) {
         //取消订单成功 刷新订单
@@ -100,7 +100,7 @@ Page({
     that.data.curOrderId = e.currentTarget.dataset.orderid;
     that.data.curOrderPrice = e.currentTarget.dataset.orderprice;
     wx.navigateTo({
-      url: '../../pages/ticketpay/ticketpay?orderId=' + that.data.curOrderId + '&price=' + that.data.curOrderPrice,
+      url: '../../pages/ticketpay2/ticketpay2?orderId=' + that.data.curOrderId + '&price=' + that.data.curOrderPrice,
     })
   },
   //审核失败 重新上传
@@ -114,6 +114,11 @@ Page({
   },
   onLoad: function (options) {
     //wx.startPullDownRefresh({})
+    //debug​{"code":0,"msg":"success","data":{"member_id":"3","mobile":"13186075367","idcard":"132330198109142478","token":"7af537ee3bc8525a90b5cc6f3ba3e714"}}
+    
+    //
+    //
+    
   },
   onShow:function(){//支付完成 或者重新上传 返回，刷新订单
     wx.startPullDownRefresh({})

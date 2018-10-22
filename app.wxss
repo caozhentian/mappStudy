@@ -237,3 +237,7 @@ form{
   display: flex ;
   justify-content: space-between
 }
+
+.i-card-margin-class{
+  margin-bottom: 10dp
+}

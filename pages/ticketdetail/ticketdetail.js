@@ -7,8 +7,8 @@ Page({
   data: {
     info: {
       list: [0, 1, 2, 3, 1, 2, 3, 1, 2, 3],
-      content: '内容如下 美丽的中国',
-      otherDesc: '其它介绍 主要时间'
+      content: '',
+      otherDesc: ''
     },
     ticket: {
       ticketId: '',
@@ -23,13 +23,13 @@ Page({
   getTicketDetail(ticketId) {
     var that = this;
     network_util._post1(ticketDetailUrl, {
-        sid: that.data.spotId
+        tid: that.data.ticket.ticketId
       },
       function(netdata) {
         that.setData({
-          'info.list': netdata.data.name,
-          'info.content': picUrl,
-          'info.otherDesc': netdata.data.intro,
+          'info.list': netdata.data.scenic,
+          'info.content': netdata.data.ticket.intro,
+          'info.otherDesc': '',
         });
       })
   },
@@ -43,7 +43,7 @@ Page({
   allIntro: function() {
     let ticketId = this.data.ticket.ticketId;
     wx.navigateTo({
-      url: '../../pages/ticketdir/ticketdir?id=' + ticketId 
+      url: '../../pages/ticketdir/ticketdir?id=' + ticketId
     });
   }
 })
