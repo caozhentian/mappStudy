@@ -2,10 +2,10 @@
   <view  style='margin:0px 0px 10px 0px;' class = 'i-card-margin-class'>
     <i-card title="{{title}}" extra="">
       <view slot="content">
-        {{title}}
+        <rich-text nodes="{{content}}"></rich-text>
       </view>
       <view slot="footer">
-        <view>发布时间: 2018/10/18</view>
+        <view>发布时间: {{createtime}}</view>
       </view>
     </i-card>
   </view>

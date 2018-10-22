@@ -50,7 +50,8 @@ var config = {
     orderCancelUrl: 'Order/orderCancel',
     articleAnswersUrl: 'Api/articleAnswers',
     articleNotificationUrl: 'Api/articleNotification',
-    articleSlide:'Api/articleSlide' ,
+    articleSlide:'Api/articleSlide'  ,
+    commentListUrl:'Api/commentList' ,
     //代理登录URL
     agentLoginUrl:'dhdf'
 };
