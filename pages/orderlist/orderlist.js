@@ -38,7 +38,6 @@ Page({
       this.data.cur_pay_status = 1;
       this.data.cur_status = 'dead';
     }
-    wx.startPullDownRefresh({})
   },
   //取消订单
   showDlg:function(e){
@@ -113,12 +112,7 @@ Page({
     })
   },
   onLoad: function (options) {
-    //wx.startPullDownRefresh({})
-    //debug​{"code":0,"msg":"success","data":{"member_id":"3","mobile":"13186075367","idcard":"132330198109142478","token":"7af537ee3bc8525a90b5cc6f3ba3e714"}}
-    
-    //
-    //
-    
+    wx.startPullDownRefresh({})
   },
   onShow:function(){//支付完成 或者重新上传 返回，刷新订单
     wx.startPullDownRefresh({})

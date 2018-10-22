@@ -1,7 +1,7 @@
 <!--待支付-->
 <template name="0">
   <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
-    <i-card i-class="row-class" title="名称" extra="西南中国" thumb="{{image}}">
+    <i-card i-class="row-class" title="名称:" extra="{{name}}" thumb="{{image}}">
       <view slot="content">
         <view class="order-item-class">
           <view>订单编号: </view>
@@ -28,42 +28,36 @@
 <!--待审核-->
 <template name="1">
   <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
-    <i-card title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-      <view slot="footer">
-        申
+    <i-card title="名称:" extra="{{name}}" thumb="{{image}}">
+      <view wx:if="{{8 > 5}}">
+        <view slot="footer">
+          申
+        </view>
+      </view>
+      <view wx:else>
+        <view slot="footer">
+          <i-row i-class="row-class">
+            <i-col bindtap="toRetryUpload" data-orderid="12233" span="6" offset="18" i-class="col-class">重新上传</i-col>
+          </i-row>
+        </view>
       </view>
     </i-card>
   </view>
 </template>
-<!--审核失败-->
-<template name="3">
-  <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-    <view slot="footer">
-      <i-row i-class="row-class">
-        <i-col bindtap="toRetryUpload" data-orderid="12233" span="6" offset="18" i-class="col-class">重新上传</i-col>
-      </i-row>
-    </view>
-  </i-card>
-</template>
 <!--可使用-->
-<template name="4">
+<template name="3">
   <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
-    <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <i-card full title="名称:" extra="{{name}}" thumb="{{image}}">
       <view slot="footer">
         可使用
-      </view>
-      <view slot="footer">
-        <i-row i-class="row-class">
-          <i-col bindtap="showRerentDlg" data-orderid="12233" span="6" offset="18" i-class="col-class">续租</i-col>
-        </i-row>
       </view>
     </i-card>
   </view>
 </template>
 <!--已取消-->
-<template name="5">
+<template name="4">
   <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
-    <i-card full title="标题2" extra="内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <i-card full title="名称:" extra="{{name}}" thumb="{{image}}">
       <view slot="footer">
         已取消
       </view>
