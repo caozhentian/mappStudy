@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/question/question",
     "pages/orderlist/orderlist",
+    "pages/retryuploadpic/retryuploadpic",
     "pages/ticketdetail/ticketdetail",
     "pages/sightspotdetail/sightspotdetail",
     "pages/commentlist/commentlist",
     "pages/noticelist/noticelist",
-    "pages/question/question",
     "pages/ticketdir/ticketdir",
     "pages/myticketfolder/myticketfolder",
     "pages/checkticket/checkticket",

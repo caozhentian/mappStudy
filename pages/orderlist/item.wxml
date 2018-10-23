@@ -9,7 +9,11 @@
         </view>
         <view class="order-item-class">
           <view>手机号:</view>
-          <view> {{mobile}}</view>
+          <view> {{telHide}}</view>
+        </view>
+        <view class="order-item-class">
+          <view>身份证号码:</view>
+          <view> {{idcardHide}}</view>
         </view>
         <view class="order-item-class">
           <view>金额:</view>
@@ -40,7 +44,11 @@
         </view>
         <view class="order-item-class">
           <view>手机号:</view>
-          <view> {{mobile}}</view>
+          <view> {{telHide}}</view>
+        </view>
+        <view class="order-item-class">
+          <view>身份证号码:</view>
+          <view> {{idcardHide}}</view>
         </view>
         <view class="order-item-class">
           <view>金额:</view>
@@ -55,7 +63,7 @@
       </view>
       <view wx:else slot="footer">
         <i-row i-class="row-class">
-          <i-col bindtap="toRetryUpload" data-orderid="{{order_id}}" span="6" offset="18" i-class="col-class">重新上传</i-col>
+          <i-col bindtap="toRetryUpload" data-orderid="{{order_id}}" data-mobile="{{mobile}}" data-idcard="{{idcard}}" span="6" offset="18" i-class="col-class">重新上传</i-col>
         </i-row>
       </view>
     </i-card>
@@ -72,7 +80,11 @@
         </view>
         <view class="order-item-class">
           <view>手机号:</view>
-          <view> {{mobile}}</view>
+          <view> {{telHide}}</view>
+        </view>
+        <view class="order-item-class">
+          <view>身份证号码:</view>
+          <view> {{idcardHide}}</view>
         </view>
         <view class="order-item-class">
           <view>金额:</view>
@@ -99,7 +111,11 @@
         </view>
         <view class="order-item-class">
           <view>手机号:</view>
-          <view> {{mobile}}</view>
+          <view> {{telHide}}</view>
+        </view>
+        <view class="order-item-class">
+          <view>身份证号码:</view>
+          <view> {{idcardHide}}</view>
         </view>
         <view class="order-item-class">
           <view>金额:</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "重新上传",
+  "usingComponents": {
+    "i-card": "../../dist/card/index"
+  }
+}

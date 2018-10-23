@@ -1,4 +1,5 @@
 var network_util = require('../../utils/network_util.js');
+var util = require('../../utils/util.js');
 let actualUrl    = require('../../config').orderListUrl;
 const cancelUrl  = require('../../config').orderCancelUrl ;
 const rerentUrl  = ""
@@ -107,9 +108,10 @@ Page({
   toRetryUpload:function(e){
     var that = this;
     that.data.curOrderId = e.currentTarget.dataset.orderid;
-    that.data.curOrderPrice = e.currentTarget.dataset.orderprice;
+    let mobile  = e.currentTarget.dataset.mobile;
+    let idcard  = e.currentTarget.dataset.idcard;
     wx.navigateTo({
-      url: '../../pages/ticketpayinfo/ticketpayinfo?orderId=' + that.data.curOrderId 
+      url: '../../pages/retryuploadpic/retryuploadpic?orderId=' + that.data.curOrderId + '&mobile=' + mobile + '&idcard=' + idcard
     })
   },
   onShow:function(){//支付完成 或者重新上传 返回，刷新订单
@@ -149,8 +151,8 @@ Page({
         that.data.list = []
         let datas = res.data.list;
         datas.forEach(function (currentValue) {
-          var fullPath = network_util.BASE_PIC_URL + currentValue.image;
-          currentValue.image = fullPath;
+          currentValue.telHide = util.hideTel(currentValue.mobile)
+          currentValue.idcardHide = util.hideIdCard(currentValue.idcard)
         })　;
         that.setData({
           list: datas,

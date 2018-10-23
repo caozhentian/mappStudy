@@ -52,6 +52,7 @@ var config = {
     articleNotificationUrl: 'Api/articleNotification',
     articleSlide:'Api/articleSlide'  ,
     commentListUrl:'Api/commentList' ,
+    againUploadCardUrl:'Order/againUploadCard',//重新上传证件
     //代理登录URL
     agentLoginUrl:'dhdf'
 };
