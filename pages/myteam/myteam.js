@@ -1,7 +1,9 @@
 var util = require('../../utils/util2.js');
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
-import { PageData } from '../list/PageData.js' 
+import {
+  PageData
+} from '../list/PageData.js'
 Page({
   data: {
     header: {
@@ -52,14 +54,13 @@ Page({
     this.setData({
       'header.endDate': nowDate
     })
-    wx.startPullDownRefresh({
-    })
+    wx.startPullDownRefresh({})
   },
 
   //列表下拉 加载相关的数据
-  stopPullDownRefresh: function () {
+  stopPullDownRefresh: function() {
     wx.stopPullDownRefresh({
-      complete: function (res) {
+      complete: function(res) {
         wx.hideToast()
       }
     })
@@ -67,14 +68,14 @@ Page({
   refresh: function() {
     if (this.data.pagedata.loadMoreing || this.data.pagedata.refreshing) {
       return
-    } 
+    }
     var that = this;
     let startPageIndex = 0
     this.data.pagedata.refreshing = true
     var url = this.data.pagedata.url
     network_util._post1(url, {
-      type: 'year_ticket',
-      city: '610100',
+        type: 'year_ticket',
+        city: '610100',
         'nextPage': startPageIndex,
         'pageSize': this.data.pagedata.pageSize
       },
@@ -105,8 +106,8 @@ Page({
     }
     var url = this.data.pagedata.url
     network_util._post1(url, {
-      type: 'year_ticket',
-      city: '610100',
+        type: 'year_ticket',
+        city: '610100',
         nextPage: ++that.data.pagedata.pageIndex,
         pageSize: this.data.pagedata.pageSize
       },

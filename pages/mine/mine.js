@@ -88,5 +88,10 @@ Page({
     wx.navigateTo({
       url: '/pages/myincome/myincome',
     })
+  }, 
+  gotoAgentOrder: function() {
+    wx.navigateTo({
+      url: '/pages/agentorder/agentorder',
+    })
   },
 })

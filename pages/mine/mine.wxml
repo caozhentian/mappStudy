@@ -59,7 +59,7 @@
           </i-grid-icon>
           <i-grid-label>二维码</i-grid-label>
         </i-grid-item>
-        <i-grid-item>
+        <i-grid-item bindtap='gotoAgentOrder'>
           <i-grid-icon>
             <image src="../../image/icon_ticket_HL.png" />
           </i-grid-icon>

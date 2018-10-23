@@ -1,6 +1,6 @@
 <!--待支付-->
 <template name="0">
-  <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
+  <view style='margin:10px 0px 0px 0px;' class='i-card-margin-class'>
     <i-card i-class="row-class" title="名称:" extra="{{name}}" thumb="{{image}}">
       <view slot="content">
         <view class="order-item-class">
@@ -35,7 +35,7 @@
 </template>
 <!--待审核-->
 <template name="1">
-  <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
+  <view style='margin:10px 0px 0px 0px;' class='i-card-margin-class'>
     <i-card title="名称:" extra="{{name}}" thumb="{{image}}">
       <view slot="content">
         <view class="order-item-class">
@@ -71,8 +71,8 @@
 </template>
 <!--可使用-->
 <template name="2">
-  <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
-    <i-card full title="名称:" extra="{{name}}" thumb="{{image}}">
+  <view style='margin:10px 0px 0px 0px;' class='i-card-margin-class'>
+    <i-card  title="名称:" extra="{{name}}" thumb="{{image}}">
       <view slot="content">
         <view class="order-item-class">
           <view>订单编号: </view>
@@ -102,8 +102,8 @@
 </template>
 <!--已取消-->
 <template name="3">
-  <view style='margin:0px 0px 10px 0px;' class='i-card-margin-class'>
-    <i-card full title="名称:" extra="{{name}}" thumb="{{image}}">
+  <view style='margin:10px 0px 0px 0px;' class='i-card-margin-class'>
+    <i-card  title="名称:" extra="{{name}}" thumb="{{image}}">
       <view slot="content">
         <view class="order-item-class">
           <view>订单编号: </view>
