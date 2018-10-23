@@ -10,12 +10,12 @@ Page({
     visibleRerent:false ,
     msg:"继续操作吗?",
     url: actualUrl,
-    page: 1,
+    page: 0,
     pageSize: 10,
     hasMore: true,
     loadMoreing: false, //是否正在加载更多中
     list: [],
-    currentType:0,
+    currentType:'0',
     curOrderId:"" ,
     curOrderPrice:0 ,
     cur_pay_status:0 ,
@@ -35,9 +35,10 @@ Page({
       this.data.cur_pay_status = 1;
       this.data.cur_status = 'active';
     } else if (this.data.currentType == '3') {
-      this.data.cur_pay_status = 1;
+      this.data.cur_pay_status = '';
       this.data.cur_status = 'dead';
     }
+    wx.startPullDownRefresh({})
   },
   //取消订单
   showDlg:function(e){
@@ -111,10 +112,10 @@ Page({
       url: '../../pages/ticketpayinfo/ticketpayinfo?orderId=' + that.data.curOrderId 
     })
   },
-  onLoad: function (options) {
-    wx.startPullDownRefresh({})
-  },
   onShow:function(){//支付完成 或者重新上传 返回，刷新订单
+    this.setData({
+      currentType: this.data.currentType
+    });
     wx.startPullDownRefresh({})
   },
   // 下拉刷新功能
@@ -159,7 +160,6 @@ Page({
 
       },
       function (res) {
-        console.log(res);
         that.stopPullDownRefresh()
       })
   },

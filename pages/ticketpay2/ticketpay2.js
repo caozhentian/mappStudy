@@ -44,29 +44,30 @@ Page({
   },
 
   payorder: function(openid) {
+    var that = this ;
     network_util._post1(orderPayUrl, {
         token: curUserInfo.token,
         openid: openid,
         order_id: this.data.orderId
       },
       function(res) {
-        pay(res)
+        that.pay(res);
       },
       function(res) {
         wx.showToast({
           title: '支付失败',
           icon: 'none'
-        })
+        });
       })
   },
 
   pay: function (respay){
     wx.requestPayment({
-      'timeStamp': respay.data.payinfo.timeStamp,
-      'nonceStr': respay.data.payinfo.nonceStr,
-      'package': respay.data.payinfo.package2,
-      'signType': respay.data.payinfo.signType,
-      'paySign': respay.data.payinfo.paySign,
+      'timeStamp': respay.data.timeStamp,
+      'nonceStr': respay.data.nonceStr,
+      'package': respay.data.package,
+      'signType': respay.data.signType,
+      'paySign': respay.data.paySign,
       'success': function (res) {
         wx.showToast({
           title: '微信支付成功',
