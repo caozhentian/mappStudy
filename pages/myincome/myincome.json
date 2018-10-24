@@ -1,7 +1,8 @@
 {
-    "navigationBarTitleText": "微信新闻",
+    "navigationBarTitleText": "我的收入",
     "enablePullDownRefresh": true,
     "usingComponents": {
-      "i-card": "../../dist/card/index"
+      "i-card": "../../dist/card/index",
+      "i-panel": "../../dist/panel/index"
     }
 }

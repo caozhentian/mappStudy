@@ -1,19 +1,23 @@
-
+let network_util = require('../../utils/network_util.js');
+let agreeUrl = require('../../config.js').agreeUrl;
 Page({
   data: {
-    
+    ticketId:'',
+    content:'' ,
   },
-  onLoad: function () {
-    
+  onLoad: function (option) {
+    this.ticketId = option.id;
   },
-  gotobuy:function(){ //进入购买界面
-   wx.navigateTo({
-     url: '../../pages/ticketpayinfo/ticketpayinfo',
-   })
+
+  refresh: function () {
+    var that = this;
+    network_util._post1(agreeUrl, {
+    },
+      function (res) {
+        that.stopPullDownRefresh()
+        that.setData({
+          content: res.data.detail.content
+        });
+      })
   },
-  gotosightspotlist:function(){//进入景区列表
-    wx.navigateTo({
-      url: '../sightspotlist/sightspotlist',
-    })
-  }
 })

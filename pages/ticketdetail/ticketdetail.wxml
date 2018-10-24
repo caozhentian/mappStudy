@@ -1,6 +1,6 @@
 <import src="header.wxml" />
 <view class="container">
-  <scroll-view class="page-body">
+  <scroll-view class="page-body" style='margin-bottom: 50px;'>
     <template is="header" data="{{...header}}" />
     <!-- 列表的主题部分-->
     <view wx:for="{{info.list}}" wx:for-item="item">
@@ -28,15 +28,19 @@
     <!--内容部分 -->
     <view style="margin: 16px"></view>
     <i-card title="简介">
-      <view slot="content"><rich-text nodes="{{info.content}}"></rich-text></view>
+      <view slot="content">
+        <rich-text nodes="{{info.content}}"></rich-text>
+      </view>
     </i-card>
     <view style="margin: 16px"></view>
     <i-card title="其它">
-      <view slot="content"><rich-text nodes="{{info.otherDesc}}"></rich-text></view>
+      <view slot="content">
+        <rich-text nodes="{{info.otherDesc}}"></rich-text>
+      </view>
     </i-card>
   </scroll-view>
   <!--底部操作按钮-->
-  <view class='page-footer'>
+  <view class='page-footer footer' >
     <button class='btn' bindtap='gotopay' type='primary' size='mini'>购买年票</button>
     <button class='btn' bindtap='allIntro' type='primary' size='mini'>全部目录</button>
   </view>

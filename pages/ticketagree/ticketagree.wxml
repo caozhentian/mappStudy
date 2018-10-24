@@ -9,8 +9,5 @@
 七、持运城旅游年票的游客，在年票有效期内，可不限次数去年票签约的景区游玩。
 八、运城旅游年票仅限于本人使用，不得转借。</text>
 
-<!-- <view class='ticket_agree_oper_container'>
-<button class='ticket_agree_oper_button' bindtap="gotobuy">购买</button> 
-<button class='ticket_agree_oper_button' bindtap='gotosightspotlist'>列表</button>
-</view> -->
+  <rich-text nodes='{{content}}'></rich-text>
 </view>

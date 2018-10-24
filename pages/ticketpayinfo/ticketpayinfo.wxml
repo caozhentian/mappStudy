@@ -46,7 +46,7 @@
           <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
         </view>
         阅读并同意
-        <navigator url="/pages/ticketagree/ticketagree" class="weui-agree__link">《相关条款》</navigator>
+        <navigator url="/pages/ticketagree/ticketagree?id={{ticketInfo.ticketId}}" class="weui-agree__link">《相关条款》</navigator>
       </view>
     </label>
   </checkbox-group>

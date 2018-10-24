@@ -1,50 +1,14 @@
+<import src="header.wxml" />
+<import src="item.wxml" />
 <view class="container">
-
-   <view class="userinfo">
-    <image class="agent-avatar" src="{{ agentProfileUrl }}" background-size="cover"></image>
-    <text class="agent-name">【代理商】</text>
-    <text class="agent-level">{{level}}</text>
+  <view class="page">
+    <view class="page__bd">
+      <template is="header" data="{{...header}}" />
+      <!-- 列表的主题部分-->
+      <view wx:for="{{pagedata.list}}" wx:for-item="item" bindtap="bindViewTap">
+        <template is="item" data="{{...item}}" />
+      </view>
+      <include src="../../pages/list/list-page-footer" />
+    </view>
   </view>
-  
-  
-  <i-grid>
-    <i-grid-item>
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>代理商品</i-grid-label>
-    </i-grid-item>
-    <i-grid-item>
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>二维码</i-grid-label>
-    </i-grid-item>
-    <i-grid-item>
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>我的订单</i-grid-label>
-    </i-grid-item>
-  </i-grid>
-  <i-grid>
-    <i-grid-item>
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>我的团队</i-grid-label>
-    </i-grid-item>
-    <i-grid-item>
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>海报制作</i-grid-label>
-    </i-grid-item>
-    <i-grid-item>
-      <i-grid-icon>
-        <image src="../../image/icon_ticket_HL.png" />
-      </i-grid-icon>
-      <i-grid-label>历史收入</i-grid-label>
-    </i-grid-item>
-  </i-grid>
 </view>

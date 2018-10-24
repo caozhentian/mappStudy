@@ -1,6 +1,7 @@
 var util = require('../../utils/util2.js');
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
+const config = require('../../config.js');
 import {
   PageData
 } from '../list/PageData.js'
@@ -11,14 +12,28 @@ Page({
       endDate: "2018/09/27",
     },
     //列表相关的数据
-    pagedata: new PageData("Api/ticketList"),
+    pagedata: new PageData(config.agentIncomeUrl),
   },
   bindStartDateChange: function(e) {
+    if (e.detail.value > this.data.header.endDate) {
+      wx.showToast({
+        title: '开始日期不能大于截止日期',
+        icon: 'none'
+      })
+      return;
+    }
     this.setData({
       'header.startDate': e.detail.value
     })
   },
   bindEndDateChange: function(e) {
+    if (e.detail.value < this.data.header.startDate) {
+      wx.showToast({
+        title: '开始日期不能大于截止日期',
+        icon: 'none'
+      })
+      return;
+    }
     this.setData({
       'header.endDate': e.detail.value
     })
@@ -110,6 +125,12 @@ Page({
   页面上拉触底事件的处理函数   */
   onReachBottom: function() {
     this.loadMore();
+  },
+  search:function(){
+    wx.startPullDownRefresh({
+      
+    })
   }
+
 
 })
