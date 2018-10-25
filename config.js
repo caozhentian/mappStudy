@@ -61,7 +61,8 @@ var config = {
     renewalCreateOrderUrl:'Order/renewalCreateOrder',
     CheckInfoUrl:'Order/renewalCreateOrder',
     //代理登录URL
-    agentLoginUrl:'dhdf'
+    agentLoginUrl:'dhdf',
+    agentProductUrl: 'Api/ticketList'
 };
 
 module.exports = config

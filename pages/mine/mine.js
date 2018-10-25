@@ -76,12 +76,17 @@ Page({
   },
   gotoQrCode: function() {
     wx.navigateTo({
-      url: '/pages/agentProduct/agentProduct',
+      url: '/pages/agentqrcode/agentqrcode',
     })
   },
   gotoMyTeam: function() {
     wx.navigateTo({
       url: '/pages/myteam/myteam',
+    })
+  },
+  gotoMyPoster:function(){
+    wx.navigateTo({
+      url: '/pages/agentposter/agentposter',
     })
   },
   gotoMyincome: function() {

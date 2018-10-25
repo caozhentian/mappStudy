@@ -1,25 +1,9 @@
 <template name="item">
-  <view class="weui-panel weui-panel_access">
-
-    <view class="weui-panel__bd">
-      <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-          <image class="weui-media-box__thumb" src="{{icon60}}" />
-        </view>
-        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-          <view class="weui-media-box__title">名称：天体</view>
-          <view class="weui-media-box__desc">价格：99</view>
-        </view>
-      </navigator>
-
-    </view>
-    <view class="weui-panel__ft">
-      <view class="weui-cell weui-cell_access weui-cell_link">
-        <view class="weui-cell__bd" data-tid="1" data-member-id="1" bindtap='agenGotoPayt'>去购买</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  <view data-id="1" data-price='0.02' bindtap="agenGotoPayt" style='margin:10px 0px  0px 0px;'>
+    <i-card title="名称" extra="去购买">
+      <view slot="content">
+        价格：99元
       </view>
-    </view>
+    </i-card>
   </view>
-
-
 </template>

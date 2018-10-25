@@ -1,37 +1,19 @@
-var util = require('../../utils/util2.js');
 var network_util = require('../../utils/network_util.js');
-var json_util = require('../../utils/json_util.js');
+var config = require('../../config.js');
 import {
   PageData
 } from '../list/PageData.js'
 Page({
   data: {
-    header: {
-
-    },
-    //列表相关的数据
-    pagedata: new PageData("Api/ticketList"),
+    pagedata: new PageData(config.agentProductUrl),
   },
 
   onLoad: function(options) {
-    var nowDate = util.getNowFormatSimpleDate()
-    this.setData({
-      'header.startDate': nowDate
-    })
-    this.setData({
-      'header.endDate': nowDate
-    })
     wx.startPullDownRefresh({}) //刷新
   },
   agenGotoPayt:function(event){
     wx,wx.navigateTo({
-      url: '/pages/ticketpayinfo/ticketpayinfo',
-    })
-  },
-  itemClick: function(e) {
-    var $data = e.currentTarget.dataset; //item传递参数的写法
-    wx.showToast({
-      title: "" + $data.index
+      url: '/pages/ticketpayinfo/ticketpayinfo?id=' + event.currentTarget.dataset.id + "&price=" + event.currentTarget.dataset.price,
     })
   },
   //列表下拉 加载相关的数据

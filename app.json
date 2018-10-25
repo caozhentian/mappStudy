@@ -1,8 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/myticketfolder/myticketfolder",
+    "pages/mine/mine",
+    "pages/agentproduct/agentproduct",
+    "pages/agentposter/agentposter",
     "pages/ticketagree/ticketagree",
+    "pages/myticketfolder/myticketfolder",
     "pages/agentqrcode/agentqrcode",
     "pages/question/question",
     "pages/orderlist/orderlist",
@@ -14,7 +17,6 @@
     "pages/ticketdir/ticketdir",
     "pages/checkticket/checkticket",
     "pages/mycheckrecord/mycheckrecord",
-    "pages/mine/mine",
     "pages/passwordchange/passwordchange",
     "pages/passwordreset/passwordreset",
     "pages/mytrace/mytrace",
@@ -22,7 +24,7 @@
     "pages/ticket/ticket",
     "pages/userlogin/userlogin",
     "pages/register/register",
-    "pages/agentproduct/agentproduct",
+    
     "pages/myincome/myincome",
     "pages/myteam/myteam",
     "pages/agent/agent",
