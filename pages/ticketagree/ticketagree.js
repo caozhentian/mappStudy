@@ -2,21 +2,22 @@ let network_util = require('../../utils/network_util.js');
 let agreeUrl = require('../../config.js').agreeUrl;
 Page({
   data: {
-    ticketId:'',
-    content:'' ,
+    ticketId: '',
+    title: '',
+    content: '',
   },
-  onLoad: function (option) {
+  onLoad: function(option) {
     this.ticketId = option.id;
+    this.refresh();
   },
 
-  refresh: function () {
+  refresh: function() {
     var that = this;
-    network_util._post1(agreeUrl, {
-    },
-      function (res) {
-        that.stopPullDownRefresh()
+    network_util._post1(agreeUrl, {},
+      function(res) {
         that.setData({
-          content: res.data.detail.content
+          content: res.data.detail.content,
+          title: res.data.detail.title
         });
       })
   },

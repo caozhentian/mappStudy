@@ -28,7 +28,6 @@ App({
         this.token    = token ;
         this.mobile = mobile;
         this.idcard = idcard;
-
       },
 
       logout:function(){

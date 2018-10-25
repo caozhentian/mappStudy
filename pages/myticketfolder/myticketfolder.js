@@ -1,14 +1,12 @@
 var network_util = require('../../utils/network_util.js');
 var json_util = require('../../utils/json_util.js');
 var util = require('../../utils/util2.js');
-let actualUrl = "Api/ticketList"
+let actualUrl = require('../../config.js').myticketfolderUrl
 const app = getApp()
 Page({
     data: {
       url: actualUrl,
       list: [],
-      type: 'year_ticket',
-      city: '610100',
       page: 1,
       pageSize: 10,
       hasMore: true,
@@ -49,8 +47,6 @@ Page({
       let startPageIndex = 0
       var url = this.data.url
       network_util._post1(url, {
-          type: that.data.type,
-          city: that.data.city,
           page: startPageIndex,
           page_size: that.data.pageSize
         },
@@ -86,8 +82,6 @@ Page({
       }
       var url = this.data.url
       network_util._post1(url, {
-          type: that.data.type,
-          city: that.data.city,
           page: ++that.data.page,
           page_size: that.data.pageSize
         },

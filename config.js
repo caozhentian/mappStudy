@@ -53,10 +53,13 @@ var config = {
     articleSlide:'Api/articleSlide'  ,
     commentListUrl:'Api/commentList' ,
     againUploadCardUrl:'Order/againUploadCard',//重新上传证件
-    agreeUrl: 'Order/againUploadCard',
+    agreeUrl: 'Api/articleAgreement',
     agentIncomeUrl:'Api/ticketList'  ,
     myteamUrl:'Api/ticketList' ,
     agentOrderUrl: 'Api/ticketList',
+    myticketfolderUrl:'Order/ticketFolderList',
+    renewalCreateOrderUrl:'Order/renewalCreateOrder',
+    CheckInfoUrl:'Order/renewalCreateOrder',
     //代理登录URL
     agentLoginUrl:'dhdf'
 };
