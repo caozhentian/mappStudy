@@ -17,12 +17,27 @@ Page({
     duration: 1000,
     //公告内容
     notice: "",
+    actionUrls:[] ,
+
   },
   onLoad: function() {
-    wx.authorize({
-      scope: "scope.userInfo"
-    })
+    // wx.authorize({
+    //   scope: "scope.userInfo"
+    // })
     this.getHomeData()
+    this.getArticleIndexIcon()
+  },
+  getArticleIndexIcon:function(){
+    var that = this;
+    network_util._post1(config.articleIndexIconUrl, {},
+      function (netdata) {
+        var newarray = netdata.data.map(function (item, index, input) {
+          return (network_util.BASE_PIC_URL + item.image);
+        })
+        that.setData({
+          'actionUrls': newarray
+        })
+      })
   },
   //获取首页数据
   getHomeData: function() {

@@ -7,6 +7,8 @@
         </view>
         <view>{{mobileHidden}}</view>
         <button type='primary' bindtap="loginRegister" size='mini' hidden='{{!userInfo.isGuest}}'>登录/注册 </button>
+        <!-- 需要使用 button 来授权登录 -->
+        <view wx:if="{{!canIUse}}">请升级微信版本</view>
       </view>
       <i-panel title="我的订单">
       </i-panel>
@@ -43,8 +45,10 @@
         <view class="userinfo-avatar" background-size="cover">
           <open-data type="userAvatarUrl"></open-data>
         </view>
+        <!-- 需要使用 button 来授权登录 -->
         <text class="agent-name">【代理商】</text>
         <text class="agent-level">第一季{{level}}</text>
+        <view wx:if="{{!canIUse}}">请升级微信版本</view>
       </view>
       <i-grid>
         <i-grid-item bindtap="gotoAgentProduct">

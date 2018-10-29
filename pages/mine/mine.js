@@ -5,10 +5,29 @@ const app = getApp()
 const curUserInfo = app.globalData.userInfo
 Page({
   data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     grids: [0, 1, 2, 3],
     userInfo: curUserInfo, //用户
-    mobileHidden: ""
+    mobileHidden: "",
   },
+  // onLoad: function () {
+  //   // 查看是否授权
+  //   wx.getSetting({
+  //     success(res) {
+  //       if (res.authSetting['scope.userInfo']) {
+  //         // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+  //         wx.getUserInfo({
+  //           success: function (res) {
+  //             console.log(res.userInfo)
+  //           }
+  //         })
+  //       }
+  //     }
+  //   })
+  // },
+  // bindGetUserInfo(e) {
+  //   console.log(e.detail.userInfo)
+  // },
   loginRegister: function() { //登录或者注册
     wx.navigateTo({
       url: '/pages/userlogin/userlogin',

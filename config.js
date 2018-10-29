@@ -60,6 +60,7 @@ var config = {
     myticketfolderUrl:'Order/ticketFolderList',
     renewalCreateOrderUrl:'Order/renewalCreateOrder',
     CheckInfoUrl:'Order/renewalCreateOrder',
+    articleIndexIconUrl: 'Api/articleIndexIcon',
     //代理登录URL
     agentLoginUrl:'dhdf',
     agentProductUrl: 'Api/ticketList'
