@@ -84,7 +84,7 @@ Page({
       return
     }
     var that = this;
-    let startPageIndex = 0
+    let startPageIndex = 1
     this.data.pagedata.refreshing = true
     var url = this.data.pagedata.url
     network_util._post1(url, {

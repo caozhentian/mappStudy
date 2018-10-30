@@ -10,7 +10,7 @@
 
     <view class="page-section">
       <view class="page-section-title">密码：</view>
-      <input class="weui-input"  value='{{password}}' bindinput ='bindPasswordKeyInput' placeholder="请输入密码" maxlength='18' confirm-type='next' />
+      <input class="weui-input"  password value='{{password}}' bindinput ='bindPasswordKeyInput' placeholder="请输入密码" maxlength='18' confirm-type='next' />
     </view>
 
     <!--底部操作栏 -->

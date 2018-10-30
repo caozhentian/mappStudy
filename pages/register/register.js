@@ -6,10 +6,10 @@ var app = getApp()
 
 Page({
   data: {
-    id_card: "512501197203035172",
-    mobile: "13186075334",
-    password:"123456" ,
-    password_confirm:"123456" ,
+    id_card: "",
+    mobile: "",
+    password:"" ,
+    password_confirm:"" ,
   },
 
   register:function(){
@@ -104,26 +104,18 @@ Page({
   },
 
   bindIdcardKeyInput: function (e) {
-    this.setData({
-      'id_card': e.detail.value
-    })
+    this.data.id_card = e.detail.value
   },
 
   bindTelKeyInput: function (e) {
-    this.setData({
-      'mobile': e.detail.value
-    })
+    this.data.mobile = e.detail.value
   },
 
   bindPasswordKeyInput: function (e) {
-    this.setData({
-      'password': e.detail.value
-    })
+    this.data.password = e.detail.value
   },
   bindConfirmPasswordKeyInput: function (e) {
-    this.setData({
-      'password_confirm': e.detail.value
-    })
+    this.data.password_confirm = e.detail.value
   },
 
 })

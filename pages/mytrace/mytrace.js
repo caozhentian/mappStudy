@@ -32,7 +32,7 @@ Page({
   },
   refresh:function() {
     var that = this;
-    let startPageIndex = 0 
+    let startPageIndex = 1
     var url = this.data.url 
     network_util._post1(url, {
       type: 'year_ticket',

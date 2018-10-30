@@ -6,8 +6,8 @@ var app = getApp()
 
 Page({
   data: {
-    mobile: "132330198109142478",
-    password:"123456" 
+    mobile: "",
+    password:"" 
   },
 
   login:function(){
@@ -64,14 +64,10 @@ Page({
     })
   },
   bindIdcardKeyInput: function (e) {
-    this.setData({
-      'mobile': e.detail.value
-    })
+    this.data.mobile = e.detail.value
   },
   bindPasswordKeyInput: function (e) {
-    this.setData({
-      'password': e.detail.value
-    })
+    this.data.password = e.detail.value
   }
 
 })
