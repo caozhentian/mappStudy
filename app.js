@@ -9,7 +9,13 @@ App({
     //Debug end
     //getUserOpenId() ;
   },
-
+  onError: function (msg) {
+    console.log(msg)
+    wx.showModal({
+      title: '小程序调试信息',
+      content: msg,
+    })
+  },
   globalData: {
     userInfo:{
       isGuest: true,
