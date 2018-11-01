@@ -12,7 +12,9 @@ Page({
     idcard: '',
     idcardHide: '',
     urlIdCard: '',
+    urlIdCardSimple: '',
     urlResidentfrtgh: "",
+    urlResidentfrtghSimple: "",
     isUploadIdCard: false,
     isResidentfrtgh: false,
   },
@@ -42,8 +44,8 @@ Page({
     var that = this;
     network_util._post1(againUploadCardUrl, {
         order_id: that.data.orderId,
-        id_card_image1: that.data.urlIdCard,
-        id_card_image2: that.data.urlResidentfrtgh,
+        id_card_image1: that.data.urlIdCardSimple,
+        id_card_image2: that.data.urlResidentfrtghSimple,
       },
       function(netdata) {
         wx.showToast({
@@ -87,11 +89,13 @@ Page({
               if (imgType == '1') {
                 that.setData({
                   urlIdCard: network_util.BASE_PIC_UPLOAD_URL + data.data.img_url,
+                  urlIdCardSimple:  data.data.img_url,
                   isUploadIdCard: true
                 });
               } else {
                 that.setData({
                   urlResidentfrtgh: network_util.BASE_PIC_UPLOAD_URL + data.data.img_url,
+                  urlResidentfrtghSimple:  data.data.img_url,
                   isResidentfrtgh: true
                 });
               }
@@ -109,11 +113,13 @@ Page({
               if (imgType == 1) {
                 that.setData({
                   urlIdCard: '',
+                  urlIdCardSimple: '',
                   isUploadIdCard: false
                 });
               } else {
                 that.setData({
                   urlResidentfrtgh: '',
+                  urlResidentfrtghSimple: '',
                   isResidentfrtgh: false
                 });
               }
@@ -130,11 +136,13 @@ Page({
             if (imgType == 1) {
               that.setData({
                 urlIdCard: '',
+                urlIdCardSimple: '',
                 isUploadIdCard: false
               });
             } else {
               that.setData({
                 urlResidentfrtgh: '',
+                urlResidentfrtghSimple: '',
                 isResidentfrtgh: false
               });
             }

@@ -27,7 +27,9 @@ Page({
       tel: curUserInfo.mobile,
     },
     urlIdCard: '',
+    urlIdCardSimple:'',
     urlResidentfrtgh: "",
+    urlResidentfrtghSimple: "",
     isUploadIdCard:false,
     isResidentfrtgh:false  ,
     isHidden: true,
@@ -60,8 +62,8 @@ Page({
       openid: curUserInfo.openid,
       id_card: this.data.ticketInfo.idcard,
       mobile: this.data.ticketInfo.tel,
-      id_card_image1: this.data.urlIdCard,
-      id_card_image2: this.data.urlResidentfrtgh,
+      id_card_image1: this.data.urlIdCardSimple,
+      id_card_image2: this.data.urlResidentfrtghSimple,
     });
   },
   gopay: function() {
@@ -232,11 +234,13 @@ Page({
               if (imgType == '1') {
                 that.setData({
                   urlIdCard: network_util.BASE_PIC_UPLOAD_URL + data.data.img_url,
+                  urlIdCardSimple: data.data.img_url,
                   isUploadIdCard: true
                 });
               } else {
                 that.setData({
                   urlResidentfrtgh: network_util.BASE_PIC_UPLOAD_URL + data.data.img_url,
+                  urlResidentfrtghSimple: data.data.img_url,
                   isResidentfrtgh: true
                 });
               }
@@ -254,11 +258,13 @@ Page({
               if (imgType == 1) {
                 that.setData({
                   urlIdCard: '',
+                  urlIdCardSimple: '',
                   isUploadIdCard: false
                 });
               } else {
                 that.setData({
                   urlResidentfrtgh: '',
+                  urlResidentfrtghSimple:'',
                   isResidentfrtgh: false
                 });
               }
@@ -275,11 +281,13 @@ Page({
             if (imgType == 1) {
               that.setData({
                 urlIdCard: '',
+                urlIdCardSimple: '',
                 isUploadIdCard: false
               });
             } else {
               that.setData({
                 urlResidentfrtgh: '',
+                urlResidentfrtghSimple: '',
                 isResidentfrtgh: false
               });
             }
