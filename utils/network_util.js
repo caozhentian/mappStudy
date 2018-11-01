@@ -140,6 +140,7 @@ function _post_json(url, data, success, fail) {
   console.log("----end----_post-----");
 }
 module.exports = {
+  BASE_URL: BASE_URL,
   BASE_PIC_URL: BASE_PIC_URL,
   BASE_PIC_UPLOAD_URL,
   _get: _get,
