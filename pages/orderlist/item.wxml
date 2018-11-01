@@ -1,7 +1,7 @@
 <!--待支付 thumb="{{image}}"-->
 <template name="0">
   <view style='margin:10px 0px 0px 0px;' class='i-card-margin-class'>
-    <i-card i-class="row-class" title="{{name}}" extra="" >
+    <i-card i-class="row-class" title="{{name}}" extra="">
       <view slot="content">
         <view class="order-item-class">
           <view>订单编号: </view>
@@ -36,7 +36,7 @@
 <!--待审核-->
 <template name="1">
   <view style='margin:10px 0px 0px 0px;' class='i-card-margin-class'>
-    <i-card title="{{name}}" extra="" >
+    <i-card title="{{name}}" extra="">
       <view slot="content">
         <view class="order-item-class">
           <view>订单编号: </view>
@@ -61,7 +61,21 @@
           <view> 待审核</view>
         </view>
       </view>
+      <view wx:elif="{{card_status == 'nouse'}}" slot="footer">
+        <view class="order-item-class">
+          <view>原因:</view>
+          <view> "{{card_memo}}"</view>
+        </view>
+        <view class="order-item-class">
+          <view>订单状态:</view>
+          <view> 审核不通过</view>
+        </view>
+      </view>
       <view wx:else slot="footer">
+        <view class="order-item-class">
+          <view>原因:</view>
+          <view> "{{card_memo}}"</view>
+        </view>
         <i-row i-class="row-class">
           <i-col bindtap="toRetryUpload" data-orderid="{{order_id}}" data-mobile="{{mobile}}" data-idcard="{{idcard}}" span="6" offset="18" i-class="col-class">重新上传</i-col>
         </i-row>
@@ -72,7 +86,7 @@
 <!--可使用-->
 <template name="2">
   <view style='margin:10px 0px 0px 0px;' class='i-card-margin-class'>
-    <i-card  title="{{name}}" extra="" >
+    <i-card title="{{name}}" extra="">
       <view slot="content">
         <view class="order-item-class">
           <view>订单编号: </view>
@@ -103,7 +117,7 @@
 <!--已取消-->
 <template name="3">
   <view style='margin:10px 0px 0px 0px;' class='i-card-margin-class'>
-    <i-card  title="{{name}}" extra="" >
+    <i-card title="{{name}}" extra="">
       <view slot="content">
         <view class="order-item-class">
           <view>订单编号: </view>

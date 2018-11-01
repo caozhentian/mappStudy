@@ -62,7 +62,7 @@ var config = {
     CheckInfoUrl:'Order/renewalCreateOrder',
     articleIndexIconUrl: 'Api/articleIndexIcon',
     //代理登录URL
-    agentLoginUrl:'dhdf',
+    agentLoginUrl:'Api/agentLogin',
     agentProductUrl: 'Api/ticketList'
 };
 
