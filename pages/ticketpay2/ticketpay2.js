@@ -23,7 +23,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://www.xazhihe.cn/Often/getOpenid',
+            url:  network_util.BASE_URL  + 'Often/getOpenid',
             data: {
               js_code: res.code
             },

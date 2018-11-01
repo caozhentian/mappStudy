@@ -78,7 +78,7 @@ Page({
           title: '',
         });
         wx.uploadFile({
-          url: 'https://www.xazhihe.cn/Api/uploadImg',
+          url: network_util.BASE_PIC_UPLOAD_URL  + 'Api/uploadImg',
           filePath: tempFilePaths[0],
           name: 'image',
           success: function(res) {

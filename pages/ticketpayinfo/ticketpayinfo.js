@@ -122,7 +122,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://www.xazhihe.cn/Often/getOpenid',
+            url: network_util.BASE_URL  + 'Often/getOpenid',
             data: {
               js_code: res.code
             },
@@ -144,7 +144,7 @@ Page({
   formSubmit: function(formData) {
     var that = this;
     wx.request({
-      url: 'https://www.xazhihe.cn/Order/createOrder',
+      url:  network_util.BASE_URL  + 'Order/createOrder',
       data: formData,
       header: {
         'Content-Type': 'application/json'
@@ -223,7 +223,7 @@ Page({
           title: '',
         });
         wx.uploadFile({
-          url: 'https://www.xazhihe.cn/Api/uploadImg',
+          url: network_util.BASE_PIC_UPLOAD_URL  + 'Api/uploadImg',
           filePath: tempFilePaths[0],
           name: 'image',
           success: function (res) {
