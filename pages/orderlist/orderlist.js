@@ -11,7 +11,7 @@ Page({
     visibleRerent:false ,
     msg:"继续操作吗?",
     url: actualUrl,
-    page: 0,
+    page: 1,
     pageSize: 10,
     hasMore: true,
     loadMoreing: false, //是否正在加载更多中
@@ -137,7 +137,7 @@ Page({
   },
   refresh: function () {
     var that = this;
-    let startPageIndex = 0
+    let startPageIndex = 1
     var url = this.data.url
     network_util._post1(url, {
       token: curUserinfo.token,

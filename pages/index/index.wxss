@@ -49,11 +49,13 @@
   display: flex;
   flex-direction: column;
   flex: 60;
+  margin-right: 2px;
 }
 .flow-container-first-part-right{
   display: flex;
   flex-direction: column;
   flex: 40;
+  margin-left:2px;
 }
 
 

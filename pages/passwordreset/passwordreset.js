@@ -195,31 +195,21 @@ const resetUrl =
     },
 
     bindIdcardKeyInput: function(e) {
-      this.setData({
-        'idcard': e.detail.value
-      })
+      this.data.idcard = e.detail.value
     },
 
     bindTelKeyInput: function(e) {
-      this.setData({
-        'tel': e.detail.value
-      })
+      this.data.tel = e.detail.value
     },
 
     bindPasswordKeyInput: function(e) {
-      this.setData({
-        'password': e.detail.value
-      })
+      this.data.password = e.detail.value
     },
     bindConfirmPasswordKeyInput: function(e) {
-      this.setData({
-        'confirmPassword': e.detail.value
-      })
+      this.data.confirmPassword = e.detail.value
     },
     bindSmsCodeKeyInput: function(e) {
-      this.setData({
-        'smscode': e.detail.value
-      })
+      this.data.smscode = e.detail.value
     }
 
   })

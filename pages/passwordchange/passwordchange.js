@@ -83,19 +83,13 @@ var app = getApp()
     },
 
     bindPasswordKeyInput: function(e) {
-      this.setData({
-        'password': e.detail.value
-      })
+      this.data.password = e.detail.value
     },
     bindConfirmPasswordKeyInput: function(e) {
-      this.setData({
-        'confirmPassword': e.detail.value
-      })
+      this.data.confirmPassword = e.detail.value
     },
     bindNewPasswordKeyInput: function(e) {
-      this.setData({
-        'newPassword': e.detail.value
-      })
+      this.data.newPassword = e.detail.value
     }
 
   })
