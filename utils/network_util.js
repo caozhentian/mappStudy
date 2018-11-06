@@ -1,9 +1,9 @@
-import util from 'util.js';
+﻿import util from 'util.js';
 
 //const BASE_URL = 'http://jsjr.3tichina.com:80/jinshangjinrong/jinshangjinrong/'
-const BASE_URL = 'https://np.xazhihe.cn/'
-const BASE_PIC_URL = 'https://np.xazhihe.cn/data/'
-const BASE_PIC_UPLOAD_URL = 'https://np.xazhihe.cn/'
+const BASE_URL = 'https://np.xacvzhihe.cn/'
+const BASE_PIC_URL = 'https://np.xacvzhihe.cn/data/'
+const BASE_PIC_UPLOAD_URL = 'https://np.xacvzhihe.cn/'
 /**
  * url 请求地址
  * success 成功的回调
