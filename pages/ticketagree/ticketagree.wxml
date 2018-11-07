@@ -1,4 +1,0 @@
-<view class="container" style='margin:10px;'>
-  <!-- <text class='ticket_agree_title'>'{{title}}'</text> -->
-  <rich-text nodes='{{content}}'></rich-text>
-</view>

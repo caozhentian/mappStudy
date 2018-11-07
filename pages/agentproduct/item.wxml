@@ -1,9 +1,0 @@
-<template name="item">
-  <view data-id="1" data-price='0.02' bindtap="agenGotoPayt" style='margin:10px 0px  0px 0px;'>
-    <i-card title="名称" extra="去购买">
-      <view slot="content">
-        价格：99元
-      </view>
-    </i-card>
-  </view>
-</template>

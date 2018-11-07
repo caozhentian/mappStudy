@@ -1,5 +1,0 @@
-<template name="item">
-  <i-panel >
-    <i-cell title="{{date}}" value="{{name}}"></i-cell>
-  </i-panel>
-</template>

@@ -1,6 +1,0 @@
-<import src="item.wxml" />
-
-<view class="container">
-  <!-- 列表的主题部分-->
-  <template is="item" data="{{...item}}"/>
-</view>

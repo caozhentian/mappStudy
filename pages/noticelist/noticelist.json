@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "公告",
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-      "i-card": "../../dist/card/index"
-    }
-}

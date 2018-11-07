@@ -1,5 +1,0 @@
-<!--列表的footer -->
-<view class="weui-loadmore" hidden='{{!pagedata.loadMoreing}}'>
-  <view class="weui-loading"></view>
-  <view class="weui-loadmore__tips">正在加载</view>
-</view>
